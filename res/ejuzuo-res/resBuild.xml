@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="main" basedir=".">
+    <filterset id="resFilterSet" begintoken="${" endtoken="}">
+        <filtersfile file="${basedir}/src/main/filter/local.properties"/>
+    </filterset>
+    <target name="main">
+
+
+        <copy todir="E:\\mfs\\ShareFile\\res"
+              filtering="true"  force="true" overwrite="true" includeemptydirs="false">
+            <fileset dir="${basedir}/src/main/webapp">
+                <exclude name="**/*.xml"></exclude>
+<!--                <exclude name="**/*.jpg"></exclude>
+                <exclude name="**/*.png"></exclude>-->
+                <exclude name="plugin/**/*.swf"></exclude>
+                <exclude name="plugin/**/**/*.swf"></exclude>
+                <exclude name="images/*.*"></exclude>
+                <exclude name="images/**/*.*"></exclude>
+            </fileset>
+            <filterset refid="resFilterSet"/>
+        </copy>
+
+    </target>
+
+</project>

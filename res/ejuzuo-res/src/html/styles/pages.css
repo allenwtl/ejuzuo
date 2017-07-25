@@ -1,0 +1,201 @@
+/** 首页 promo  **/
+.promo .swiper-pagination-bullet{ width:12px; height:12px; opacity: 1; background-color: #858584;}
+.promo .swiper-pagination-bullet-active{ background-color: #fff;}
+.ds_reco .swiper-container{ padding-bottom:40px;}
+.ds_reco .swiper-pagination-bullet{ width:12px; height:12px; opacity: 1; background-color: #999;}
+.ds_reco .swiper-pagination-bullet-active{ background-color: #ffea00;}
+
+
+/** 新闻资讯**/
+.news_dttitle{ position:relative; overflow:hidden; height:34px; border-bottom:1px solid #d2d2d2;}
+.news_dttitle .txt{ display:inline-block; padding:0 16px; height:34px; line-height:34px; font-weight:bold; font-size:16px; color:#222; background-color:#e6e6e6; }
+.news_type_btn_list{ float:right;}
+.news_type_btn_list li{ float:left; padding:1px 20px 0;}
+.news_type_btn_list li a{ display:inline-block; font-size:14px; color:#666; height:32px; line-height:32px; border-bottom:2px solid transparent;}
+.news_type_btn_list li a:hover{ text-decoration:none;}
+.news_type_btn_list li a.on{ font-weight:bold; color:#222; border-bottom-color:#222;}
+
+/** 活动详情 **/
+.ac_intro_box .ac_rule{ position:relative; overflow:hidden; padding-left:20px; padding-right:20px;}
+.ac_intro_box h2{ margin-top:40px; margin-bottom:20px; padding-left:11px; border-left:3px solid #f5ec2d; font-weight:normal; font-size:18px; color:#000; line-height:1;}
+.ac_intro_box p{ padding-left:14px; color:#666; font-size:14px;}
+.ac_intro_box h3{ margin-bottom:10px; padding-left:14px; font-weight:normal; line-height:1; color:#333;}
+.ac_intro_box .btm_box{ margin-top:40px; height:75px; line-height:75px; padding-left:30px; color:#222; font-size:18px; background-color:#ffda47;}
+.ac_intro_box .bm_btn{ float:right; margin-top:20px; margin-right:20px; width:120px; height:35px; text-align:center; color:#ffda47; background-color:#222; line-height:35px; border-radius:4px;}
+.ac_intro_box .bm_btn:hover{ background-color:#000; text-decoration:none;}
+
+
+.title_box .right_link{ float: right; padding-right: 10px; height: 40px; line-height: 40px;}
+.title_box .right_link a{ margin-left: 8px; font-size: 12px; color: #222;}
+.title_box .right_link a:hover{ color: #f7c600; text-decoration: none;}
+
+.produce_border_box{ /*width: 880px; border-right: 1px  solid #d6d6d6;*/}
+.produce_introbtm{ padding-top: 20px; padding-bottom: 10px;}
+.produce_introbtm .produce_u_name{ margin-bottom: 10px; line-height: 1; font-size: 18px; color: #222;}
+.produce_introbtm .produce_name{ line-height: 1; font-size: 14px; color: #666;}
+.float_right_ad{ position:absolute; top:20px; left: 1175px; width: 160px;}
+.float_right_ad img { max-width: 160px; }
+.float_left_anchor{ position:absolute; left:-52px;}
+.fixed_begin .ad_fixedbox{ position:fixed; top:20px;}
+.fixed_begin .anchor_box{ position:fixed; top:20px;}
+.anchor_list li{ position:relative; margin-bottom:24px; width:32px; height:32px;}
+.anchor_list li a{ display:block; width:32px; height:32px;}
+.anchor_list .txt{ display:none; position:absolute; top:0; right:42px; height:32px; line-height:32px;white-space:nowrap;  font-size:14px; color:#222;}
+.anchor_list li.active .txt{ display:block;}
+.produce_list_limb30 li{ margin-bottom: 30px; border-bottom:2px solid transparent;}
+.produce_list_limb30 li:hover{ border-bottom-color:#ffda47;}
+/**数字家居4 **/
+.produce_dbox{ border-bottom: 2px solid #e1e1e1;}
+.produce_detail{ width:850px;}
+.simallpic_list{ margin-left: -10px;}
+.simallpic_list li{ float: left; margin-left: 10px; width: 205px; height: 100px; cursor: pointer; position: relative; overflow: hidden;}
+.simallpic_list li img{ height: 100px;}
+.produce_intro_table td{ height: 39px; color: #666; border: 1px solid #c5c5c5;}
+.produce_mg_box h3.title{ margin-bottom: 15px; font-size: 16px; font-weight: bold; color: #333; line-height: 1;}
+.produce_mg_box p{ font-size: 14px; line-height: 1.75; color: #666;}
+.related_recom{ width: 290px;}
+.produce_download .down_data{ float: left; width: 512px; height: 78px; border: 1px solid #ececec; border-radius: 5px;}
+.down_data{font-size: 14px;}
+.data_ablock{ margin-top: 16px; padding-left: 20px;  line-height: 1;}
+.down_data span{ display: inline-block; width: 160px; color: #666;}
+.produce_download .bigbtn{ float: left; margin-left: 20px; width: 160px; height: 80px; text-align: center; line-height: 80px; font-size: 18px; color: #222; background-color: #ffda47; border-radius: 5px;}
+.produce_download .bigbtn:hover{background-color: #f7c600; text-decoration: none;}
+.getbyit_box{ padding-top: 20px; padding-bottom: 25px;}
+.collection_box{ float: left; margin-right: 50px; font-size: 18px; color: #222;}
+.collect_icon{ display: inline-block; margin-right: 12px; margin-top: -2px; width: 20px; height: 19px; vertical-align: middle; }
+.share_box .txt{ float: left; margin-right: 15px; font-size: 18px; color: #222;}
+.related_recom .nametxt{ padding-left:20px; padding-right:20px; font-size:18px; color:#fff; line-height:1;}
+.related_recom .intro_txt{ padding-left:20px; padding-bottom:10px; padding-right:20px; font-size:14px; color:#fff;}
+.related_recom .produce_280 li a .jb_pos_box{ height:auto; background:url(../images/jb_85.png) repeat;}
+.related_recom .jb_pos_box{ display:none;}
+.related_recom a:hover .jb_pos_box{ display:block;}
+.comment .user_txt{ font-size: 14px; color: #999;}
+.comment .user_txt .nick_txt{ margin-left: 5px; color: #222;}
+.comment .user_txt .exit_txt{ margin-left: 15px; color: #999;}
+.comment .user_txt .nick_txt:hover,.comment .user_txt .exit_txt:hover{ text-decoration: none; color: #f7c600;}
+.comment .comment_input_box{ margin-top: 18px; padding-bottom: 20px;}
+.comment .user_imgbox{ float: left; width: 50px; height: 50px;}
+.comment .user_imgbox img{ display: block; width: 50px; height: 50px; border-radius: 50%;}
+.comment .right_box{ margin-left: 70px;}
+.comment .text_inbox{ position: relative; overflow: hidden; height: 77px; border: 1px solid #d3d3d3; border-radius: 5px;}
+.comment textarea{ padding:8px; width:915px; height:60px; border:0; outline:none;resize: none; font-size:14px;}
+
+.comment .comment_btn{ float: right; width: 124px; height: 77px; font-size: 18px; color: #222; text-align: center; line-height: 77px;background-color: #ffda47; }
+.comment .comment_btn:hover{background-color: #f7c600; text-decoration: none;}
+.comment .moji_box{ margin-top: 13px;}
+.comment .moji_box .moji_btn{ display: block; width: 19px; height: 19px;}
+.comment .comment_titletxt{ padding-bottom: 20px; line-height: 1; font-size: 14px; color: #666;}
+.comment .comment_info_list{ margin-top: 20px;}
+.comment .comment_info_list li{ position: relative; overflow: hidden; padding-top: 20px; padding-bottom: 20px; border-top:1px solid #d6d6d6;}
+.comment .user_pic_box{ position: relative; float: left; width: 50px; height: 50px;}
+.comment .user_pic_box img{ display: block; width: 50px; height: 50px; border-radius: 50%;}
+.comment .user_icon{ position: absolute; top: 0; right: 0; width: 16px; height: 16px; z-index: 2;}
+.comment .user_c_txt{ margin-left: 70px; font-size: 14px;}
+.comment .txtinfo{ line-height: 1; margin-bottom: 20px;}
+.comment .txtinfo .times{ float: right; color: #999;}
+.comment .txtinfo .nick_txt{ color: #222;}
+.comment .txtinfo .nick_txt:hover{ text-decoration: none; color: #f7c600;}
+.comment .cont_txt{ color: #666;}
+
+/** 新闻资讯详情 和设计师作品详情 **/
+.detail_wrap .top_box{ padding:20px 10px; border-bottom:1px solid #e7e7e7;}
+.detail_wrap .top_box h1.title{ margin-bottom:20px; font-size:18px; line-height:1; font-weight:normal; color:#222;}
+.detail_wrap .top_box .txt{ line-height:1.75; font-size:14px; color:#666;}
+.detail_wrap .left_box{ float:left; margin-right:10px; width:870px;}
+.detail_wrap .right_box{ float:right; width:290px;}
+.detail_wrap .cont_introbox{ padding:20px 10px; position:relative; overflow:hidden; border-right:1px solid #ededed;}
+.detail_wrap .cont_introbox *{ max-width:100%;}
+.detail_wrap .getbyit_box{ padding-bottom:0;}
+.detail_wrap .getbyit_box .right_dlbtn{ float:right; width:100px; height:35px; text-align:center; line-height:35px; font-size:18px; border-radius:5px; background-color:#ffda47; color:#222;}
+.detail_wrap .getbyit_box .right_dlbtn:hover{ background-color:#f7c600; text-decoration:none;}
+.desiner_box{ padding-left:10px; padding-top:20px;}
+.desiner_box .imgbox{ float:left; position:relative; width:42px; height:42px;}
+.desiner_box .imgbox img{ display:block; width:42px; height:42px; border-radius:50%;}
+.desiner_box .user_icon{ position:absolute; right:-2px; top:0; z-index:2;}
+.desiner_box .txtbox{ margin-left:60px;}
+.desiner_box .nametxt{ margin-bottom:10px; font-size:18px; line-height:1;}
+.desiner_box .nametxt a{ color:#222;}
+.desiner_box .nametxt a:hover{ text-decoration:none; color:#f7c600;}
+.desiner_box .intotxt{ font-size:14px; line-height:1; color:#666;}
+.desiner_box .xgdatdabox{ margin-top:15px; font-size:12px; color:#999;}
+.desiner_box .xgdatdabox .num1{ display:inline-block; width:35px;}
+.desiner_box .xgdatdabox .num2{ display:inline-block; width:50px;}
+.desiner_box .btnbox{ margin-top:18px; margin-right:20px; text-align:center;}
+.desiner_box .btnbox a{ display:inline-block; width:120px; height:35px; text-align:center; line-height:35px; font-size:18px; color:#222; border-radius:5px; background-color:#ffda47;}
+.desiner_box .btnbox a:hover{ background-color:#f7c600; text-decoration:none;}
+
+/** 设计师**/
+.designer_list{ margin-left:-10px;}
+.designer_list li{ display:inline; float:left; margin-left:10px; margin-bottom:10px; width:285px; background-color:#fff;}
+.designer_list .user_box{ padding-top:20px; padding-bottom:20px; padding-left:20px;}
+.designer_list .userpic_box{ float:left; position:relative; width:43px; height:43px;}
+.designer_list .userpic_box img{ display:block; width:43px; height:43px; border-radius:50%;}
+.designer_list .user_icon{ position:absolute; top:0; right:-2px;}
+.designer_list .user_txt{ margin-left:60px;}
+.designer_list .user_txt .txt1{ margin-bottom:8px; font-size:18px; line-height:1; color:#666;}
+.designer_list .user_txt .txt1 a{ color:#222;}
+.designer_list .user_txt .txt1 a:hover{ color:#f7c600; text-decoration:none;}
+.designer_list .user_txt .txt1 span{ margin-left:12px; font-size:14px;}
+.designer_list .user_txt .txt2{ font-size:14px; color:#666; line-height:1;}
+
+/**设计师详情 **/
+.designer_intro_box .left_picbox{ float:left; width:500px; height:500px;}
+.designer_intro_box .left_picbox img{ display:block; width:500px; height:500px;}
+.designer_intro_box .right_txtbox{ margin-left:500px; padding-left:20px; padding-right:20px; padding-bottom:20px;}
+.designer_intro_box .designer_msg_box{ padding-top:15px; padding-bottom:10px; height:105px;}
+.designer_intro_box .right_btn{ float:right; padding-top: 20px;}
+.designer_intro_box .right_btn a{ display:inline-block; margin-left:20px; width:100px; height:35px; text-align:center; line-height:35px; border-radius:5px; color:#222; font-size:18px; background-color:#ffda47;}
+.designer_intro_box .right_btn a:hover{background-color:#f7c600; text-decoration:none;}
+.designer_intro_box .designer_namebox{ padding-top:5px; line-height:1; font-size:18px;}
+.designer_intro_box .designer_namebox .user_icon{ margin-left:10px;}
+.designer_intro_box .designer_introlist{ margin-top:15px;line-height:1.75; color:#666; font-size:12px;}
+.designer_intro_box .designer_ex_list_wrap{ height:330px;}
+.designer_intro_box .designer_ex_list_wrap li{ margin-bottom:20px;}
+.designer_intro_box .designer_ex_list_wrap .title{ margin-bottom:3px; font-size:12px; font-weight:bold; color:#222; line-height:1;}
+.designer_intro_box .designer_ex_list_wrap .c_txt{ position: relative; overflow: hidden; max-height: 54px; font-size:12px; color:#666;}
+.designer_intro_box .designer_data_box{ color:#666;}
+.designer_intro_box .designer_data_box span{ margin-right:10px;}
+.designer_intro_box .designer_data_box .more_dt{ float:right; color:#222;}
+.designer_intro_box .designer_data_box .more_dt:hover{ color:#f7c600; text-decoration:none;}
+
+.show_msgwrap{ padding:0 20px 20px; width: 630px}
+.show_msgwrap .designer_msg_box{ padding-bottom:10px; height:105px;}
+.show_msgwrap .designer_namebox{ padding-top:5px; line-height:1; font-size:18px;}
+.show_msgwrap .designer_namebox .user_icon{ margin-left:10px;}
+.show_msgwrap .designer_introlist{ margin-top:15px;line-height:1.75; color:#666; font-size:12px;}
+.show_msgwrap .designer_ex_list_wrap li{ margin-bottom:20px;}
+.show_msgwrap .designer_ex_list_wrap .title{ margin-bottom:3px; font-size:12px; font-weight:bold; color:#222; line-height:1;}
+.show_msgwrap .designer_ex_list_wrap .c_txt{ position: relative; overflow: hidden; max-height: auto; font-size:12px; color:#666;}
+
+
+
+
+.case_list{ margin-left:-9px;}
+.case_list li{ display:inline; float:left; margin-top:10px; margin-left:10px;}
+.case_list li .case_block{ position:relative; width:383px; height:280px; cursor:pointer;}
+.case_list li .case_block:hover .jb_pos_box{ display:block;}
+.deisgner_case .jb_pos_box{ display:none; height:85px; background:url(../images/jb_85.png) repeat;}
+.deisgner_case .jb_pos_box .txtintro{ padding-left:20px; padding-top:20px; font-size:18px; line-height:1; color:#fff;}
+.deisgner_case .jb_pos_box .data_box{ position:relative; margin-top:15px; font-size:12px; text-align:center; color:#fff;}
+.deisgner_case .data_box span{ display:inline-block;}
+.deisgner_case .data_box i{ display:inline-block; margin-right:10px; vertical-align:middle;}
+.deisgner_case .data_box .view_box{ position:absolute; left:20px;}
+.deisgner_case .data_box .fav_box{ position:absolute; right:20px;}
+.deisgn_cp_case .jb_pos_box{display:none; height:60px; background:url(../images/jb_60.png) repeat;}
+.deisgn_cp_case .jb_pos_box .txtintro{ height:60px; line-height:60px; text-align:center; font-size:18px; color:#fff;}
+
+
+/**搜索结果**/
+.search_result{ min-height: 700px; font-family: "\5b8b\4f53,Arial,Helvetica,sans-serif";}
+.result-list{ width: 650px;}
+.search_result .car-screen{ margin-bottom: 25px; font-size: 12px; color: #999; line-height: 16px;}
+.search_result .noresult h4{font-size: 14px;padding-bottom: 15px;}
+.search_result .searchkeyword{color: #d60000;font-style: normal;}
+dl.result-list-box{ padding-bottom: 15px;}
+.result-list-box dt{line-height: 26px;font-size: 16px;}
+.result-list-box dt a{ color:#3b5998;}
+.result-list-box dd {line-height: 20px;word-break: break-all;}
+.result-list-box .msg_info .times{ float: right; color: #999;}
+.result-list-box .msg_info .styletxt{color: #07830b;}
+
+.cont_introbox p {padding: 10px 0; font-size: 13px; line-height: 2;}
