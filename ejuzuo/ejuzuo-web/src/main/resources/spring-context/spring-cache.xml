@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <description>ejuzuo spring content</description>
+
+
+    <!--&lt;!&ndash; 定制的客户端配置可以参考example目录下的 &ndash;&gt;-->
+    <!--<bean name="xmemFactoryBean" class="com.aicai.memcachedclient.XMemcachedFactoryBean" init-method="init" destroy-method="destroy">-->
+        <!--<property name="servers">-->
+            <!--<value>${memcached_serverlist}</value>-->
+        <!--</property>-->
+        <!--<property name="timeout" value="5000"></property>-->
+        <!--<property name="sessionLocator">-->
+            <!--<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>-->
+        <!--</property>-->
+        <!--<property name="transcoder">-->
+            <!--<bean class="com.aicai.memcachedclient.serializer.DefaultTranscoder"></bean>-->
+        <!--</property>-->
+        <!--<property name="bufferAllocator">-->
+            <!--<bean class="net.rubyeye.xmemcached.buffer.SimpleBufferAllocator"></bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean name="memcachedClient" factory-bean="xmemFactoryBean" factory-method="getClient" />-->
+
+</beans>

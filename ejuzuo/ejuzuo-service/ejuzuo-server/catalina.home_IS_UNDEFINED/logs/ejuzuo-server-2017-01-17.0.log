@@ -1,0 +1,819 @@
+2017-01-17 19:55:02,926 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:02,954 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6a79c292, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@37574691, org.springframework.test.context.support.DirtiesContextTestExecutionListener@25359ed8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@21a947fe, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5606c0b]
+2017-01-17 19:55:03,017 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-config.xml]
+2017-01-17 19:55:03,283 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-env.xml]
+2017-01-17 19:55:03,321 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-db-ejuzuo.xml]
+2017-01-17 19:55:03,340 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-mybatistemplate-ejuzuo.xml]
+2017-01-17 19:55:03,361 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-elasticsearch.xml]
+2017-01-17 19:55:03,507 INFO [main] Loading XML bean definitions from class path resource [spring-context/spring-cache.xml]
+2017-01-17 19:55:03,521 INFO [main] Refreshing org.springframework.context.support.GenericApplicationContext@491666ad: startup date [Tue Jan 17 19:55:03 CST 2017]; root of context hierarchy
+2017-01-17 19:55:03,819 INFO [main] Loading properties file from class path resource [config/config.properties]
+2017-01-17 19:55:03,888 DEBUG [main] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-01-17 19:55:04,125 DEBUG [main] Class not found: org.jboss.vfs.VFS
+2017-01-17 19:55:04,125 DEBUG [main] JBoss 6 VFS API is not available in this environment.
+2017-01-17 19:55:04,126 DEBUG [main] Class not found: org.jboss.vfs.VirtualFile
+2017-01-17 19:55:04,127 DEBUG [main] VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2017-01-17 19:55:04,128 DEBUG [main] Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2017-01-17 19:55:04,129 DEBUG [main] Find JAR URL: jar:file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:04,138 DEBUG [main] Inner URL: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:04,138 DEBUG [main] Extracted JAR URL: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar
+2017-01-17 19:55:04,139 DEBUG [main] Found JAR: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar
+2017-01-17 19:55:04,141 DEBUG [main] Listing jar:file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:04,142 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ActivityEnroll.class
+2017-01-17 19:55:04,143 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ActivityInfo.class
+2017-01-17 19:55:04,143 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminRole.class
+2017-01-17 19:55:04,143 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminRolePerm.class
+2017-01-17 19:55:04,143 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUser.class
+2017-01-17 19:55:04,143 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUserLog.class
+2017-01-17 19:55:04,144 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUserOperLog.class
+2017-01-17 19:55:04,144 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdSpace.class
+2017-01-17 19:55:04,144 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Area.class
+2017-01-17 19:55:04,145 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Brand.class
+2017-01-17 19:55:04,145 DEBUG [main] Found resource: /com/ejuzuo/common/domain/CheckCodeRecord.class
+2017-01-17 19:55:04,146 DEBUG [main] Found resource: /com/ejuzuo/common/domain/CodeValue.class
+2017-01-17 19:55:04,146 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Comment.class
+2017-01-17 19:55:04,146 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ContentInfo.class
+2017-01-17 19:55:04,146 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Designer.class
+2017-01-17 19:55:04,147 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DesignerWork.class
+2017-01-17 19:55:04,147 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DigitalFurniture.class
+2017-01-17 19:55:04,148 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DownloadInfo.class
+2017-01-17 19:55:04,148 DEBUG [main] Found resource: /com/ejuzuo/common/domain/FileInfo.class
+2017-01-17 19:55:04,148 DEBUG [main] Found resource: /com/ejuzuo/common/domain/FilterKeyword.class
+2017-01-17 19:55:04,148 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Member.class
+2017-01-17 19:55:04,148 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberCare.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberFavorite.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberOperLog.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberPoint.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberPointLog.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberSponsorLog.class
+2017-01-17 19:55:04,149 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberThirdLogin.class
+2017-01-17 19:55:04,151 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberVip.class
+2017-01-17 19:55:04,151 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberVipLog.class
+2017-01-17 19:55:04,151 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MsgReach.class
+2017-01-17 19:55:04,151 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MsgRecord.class
+2017-01-17 19:55:04,151 DEBUG [main] Found resource: /com/ejuzuo/common/domain/NewsInfo.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/PromoRecord.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ShoppingCart.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/SmsRecord.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordCheckType.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordDestType.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordStatus.class
+2017-01-17 19:55:04,152 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CommentMask.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/ContentInfoRelatedType.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DesignerStatus.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DesignerType.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DigitalShelfStatus.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DownloadPayStatus.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/FileInfoRelatedType.class
+2017-01-17 19:55:04,153 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberActiveStatus.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberLockType.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberOperLogType.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberVerified.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MsgType.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/NewsInfoCategory.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/ObjectType.class
+2017-01-17 19:55:04,154 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/PageCodeType.class
+2017-01-17 19:55:04,155 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/SmsRecordMobileType.class
+2017-01-17 19:55:04,155 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/SmsRecordSendStatus.class
+2017-01-17 19:55:04,159 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ActivityEnroll matches criteria [is assignable to Object]
+2017-01-17 19:55:04,159 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ActivityInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:04,160 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminRole matches criteria [is assignable to Object]
+2017-01-17 19:55:04,161 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminRolePerm matches criteria [is assignable to Object]
+2017-01-17 19:55:04,161 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUser matches criteria [is assignable to Object]
+2017-01-17 19:55:04,162 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUserLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,162 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUserOperLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,164 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdSpace matches criteria [is assignable to Object]
+2017-01-17 19:55:04,166 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Area matches criteria [is assignable to Object]
+2017-01-17 19:55:04,167 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Brand matches criteria [is assignable to Object]
+2017-01-17 19:55:04,167 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.CheckCodeRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:04,169 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.CodeValue matches criteria [is assignable to Object]
+2017-01-17 19:55:04,170 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Comment matches criteria [is assignable to Object]
+2017-01-17 19:55:04,171 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ContentInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:04,173 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Designer matches criteria [is assignable to Object]
+2017-01-17 19:55:04,174 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DesignerWork matches criteria [is assignable to Object]
+2017-01-17 19:55:04,175 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DigitalFurniture matches criteria [is assignable to Object]
+2017-01-17 19:55:04,179 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DownloadInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:04,180 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.FileInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:04,181 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.FilterKeyword matches criteria [is assignable to Object]
+2017-01-17 19:55:04,183 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Member matches criteria [is assignable to Object]
+2017-01-17 19:55:04,184 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberCare matches criteria [is assignable to Object]
+2017-01-17 19:55:04,185 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberFavorite matches criteria [is assignable to Object]
+2017-01-17 19:55:04,186 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberOperLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,187 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberPoint matches criteria [is assignable to Object]
+2017-01-17 19:55:04,188 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberPointLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,189 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberSponsorLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,191 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberThirdLogin matches criteria [is assignable to Object]
+2017-01-17 19:55:04,193 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberVip matches criteria [is assignable to Object]
+2017-01-17 19:55:04,194 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberVipLog matches criteria [is assignable to Object]
+2017-01-17 19:55:04,195 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MsgReach matches criteria [is assignable to Object]
+2017-01-17 19:55:04,196 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MsgRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:04,197 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.NewsInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:04,198 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.PromoRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:04,200 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ShoppingCart matches criteria [is assignable to Object]
+2017-01-17 19:55:04,200 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.SmsRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:04,201 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordCheckType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,202 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordDestType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,202 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,202 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CommentMask matches criteria [is assignable to Object]
+2017-01-17 19:55:04,203 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.ContentInfoRelatedType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,204 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DesignerStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,204 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DesignerType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,205 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DigitalShelfStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,206 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DownloadPayStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,206 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.FileInfoRelatedType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,207 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberActiveStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,208 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberLockType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,209 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberOperLogType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,209 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberVerified matches criteria [is assignable to Object]
+2017-01-17 19:55:04,210 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MsgType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,211 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.NewsInfoCategory matches criteria [is assignable to Object]
+2017-01-17 19:55:04,211 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.ObjectType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,212 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.PageCodeType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,212 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.SmsRecordMobileType matches criteria [is assignable to Object]
+2017-01-17 19:55:04,213 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.SmsRecordSendStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:04,216 DEBUG [main] Scanned package: 'com.ejuzuo.common.domain' for aliases
+2017-01-17 19:55:04,295 DEBUG [main] Parsed configuration file: 'class path resource [mybatis-config/mybatis-ejuzuo.xml]'
+2017-01-17 19:55:04,389 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ActivityEnrollMapper.xml]'
+2017-01-17 19:55:04,416 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ActivityInfoMapper.xml]'
+2017-01-17 19:55:04,435 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminRoleMapper.xml]'
+2017-01-17 19:55:04,445 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminRolePermMapper.xml]'
+2017-01-17 19:55:04,460 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserLogMapper.xml]'
+2017-01-17 19:55:04,476 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserMapper.xml]'
+2017-01-17 19:55:04,488 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserOperLogMapper.xml]'
+2017-01-17 19:55:04,502 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdSpaceMapper.xml]'
+2017-01-17 19:55:04,512 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AreaMapper.xml]'
+2017-01-17 19:55:04,527 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\BrandMapper.xml]'
+2017-01-17 19:55:04,545 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CheckCodeRecordMapper.xml]'
+2017-01-17 19:55:04,558 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CodeValueMapper.xml]'
+2017-01-17 19:55:04,574 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CommentMapper.xml]'
+2017-01-17 19:55:04,584 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ContentInfoMapper.xml]'
+2017-01-17 19:55:04,634 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DesignerMapper.xml]'
+2017-01-17 19:55:04,650 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DesignerWorkMapper.xml]'
+2017-01-17 19:55:04,673 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DigitalFurnitureMapper.xml]'
+2017-01-17 19:55:04,684 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DownloadInfoMapper.xml]'
+2017-01-17 19:55:04,694 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\FileInfoMapper.xml]'
+2017-01-17 19:55:04,707 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\FilterKeywordMapper.xml]'
+2017-01-17 19:55:04,717 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberCareMapper.xml]'
+2017-01-17 19:55:04,729 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberFavoriteMapper.xml]'
+2017-01-17 19:55:04,742 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberMapper.xml]'
+2017-01-17 19:55:04,753 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberOperLogMapper.xml]'
+2017-01-17 19:55:04,762 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberPointLogMapper.xml]'
+2017-01-17 19:55:04,781 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberPointMapper.xml]'
+2017-01-17 19:55:04,795 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberSponsorLogMapper.xml]'
+2017-01-17 19:55:04,803 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberThirdLoginMapper.xml]'
+2017-01-17 19:55:04,813 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberVipLogMapper.xml]'
+2017-01-17 19:55:04,829 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberVipMapper.xml]'
+2017-01-17 19:55:04,835 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MsgReachMapper.xml]'
+2017-01-17 19:55:04,845 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MsgRecordMapper.xml]'
+2017-01-17 19:55:04,858 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\NewsInfoMapper.xml]'
+2017-01-17 19:55:04,871 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\PromoRecordMapper.xml]'
+2017-01-17 19:55:04,885 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ShoppingCartMapper.xml]'
+2017-01-17 19:55:04,898 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\SmsRecordMapper.xml]'
+2017-01-17 19:55:05,109 WARN [main] XMemcachedClient use Binary protocol
+2017-01-17 19:55:05,146 INFO [main] Creating 8 reactors...
+2017-01-17 19:55:05,293 WARN [main] The Controller started at localhost/127.0.0.1:0 ...
+2017-01-17 19:55:05,314 WARN [Xmemcached-Reactor-0] Add a session: 120.76.120.24:11211
+2017-01-17 19:55:05,317 WARN [main] XMemcachedClient use Binary protocol
+2017-01-17 19:55:05,317 WARN [main] XMemcachedClient in failure mode.
+2017-01-17 19:55:05,318 INFO [main] Creating 8 reactors...
+2017-01-17 19:55:05,321 WARN [main] The Controller started at localhost/127.0.0.1:0 ...
+2017-01-17 19:55:05,331 WARN [Xmemcached-Reactor-0] Add a session: 120.76.120.24:11211
+2017-01-17 19:55:06,444 INFO [main] adding transport node : localhost:9300
+2017-01-17 19:55:07,729 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:07,771 INFO [main] Initializing ExecutorService  'taskExecutor'
+2017-01-17 19:55:07,887 INFO [main] SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.context.support.GenericApplicationContext@491666ad: startup date [Tue Jan 17 19:55:03 CST 2017]; root of context hierarchy] and template loader path [/WEB-INF/mailTemplate/]
+2017-01-17 19:55:07,888 INFO [main] ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2017-01-17 19:55:07,927 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:08,063 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:08,086 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:08,108 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:08,453 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:08,457 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a9f023e] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,230 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,235 DEBUG [main] ==>  Preparing: select id, keyword, filter_level, operator_id, create_time, update_time from filter_keyword where filter_level = ? 
+2017-01-17 19:55:09,267 DEBUG [main] ==> Parameters: 1(Integer)
+2017-01-17 19:55:09,482 DEBUG [main] <==      Total: 1404
+2017-01-17 19:55:09,484 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a9f023e]
+2017-01-17 19:55:09,502 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,502 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@136965e3] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,503 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,503 DEBUG [main] ==>  Preparing: select count(*) from filter_keyword where id > ? and filter_level = ? 
+2017-01-17 19:55:09,504 DEBUG [main] ==> Parameters: 0(Long), 2(Integer)
+2017-01-17 19:55:09,516 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:09,516 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@136965e3]
+2017-01-17 19:55:09,517 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,517 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f93dd4e] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,517 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,517 DEBUG [main] ==>  Preparing: select * from filter_keyword where id > ? and filter_level = ? limit ?,? 
+2017-01-17 19:55:09,517 DEBUG [main] ==> Parameters: 0(Long), 2(Integer), 0(Integer), 1500(Integer)
+2017-01-17 19:55:09,531 DEBUG [main] <==      Total: 57
+2017-01-17 19:55:09,531 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f93dd4e]
+2017-01-17 19:55:09,532 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,532 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@737d100a] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,532 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,532 DEBUG [main] ==>  Preparing: select count(*) from filter_keyword where id > ? and filter_level = ? 
+2017-01-17 19:55:09,532 DEBUG [main] ==> Parameters: 0(Long), 3(Integer)
+2017-01-17 19:55:09,541 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:09,542 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@737d100a]
+2017-01-17 19:55:09,542 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,542 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d1cbd0f] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,542 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,542 DEBUG [main] ==>  Preparing: select * from filter_keyword where id > ? and filter_level = ? limit ?,? 
+2017-01-17 19:55:09,542 DEBUG [main] ==> Parameters: 0(Long), 3(Integer), 0(Integer), 1500(Integer)
+2017-01-17 19:55:09,578 DEBUG [main] <==      Total: 592
+2017-01-17 19:55:09,579 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d1cbd0f]
+2017-01-17 19:55:09,654 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,654 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48976e6d] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,680 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,681 DEBUG [main] ==>  Preparing: SELECT id, parent_id, name from area where parent_id =0 ORDER by id ASC 
+2017-01-17 19:55:09,682 DEBUG [main] ==> Parameters: 
+2017-01-17 19:55:09,691 DEBUG [main] <==      Total: 31
+2017-01-17 19:55:09,692 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48976e6d]
+2017-01-17 19:55:09,702 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:09,703 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1df1ced0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5349b246, org.springframework.test.context.support.DirtiesContextTestExecutionListener@32b0876c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2aaf152b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@39bbd9e0]
+2017-01-17 19:55:09,707 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,707 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4397a639] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,707 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,707 DEBUG [main] ==>  Preparing: select id, check_code, send_time, expire_time, check_type, dest_type, dest_no, status, member_id, create_time, update_time, verify_count from check_code_record where dest_type = ? and dest_no = ? and check_type = ? and expire_time > now() and status = 0 and verify_count < 5 order by id desc 
+2017-01-17 19:55:09,709 DEBUG [main] ==> Parameters: 1(Integer), 77953087@qq.com(String), 1(Integer)
+2017-01-17 19:55:09,718 DEBUG [main] <==      Total: 0
+2017-01-17 19:55:09,719 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4397a639]
+2017-01-17 19:55:09,726 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,739 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56399b9e] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,739 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,739 DEBUG [main] ==>  Preparing: SELECT count(*) FROM check_code_record WHERE dest_type = ? AND ( dest_no = ? OR member_id = ? ) AND check_type = ? AND create_time > ? 
+2017-01-17 19:55:09,742 DEBUG [main] ==> Parameters: 0(Integer), 13428981004(String), null, 0(Integer), 2017-01-17 18:55:09.726(Timestamp)
+2017-01-17 19:55:09,765 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:09,765 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56399b9e]
+2017-01-17 19:55:09,765 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,765 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2503ec73] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,766 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,767 DEBUG [main] ==>  Preparing: SELECT count(*) FROM check_code_record WHERE dest_type = ? AND ( dest_no = ? OR member_id = ? ) AND check_type = ? AND create_time > ? 
+2017-01-17 19:55:09,769 DEBUG [main] ==> Parameters: 0(Integer), 13428981004(String), null, 0(Integer), 2017-01-17 19:54:09.765(Timestamp)
+2017-01-17 19:55:09,782 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:09,783 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2503ec73]
+2017-01-17 19:55:09,784 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:09,785 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6296474f] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:09,789 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:09,790 DEBUG [main] ==>  Preparing: insert into sms_record (content, mobile, send_status, mobile_type, gateway, create_date, send_date, error_msg, member_id, source ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2017-01-17 19:55:09,792 DEBUG [main] ==> Parameters: 亲，你申请的注册验证码是：875425(String), 13428981004(String), 2(Integer), 1(Integer), 1(Integer), 2017-01-17 19:55:09.784(Timestamp), 2017-01-17 19:55:09.784(Timestamp), null, null, null
+2017-01-17 19:55:09,835 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:09,836 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6296474f]
+2017-01-17 19:55:09,970 INFO [main] sms record:{"content":"亲，你申请的注册验证码是：875425","createDate":1484654109784,"gateway":1,"id":128,"mobile":"13428981004","mobileType":{"description":"移动","index":1},"sendDate":1484654109784,"sendStatus":{"description":"发送中","index":2}}
+2017-01-17 19:55:10,142 DEBUG [main] Get connection for route {}->http://webservice.wjxjt.com:8080
+2017-01-17 19:55:10,192 DEBUG [main] Connecting to webservice.wjxjt.com:8080
+2017-01-17 19:55:10,210 DEBUG [main] CookieSpec selected: default
+2017-01-17 19:55:10,211 DEBUG [main] Auth cache not set in the context
+2017-01-17 19:55:10,211 DEBUG [main] Target auth state: UNCHALLENGED
+2017-01-17 19:55:10,212 DEBUG [main] Proxy auth state: UNCHALLENGED
+2017-01-17 19:55:10,212 DEBUG [main] Attempt 1 to execute request
+2017-01-17 19:55:10,212 DEBUG [main] Sending request: POST /sms/sendsms.jsp HTTP/1.1
+2017-01-17 19:55:10,212 DEBUG [main]  >> "POST /sms/sendsms.jsp HTTP/1.1[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "Content-Length: 239[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "Content-Type: application/x-www-form-urlencoded; charset=UTF-8[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "Host: webservice.wjxjt.com:8080[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "Connection: Keep-Alive[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_102)[\r][\n]"
+2017-01-17 19:55:10,214 DEBUG [main]  >> "[\r][\n]"
+2017-01-17 19:55:10,215 DEBUG [main] >> POST /sms/sendsms.jsp HTTP/1.1
+2017-01-17 19:55:10,215 DEBUG [main] >> Content-Length: 239
+2017-01-17 19:55:10,215 DEBUG [main] >> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+2017-01-17 19:55:10,215 DEBUG [main] >> Host: webservice.wjxjt.com:8080
+2017-01-17 19:55:10,215 DEBUG [main] >> Connection: Keep-Alive
+2017-01-17 19:55:10,215 DEBUG [main] >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_102)
+2017-01-17 19:55:10,215 DEBUG [main]  >> "01=&batchno=&passwd=bjjz123&mobiles=13428981004&digest=de376c6fec6ed5e6324cae6c2c027cba&account=bjjz%40bjjz&content=%E4%BA%B2%EF%BC%8C%E4%BD%A0%E7%94%B3%E8%AF%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E9%AA%8C%E8%AF%81%E7%A0%81%E6%98%AF%EF%BC%9A875425"
+2017-01-17 19:55:10,240 DEBUG [main]  << "HTTP/1.1 200 OK[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Server: nginx/1.4.1[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Date: Tue, 17 Jan 2017 11:55:10 GMT[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Content-Type: application/json;charset=UTF-8[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Transfer-Encoding: chunked[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Connection: keep-alive[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "Set-Cookie: JSESSIONID=47C3A48E82FFF752E4564A53E2A40B45; Path=/sms[\r][\n]"
+2017-01-17 19:55:10,242 DEBUG [main]  << "[\r][\n]"
+2017-01-17 19:55:10,243 DEBUG [main] Receiving response: HTTP/1.1 200 OK
+2017-01-17 19:55:10,243 DEBUG [main] << HTTP/1.1 200 OK
+2017-01-17 19:55:10,243 DEBUG [main] << Server: nginx/1.4.1
+2017-01-17 19:55:10,243 DEBUG [main] << Date: Tue, 17 Jan 2017 11:55:10 GMT
+2017-01-17 19:55:10,243 DEBUG [main] << Content-Type: application/json;charset=UTF-8
+2017-01-17 19:55:10,243 DEBUG [main] << Transfer-Encoding: chunked
+2017-01-17 19:55:10,243 DEBUG [main] << Connection: keep-alive
+2017-01-17 19:55:10,243 DEBUG [main] << Set-Cookie: JSESSIONID=47C3A48E82FFF752E4564A53E2A40B45; Path=/sms
+2017-01-17 19:55:10,248 DEBUG [main] Cookie accepted [JSESSIONID="47C3A48E82FFF752E4564A53E2A40B45", version:0, domain:webservice.wjxjt.com, path:/sms, expiry:null]
+2017-01-17 19:55:10,249 DEBUG [main] Connection can be kept alive indefinitely
+2017-01-17 19:55:10,253 DEBUG [main]  << "32[\r][\n]"
+2017-01-17 19:55:10,253 DEBUG [main]  << "{"code":200,"batchno":"170117195510814_bjjz@bjjz"}"
+2017-01-17 19:55:10,254 DEBUG [main]  << "[\r][\n]"
+2017-01-17 19:55:10,254 DEBUG [main]  << "0[\r][\n]"
+2017-01-17 19:55:10,254 DEBUG [main]  << "[\r][\n]"
+2017-01-17 19:55:10,254 DEBUG [main] Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@7bd96822
+2017-01-17 19:55:10,254 DEBUG [main] Connection can be kept alive indefinitely
+2017-01-17 19:55:10,262 INFO [main] 【谐和科技】发送短信,短信内容【亲，你申请的注册验证码是：875425】号码【13428981004】发送结果【200】谐和批次号【170117195510814_bjjz@bjjz】
+2017-01-17 19:55:10,263 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,263 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7668892a] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,263 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,263 DEBUG [main] ==>  Preparing: update sms_record set send_date = now(), send_status = ?, error_msg = ? where id = ? 
+2017-01-17 19:55:10,264 DEBUG [main] ==> Parameters: 1(Integer), null, 128(Integer)
+2017-01-17 19:55:10,284 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:10,284 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7668892a]
+2017-01-17 19:55:10,284 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,284 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@267cde2e] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,284 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,285 DEBUG [main] ==>  Preparing: insert into check_code_record (check_code, send_time, expire_time, check_type, dest_type, dest_no, status, member_id, create_time, update_time, verify_count ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2017-01-17 19:55:10,286 DEBUG [main] ==> Parameters: 875425(String), 2017-01-17 19:55:10.284(Timestamp), 2017-01-17 20:25:10.284(Timestamp), 0(Integer), 0(Integer), 13428981004(String), 0(Integer), null, 2017-01-17 19:55:10.284(Timestamp), 2017-01-17 19:55:10.284(Timestamp), 1(Integer)
+2017-01-17 19:55:10,387 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:10,387 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@267cde2e]
+2017-01-17 19:55:10,430 INFO [main] 校验码记录保存成功:{"checkCode":"875425","checkType":{"description":"注册","index":0},"createTime":1484654110284,"destNo":"13428981004","destType":{"description":"手机","index":0},"expireTime":1484655910284,"id":249,"sendTime":1484654110284,"status":{"description":"未使用","index":0},"updateTime":1484654110284,"verifyCount":1}
+2017-01-17 19:55:10,436 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,436 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72eb6200, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@76ececd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7affc159, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1682c08c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3fd05b3e]
+2017-01-17 19:55:10,439 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,439 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4eb9f2af] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,439 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,439 DEBUG [main] ==>  Preparing: insert into code_value ( collection_code, value_code, value_name, parent_code, status, extension, order_no, create_time, update_time ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2017-01-17 19:55:10,440 DEBUG [main] ==> Parameters: 11(String), 11001(String), 风格的第一个(String), null, 1(Integer), null, 1245(Integer), 2017-01-17 19:55:10.438(Timestamp), 2017-01-17 19:55:10.438(Timestamp)
+2017-01-17 19:55:10,467 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4eb9f2af]
+2017-01-17 19:55:10,475 INFO [main] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-01-17 19:55:10,536 INFO [main] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-01-17 19:55:10,545 ERROR [main] CodeValueMapper.save 报错
+org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '11-11001' for key 'PRIMARY'
+### The error may involve CodeValueMapper.save-Inline
+### The error occurred while setting parameters
+### SQL: insert into code_value (       collection_code,       value_code,       value_name,       parent_code,       status,       extension,       order_no,       create_time,       update_time       )     values (       ?,       ?,       ?,       ?,       ?,       ?,       ?,       ?,       ?       )
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '11-11001' for key 'PRIMARY'
+; SQL []; Duplicate entry '11-11001' for key 'PRIMARY'; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '11-11001' for key 'PRIMARY'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:74)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:421)
+	at com.sun.proxy.$Proxy17.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:254)
+	at com.aicai.dao.GenericMybatisDao.insertAndSetupId(GenericMybatisDao.java:60)
+	at com.ejuzuo.server.codevalue.manager.impl.CodeValueManagerImpl.save(CodeValueManagerImpl.java:77)
+	at com.ejuzuo.codevalue.TestCodeValue.testSave(TestCodeValue.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:73)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:224)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '11-11001' for key 'PRIMARY'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:932)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2551)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1192)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2931)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:131)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy44.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:45)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:73)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:115)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:170)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:408)
+	... 35 common frames omitted
+2017-01-17 19:55:10,548 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,549 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63300c4b] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,550 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,551 DEBUG [main] ==>  Preparing: select collection_code, value_code, value_name, parent_code, status, extension, order_no, create_time, update_time from code_value WHERE collection_code=? and status = 1 ORDER by order_no ASC 
+2017-01-17 19:55:10,551 DEBUG [main] ==> Parameters: 10(Integer)
+2017-01-17 19:55:10,564 DEBUG [main] <==      Total: 12
+2017-01-17 19:55:10,565 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63300c4b]
+2017-01-17 19:55:10,566 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,567 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68d6d775] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,568 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,568 DEBUG [main] ==>  Preparing: select count(1) from code_value WHERE collection_code=? 
+2017-01-17 19:55:10,568 DEBUG [main] ==> Parameters: 10(String)
+2017-01-17 19:55:10,575 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,576 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68d6d775]
+2017-01-17 19:55:10,576 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,576 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@38b3f208] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,576 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,577 DEBUG [main] ==>  Preparing: select collection_code, value_code, value_name, parent_code, status, extension, order_no, create_time, update_time from code_value WHERE collection_code=? ORDER by order_no ASC limit ?,? 
+2017-01-17 19:55:10,579 DEBUG [main] ==> Parameters: 10(String), 0(Integer), 5(Integer)
+2017-01-17 19:55:10,592 DEBUG [main] <==      Total: 5
+2017-01-17 19:55:10,592 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@38b3f208]
+2017-01-17 19:55:10,595 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,596 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@25f15f50, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@52b46d52, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7327a447, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67022ea, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2954f6ab]
+2017-01-17 19:55:10,603 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,604 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fbf088b] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,606 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,606 DEBUG [main] ==>  Preparing: select id, member_id, object_type, object_id, comment, status, masked, remark, create_time, updator, update_time from comment WHERE object_id =? and object_type =? and status = ? and masked =? order by create_time DESC limit ?,? 
+2017-01-17 19:55:10,606 DEBUG [main] ==> Parameters: 1(Integer), 0(Integer), 1(Integer), 0(Integer), 0(Integer), 5(Integer)
+2017-01-17 19:55:10,616 DEBUG [main] <==      Total: 5
+2017-01-17 19:55:10,616 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fbf088b]
+2017-01-17 19:55:10,617 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,617 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@798256c5] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,618 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,618 DEBUG [main] ==>  Preparing: select id, account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time from member WHERE id= ? 
+2017-01-17 19:55:10,619 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,628 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,628 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@798256c5]
+2017-01-17 19:55:10,628 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,628 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76544c0a] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,628 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,629 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,629 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,639 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,640 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76544c0a]
+2017-01-17 19:55:10,643 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,643 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1835dc92] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,643 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,644 DEBUG [main] ==>  Preparing: select id, account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time from member WHERE id= ? 
+2017-01-17 19:55:10,644 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,655 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,658 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1835dc92]
+2017-01-17 19:55:10,659 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,659 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58658f63] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,659 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,660 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,661 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,671 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,672 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58658f63]
+2017-01-17 19:55:10,672 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,672 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d84049a] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,673 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,673 DEBUG [main] ==>  Preparing: select id, account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time from member WHERE id= ? 
+2017-01-17 19:55:10,673 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,683 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,684 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d84049a]
+2017-01-17 19:55:10,684 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,684 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c6b4ed7] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,685 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,685 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,685 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,695 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,700 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c6b4ed7]
+2017-01-17 19:55:10,701 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,701 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a92c6a9] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,701 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,703 DEBUG [main] ==>  Preparing: select id, account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time from member WHERE id= ? 
+2017-01-17 19:55:10,704 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,725 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,726 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a92c6a9]
+2017-01-17 19:55:10,726 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,726 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@383caf89] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,726 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,726 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,727 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,736 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,736 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@383caf89]
+2017-01-17 19:55:10,736 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,736 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b88b8e] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,736 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,737 DEBUG [main] ==>  Preparing: select id, account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time from member WHERE id= ? 
+2017-01-17 19:55:10,737 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,746 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,747 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b88b8e]
+2017-01-17 19:55:10,747 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,747 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bf14704] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,747 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,747 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,748 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,760 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,761 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bf14704]
+2017-01-17 19:55:10,769 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,770 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6413d7e7, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d16be4f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@17b37e9a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6bcb12e6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@111d5c97]
+2017-01-17 19:55:10,775 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,775 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29c17c3d] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,775 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,776 DEBUG [main] ==>  Preparing: select space_category from digital_furniture where brand = ? GROUP BY space_category 
+2017-01-17 19:55:10,776 DEBUG [main] ==> Parameters: 3(Integer)
+2017-01-17 19:55:10,787 DEBUG [main] <==      Total: 3
+2017-01-17 19:55:10,787 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29c17c3d]
+2017-01-17 19:55:10,835 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,835 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3ba3d4b6, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51b77cdf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@441fbe89, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6088451e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@45ab3bdd]
+2017-01-17 19:55:10,849 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,849 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f10f633] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,849 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,849 DEBUG [main] ==>  Preparing: insert into member (account, password, nick_name, profile_img, mobile, email, register_time, active_status, status, locked, verified, create_time, update_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2017-01-17 19:55:10,852 DEBUG [main] ==> Parameters: abcd(String), 123456(String), nimei123(String), null, 15365928715(String), null, 2017-01-17 19:55:10.849(Timestamp), 1(Integer), 1(Integer), 0(Integer), 0(Integer), 2017-01-17 19:55:10.849(Timestamp), 2017-01-17 19:55:10.849(Timestamp)
+2017-01-17 19:55:10,882 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:10,882 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f10f633]
+2017-01-17 19:55:10,885 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,886 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7d986d83, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77f991c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3a7e365, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2ceee4b6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@12a470dd]
+2017-01-17 19:55:10,892 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,892 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f6bf8aa] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,894 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,894 DEBUG [main] ==>  Preparing: select count(1) from download_info WHERE member_id = ? and status =? and pay_status = ? and pay_time > ? and pay_time < ? 
+2017-01-17 19:55:10,895 DEBUG [main] ==> Parameters: 114(Long), 1(Integer), 1(Integer), 2017-01-17 00:00:00.0(Timestamp), 2017-01-17 23:59:59.999(Timestamp)
+2017-01-17 19:55:10,902 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,902 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f6bf8aa]
+2017-01-17 19:55:10,902 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,902 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cad79bc] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,903 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,903 DEBUG [main] ==>  Preparing: select id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career, address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, reason, view_count, verifior, verify_time,homed, create_time, update_time from designer where member_id = ? 
+2017-01-17 19:55:10,903 DEBUG [main] ==> Parameters: 114(Integer)
+2017-01-17 19:55:10,913 DEBUG [main] <==      Total: 0
+2017-01-17 19:55:10,913 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cad79bc]
+2017-01-17 19:55:10,913 INFO [main] 根据memberId:[{}], 查询不到数据
+2017-01-17 19:55:10,913 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,913 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78422efb] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,914 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,914 DEBUG [main] ==>  Preparing: select id, member_id, viped, remark, start_time, end_time, create_time, creator, update_time, updator from member_vip where member_id = ? and viped =1 and start_time < ? and end_time > ? 
+2017-01-17 19:55:10,915 DEBUG [main] ==> Parameters: 114(Integer), 2017-01-17 19:55:10.913(Timestamp), 2017-01-17 19:55:10.913(Timestamp)
+2017-01-17 19:55:10,922 DEBUG [main] <==      Total: 0
+2017-01-17 19:55:10,924 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78422efb]
+2017-01-17 19:55:10,930 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:10,930 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3af58f76, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2ead6ba4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@31a2a9fa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@31b82e0f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@27a09971]
+2017-01-17 19:55:10,933 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,933 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6215366a] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:10,934 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:10,934 DEBUG [main] ==>  Preparing: select id, member_id, viped, remark, start_time, end_time, create_time, creator, update_time, updator from member_vip where member_id = ? 
+2017-01-17 19:55:10,934 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:10,941 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:10,942 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6215366a]
+2017-01-17 19:55:10,955 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:10,955 DEBUG [main] Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:10,958 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will be managed by Spring
+2017-01-17 19:55:10,958 DEBUG [main] ==>  Preparing: update member_vip set remark = ?, end_time = ?, update_time = ?, updator = ? where id = ? 
+2017-01-17 19:55:10,959 DEBUG [main] ==> Parameters: 修改者:[415522571@qq.com] 给用户:[69] 修改有效时间(String), 2026-05-19 00:00:00.0(Timestamp), 2017-01-17 19:55:10.955(Timestamp), 415522571@qq.com(String), 3(Integer)
+2017-01-17 19:55:10,975 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:10,975 DEBUG [main] Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:10,975 DEBUG [main] Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c] from current transaction
+2017-01-17 19:55:10,975 DEBUG [main] ==>  Preparing: insert into member_vip_log ( member_id, trans_type, period, remark, related_type, related_id, creator, create_time ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2017-01-17 19:55:10,976 DEBUG [main] ==> Parameters: 69(Integer), 1(Integer), 18(Integer), 修改者:[415522571@qq.com] 给用户:[69] 修改有效时间(String), 1(Integer), 3(Integer), 415522571@qq.com(String), 2017-01-17 19:55:10.975(Timestamp)
+2017-01-17 19:55:10,994 DEBUG [main] <==    Updates: 1
+2017-01-17 19:55:10,994 DEBUG [main] Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:10,994 DEBUG [main] Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:10,995 DEBUG [main] Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:10,995 DEBUG [main] Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1d526c]
+2017-01-17 19:55:11,022 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:11,023 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59b32539] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:11,023 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@44b29496] will not be managed by Spring
+2017-01-17 19:55:11,023 DEBUG [main] ==>  Preparing: select id, member_id, viped, remark, start_time, end_time, create_time, creator, update_time, updator from member_vip where member_id = ? 
+2017-01-17 19:55:11,024 DEBUG [main] ==> Parameters: 69(Integer)
+2017-01-17 19:55:11,032 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:11,033 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59b32539]
+2017-01-17 19:55:11,036 INFO [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-01-17 19:55:11,036 INFO [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1c067c0d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5d0b0cb9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7f7b6639, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16ac5d35, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3965bdf9]
+2017-01-17 19:55:11,038 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-config.xml]
+2017-01-17 19:55:11,125 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-env.xml]
+2017-01-17 19:55:11,134 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-db-ejuzuo.xml]
+2017-01-17 19:55:11,162 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-mybatistemplate-ejuzuo.xml]
+2017-01-17 19:55:11,169 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-elasticsearch.xml]
+2017-01-17 19:55:11,247 INFO [main] Loading XML bean definitions from URL [file:/D:/download/ejuzuosvn/ejuzuo/ejuzuo-service/ejuzuo-server/target/classes/spring-context/spring-cache.xml]
+2017-01-17 19:55:11,255 INFO [main] Refreshing org.springframework.context.support.GenericApplicationContext@3c0e00a8: startup date [Tue Jan 17 19:55:11 CST 2017]; root of context hierarchy
+2017-01-17 19:55:11,322 INFO [main] Loading properties file from class path resource [config/config.properties]
+2017-01-17 19:55:11,347 DEBUG [main] Find JAR URL: jar:file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:11,348 DEBUG [main] Inner URL: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:11,348 DEBUG [main] Extracted JAR URL: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar
+2017-01-17 19:55:11,348 DEBUG [main] Found JAR: file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar
+2017-01-17 19:55:11,348 DEBUG [main] Listing jar:file:/D:/download/maven/repo/com/ejuzuo/ejuzuo-common/1.0-SNAPSHOT/ejuzuo-common-1.0-SNAPSHOT.jar!/com/ejuzuo/common/domain
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ActivityEnroll.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ActivityInfo.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminRole.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminRolePerm.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUser.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUserLog.class
+2017-01-17 19:55:11,349 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdminUserOperLog.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/AdSpace.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Area.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Brand.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/CheckCodeRecord.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/CodeValue.class
+2017-01-17 19:55:11,350 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Comment.class
+2017-01-17 19:55:11,351 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ContentInfo.class
+2017-01-17 19:55:11,351 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Designer.class
+2017-01-17 19:55:11,351 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DesignerWork.class
+2017-01-17 19:55:11,351 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DigitalFurniture.class
+2017-01-17 19:55:11,351 DEBUG [main] Found resource: /com/ejuzuo/common/domain/DownloadInfo.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/FileInfo.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/FilterKeyword.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/Member.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberCare.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberFavorite.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberOperLog.class
+2017-01-17 19:55:11,352 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberPoint.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberPointLog.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberSponsorLog.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberThirdLogin.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberVip.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MemberVipLog.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MsgReach.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/MsgRecord.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/NewsInfo.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/PromoRecord.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/ShoppingCart.class
+2017-01-17 19:55:11,353 DEBUG [main] Found resource: /com/ejuzuo/common/domain/SmsRecord.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordCheckType.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordDestType.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CheckCodeRecordStatus.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/CommentMask.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/ContentInfoRelatedType.class
+2017-01-17 19:55:11,354 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DesignerStatus.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DesignerType.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DigitalShelfStatus.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/DownloadPayStatus.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/FileInfoRelatedType.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberActiveStatus.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberLockType.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberOperLogType.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MemberVerified.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/MsgType.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/NewsInfoCategory.class
+2017-01-17 19:55:11,355 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/ObjectType.class
+2017-01-17 19:55:11,356 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/PageCodeType.class
+2017-01-17 19:55:11,356 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/SmsRecordMobileType.class
+2017-01-17 19:55:11,356 DEBUG [main] Found resource: /com/ejuzuo/common/domain/type/SmsRecordSendStatus.class
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ActivityEnroll matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ActivityInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminRole matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminRolePerm matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUser matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUserLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdminUserOperLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.AdSpace matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Area matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Brand matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.CheckCodeRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.CodeValue matches criteria [is assignable to Object]
+2017-01-17 19:55:11,360 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Comment matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ContentInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Designer matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DesignerWork matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DigitalFurniture matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.DownloadInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.FileInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.FilterKeyword matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.Member matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberCare matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberFavorite matches criteria [is assignable to Object]
+2017-01-17 19:55:11,361 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberOperLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,365 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberPoint matches criteria [is assignable to Object]
+2017-01-17 19:55:11,365 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberPointLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,365 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberSponsorLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,365 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberThirdLogin matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberVip matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MemberVipLog matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MsgReach matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.MsgRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.NewsInfo matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.PromoRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.ShoppingCart matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.SmsRecord matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordCheckType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordDestType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CheckCodeRecordStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,366 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.CommentMask matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.ContentInfoRelatedType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DesignerStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DesignerType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DigitalShelfStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.DownloadPayStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.FileInfoRelatedType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberActiveStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberLockType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberOperLogType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MemberVerified matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.MsgType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.NewsInfoCategory matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.ObjectType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.PageCodeType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.SmsRecordMobileType matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Checking to see if class com.ejuzuo.common.domain.type.SmsRecordSendStatus matches criteria [is assignable to Object]
+2017-01-17 19:55:11,367 DEBUG [main] Scanned package: 'com.ejuzuo.common.domain' for aliases
+2017-01-17 19:55:11,372 DEBUG [main] Parsed configuration file: 'class path resource [mybatis-config/mybatis-ejuzuo.xml]'
+2017-01-17 19:55:11,385 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ActivityEnrollMapper.xml]'
+2017-01-17 19:55:11,402 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ActivityInfoMapper.xml]'
+2017-01-17 19:55:11,415 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminRoleMapper.xml]'
+2017-01-17 19:55:11,427 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminRolePermMapper.xml]'
+2017-01-17 19:55:11,440 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserLogMapper.xml]'
+2017-01-17 19:55:11,452 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserMapper.xml]'
+2017-01-17 19:55:11,460 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdminUserOperLogMapper.xml]'
+2017-01-17 19:55:11,536 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AdSpaceMapper.xml]'
+2017-01-17 19:55:11,546 DEBUG [Finalizer] Connection 0.0.0.0:54941<->124.172.243.15:8080 closed
+2017-01-17 19:55:11,548 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\AreaMapper.xml]'
+2017-01-17 19:55:11,555 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\BrandMapper.xml]'
+2017-01-17 19:55:11,563 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CheckCodeRecordMapper.xml]'
+2017-01-17 19:55:11,570 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CodeValueMapper.xml]'
+2017-01-17 19:55:11,578 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\CommentMapper.xml]'
+2017-01-17 19:55:11,583 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ContentInfoMapper.xml]'
+2017-01-17 19:55:11,597 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DesignerMapper.xml]'
+2017-01-17 19:55:11,610 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DesignerWorkMapper.xml]'
+2017-01-17 19:55:11,630 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DigitalFurnitureMapper.xml]'
+2017-01-17 19:55:11,638 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\DownloadInfoMapper.xml]'
+2017-01-17 19:55:11,648 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\FileInfoMapper.xml]'
+2017-01-17 19:55:11,655 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\FilterKeywordMapper.xml]'
+2017-01-17 19:55:11,663 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberCareMapper.xml]'
+2017-01-17 19:55:11,672 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberFavoriteMapper.xml]'
+2017-01-17 19:55:11,684 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberMapper.xml]'
+2017-01-17 19:55:11,691 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberOperLogMapper.xml]'
+2017-01-17 19:55:11,701 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberPointLogMapper.xml]'
+2017-01-17 19:55:11,708 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberPointMapper.xml]'
+2017-01-17 19:55:11,719 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberSponsorLogMapper.xml]'
+2017-01-17 19:55:11,726 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberThirdLoginMapper.xml]'
+2017-01-17 19:55:11,736 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberVipLogMapper.xml]'
+2017-01-17 19:55:11,744 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MemberVipMapper.xml]'
+2017-01-17 19:55:11,749 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MsgReachMapper.xml]'
+2017-01-17 19:55:11,757 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\MsgRecordMapper.xml]'
+2017-01-17 19:55:11,769 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\NewsInfoMapper.xml]'
+2017-01-17 19:55:11,779 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\PromoRecordMapper.xml]'
+2017-01-17 19:55:11,785 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\ShoppingCartMapper.xml]'
+2017-01-17 19:55:11,792 DEBUG [main] Parsed mapper file: 'file [D:\download\ejuzuosvn\ejuzuo\ejuzuo-service\ejuzuo-server\target\classes\mybatis-config\mapper\SmsRecordMapper.xml]'
+2017-01-17 19:55:11,804 WARN [main] XMemcachedClient use Binary protocol
+2017-01-17 19:55:11,805 INFO [main] Creating 8 reactors...
+2017-01-17 19:55:11,809 WARN [main] The Controller started at localhost/127.0.0.1:0 ...
+2017-01-17 19:55:11,821 WARN [Xmemcached-Reactor-0] Add a session: 120.76.120.24:11211
+2017-01-17 19:55:11,823 WARN [main] XMemcachedClient use Binary protocol
+2017-01-17 19:55:11,823 WARN [main] XMemcachedClient in failure mode.
+2017-01-17 19:55:11,823 INFO [main] Creating 8 reactors...
+2017-01-17 19:55:11,830 WARN [main] The Controller started at localhost/127.0.0.1:0 ...
+2017-01-17 19:55:11,837 WARN [Xmemcached-Reactor-0] Add a session: 120.76.120.24:11211
+2017-01-17 19:55:11,937 INFO [main] adding transport node : localhost:9300
+2017-01-17 19:55:13,008 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:13,010 INFO [main] Initializing ExecutorService  'taskExecutor'
+2017-01-17 19:55:13,017 INFO [main] SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.context.support.GenericApplicationContext@3c0e00a8: startup date [Tue Jan 17 19:55:11 CST 2017]; root of context hierarchy] and template loader path [/WEB-INF/mailTemplate/]
+2017-01-17 19:55:13,017 INFO [main] ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2017-01-17 19:55:13,023 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:13,029 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:13,051 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:13,068 ERROR [main] failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: []
+2017-01-17 19:55:13,082 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,082 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5700c9db] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,553 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,553 DEBUG [main] ==>  Preparing: select id, keyword, filter_level, operator_id, create_time, update_time from filter_keyword where filter_level = ? 
+2017-01-17 19:55:13,554 DEBUG [main] ==> Parameters: 1(Integer)
+2017-01-17 19:55:13,656 DEBUG [main] <==      Total: 1404
+2017-01-17 19:55:13,656 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5700c9db]
+2017-01-17 19:55:13,659 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,659 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b009e7b] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,659 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,659 DEBUG [main] ==>  Preparing: select count(*) from filter_keyword where id > ? and filter_level = ? 
+2017-01-17 19:55:13,660 DEBUG [main] ==> Parameters: 0(Long), 2(Integer)
+2017-01-17 19:55:13,668 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:13,668 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b009e7b]
+2017-01-17 19:55:13,668 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,669 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ff00507] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,669 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,669 DEBUG [main] ==>  Preparing: select * from filter_keyword where id > ? and filter_level = ? limit ?,? 
+2017-01-17 19:55:13,669 DEBUG [main] ==> Parameters: 0(Long), 2(Integer), 0(Integer), 1500(Integer)
+2017-01-17 19:55:13,683 DEBUG [main] <==      Total: 57
+2017-01-17 19:55:13,683 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ff00507]
+2017-01-17 19:55:13,683 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,684 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5974b233] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,684 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,684 DEBUG [main] ==>  Preparing: select count(*) from filter_keyword where id > ? and filter_level = ? 
+2017-01-17 19:55:13,684 DEBUG [main] ==> Parameters: 0(Long), 3(Integer)
+2017-01-17 19:55:13,695 DEBUG [main] <==      Total: 1
+2017-01-17 19:55:13,695 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5974b233]
+2017-01-17 19:55:13,695 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,695 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@996a546] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,695 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,695 DEBUG [main] ==>  Preparing: select * from filter_keyword where id > ? and filter_level = ? limit ?,? 
+2017-01-17 19:55:13,695 DEBUG [main] ==> Parameters: 0(Long), 3(Integer), 0(Integer), 1500(Integer)
+2017-01-17 19:55:13,725 DEBUG [main] <==      Total: 592
+2017-01-17 19:55:13,726 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@996a546]
+2017-01-17 19:55:13,748 DEBUG [main] Creating a new SqlSession
+2017-01-17 19:55:13,748 DEBUG [main] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c748a15] was not registered for synchronization because synchronization is not active
+2017-01-17 19:55:13,749 DEBUG [main] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@61bb1e4d] will not be managed by Spring
+2017-01-17 19:55:13,750 DEBUG [main] ==>  Preparing: select id, account, password, name, nickname, roles, role_names, status, remark, created_user, updated_user, created_date, updated_date from admin_user WHERE id = ? 
+2017-01-17 19:55:13,750 DEBUG [main] ==> Parameters: 57(Long)
+2017-01-17 19:55:13,758 DEBUG [main] <==      Total: 0
+2017-01-17 19:55:13,758 DEBUG [main] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c748a15]

@@ -1,0 +1,121 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% request.setAttribute("resUrl","http://r.ejuzuo.com");%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机注册</title>
+    <link rel="stylesheet" href="${resUrl}/styles/global.css">
+    <link rel="stylesheet" href="${resUrl}/styles/common.css">
+    <link rel="stylesheet" href="${resUrl}/styles/pages.css">
+
+    <script type="text/javascript" src="${resUrl}/plugin/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8"></script>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+</head>
+<body class="platforms">
+<div class="platforms_wrap clearfix">
+    <%@include file="/common/loginLeft.jsp"%>
+    <div class="right_box">
+        <div class="setheight">
+            <div class="form_wrap">
+                <div class="mb10 tar"><a class="c999" href="/member/toRegister/email" style="font-size: 16px;">用邮箱注册</a></div>
+                <form action="/member/mobileRegister" method="post" id="smsForm">
+                    <div class="ele_wrap" id="smsDiv">
+                        <div class="input_block mandatory mb20">
+                            <span class="star">*</span>
+                            <input type="tel" class="w350" placeholder="手机" name="mobile" id="mobile">
+                        </div>
+                        <div class="input_block mandatory mb20">
+                            <span class="star">*</span>
+                            <input type="text" class="w350" name="nickName" placeholder="昵称，4-16个字符，字母／中文／数字／下划线" id="nickName">
+                        </div>
+                        <div class="input_block mandatory mb20">
+                            <span class="star">*</span>
+                            <input type="password" class="w350" name="password" placeholder="设置密码" id="firstPassword">
+                        </div>
+                        <div class="input_block mandatory mb20">
+                            <span class="star">*</span>
+                            <input type="password" class="w350" name="secPassword" placeholder="确认密码" id="secPassword">
+                        </div>
+                        <div class="v_cord_box clearfix">
+                            <div class="v_cord">
+                                <div class="input_block v_success mb20">
+                                    <span class="star">*</span>
+                                    <input type="text" name="code" class="w180" placeholder="验证码" id="checkCode">
+                                    <div class="v_rs_box v_success_box">
+                                        <span class="v_txt" style="font-size:12px;" id="showTimeLimit"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" id="mobileButton" class="sendv_vord_btn">发送验证码</a>
+                        </div>
+                        <div class="xieyi_box checked_box mb40">
+                            <label class="checked" for=""><i></i>我已阅读并接受 <a href="/member/copyright" target="_blank">版权声明</a> 和 <a href="/member/privacy" target="_blank">隐私保护</a> 条款</label>
+                        </div>
+                        <div class="btn_block">
+                            <a href="javascript:void(0);" class="block_btn btn" id="mobileRegister">免费注册</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="otherLogType">
+            <!-- >a href="/qq/login/index">
+                <i class="qq_icon"></i>
+                <span>QQ账号注册</span>
+            </a>
+            <a href="/weixin/login/wx/index">
+                <i class="wx_icon"></i>
+                <span>微信账号注册</span>
+            </a-->
+            	<p style="margin-top:15px;color:red">温馨提示：还差一步才能成为设计师/设计公司哦！请继续完善个人高级认证/公司认证的资料。</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="${resUrl}/plugin/jquery-validation/1.15.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="${resUrl}/plugin/jquery-validation/1.15.0/additional-methods.min.js"></script>
+<script type="text/javascript" src="${resUrl}/plugin/jquery-validation/1.15.0/localization/messages_zh.min.js"></script>
+<script type="text/javascript" src="${resUrl}/plugin/jquery-form/jquery.form-3.51.0.js"></script>
+<script type="text/javascript" src="${resUrl}/js/common/common.js"></script>
+<script type="text/javascript" src="${resUrl}/js/member/register.js"></script>
+<script type="text/javascript" src="${resUrl}/js/util/ejuozuo.js"></script>
+<script type="text/javascript" src="${resUrl}/js/util/validate.js"></script>
+<script type="text/javascript" >
+    $('#qq_login_btn_dialog').unbind().click(function(){
+        var option = {
+            appId:'101320160',
+            redirectURI:'http://www.ejuzuo.com/third/qq/callback'
+        };
+        QC.Login.showPopup(option);
+    });
+
+
+
+    var timeLimit = 0;
+    var time ;
+    function countdown (){
+        timeLimit = 60 ;
+        time = setInterval("invorke()", 1000);
+        $("#mobileButton").attr("timelimit", "on");
+    }
+    function invorke(){
+        var $showTimeLimit = $("#showTimeLimit");
+        if( timeLimit < 0 ){
+            clearInterval(time);
+            $showTimeLimit.text("已经超时, 请重新发送");
+            $("#mobileButton").removeAttr("timelimit");
+            return ;
+        }
+        $showTimeLimit.text(timeLimit +"秒");
+        timeLimit = timeLimit - 1;
+    }
+
+</script>
+</body>
+</html>
+
+

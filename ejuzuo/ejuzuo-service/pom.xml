@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ejuzuo</groupId>
+  <artifactId>ejuzuo-service</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ejuzuo-service</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+		<!-- Generic properties -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		
+		<maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
+		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+		<maven-war-plugin.version>2.6</maven-war-plugin.version>
+		
+		<!-- BOF : sping platform 中没有 -->
+		<commons-configuration.version>1.10</commons-configuration.version>
+		<commons-collections4.version>4.1</commons-collections4.version>
+		<httpcomponents.fluent-hc.version>4.5.2</httpcomponents.fluent-hc.version>
+		
+		<activemq-spring.version>5.13.2</activemq-spring.version>
+		
+		<kaptcha.version>0.0.9</kaptcha.version>
+		
+		<shiro.version>1.2.4</shiro.version>
+		<sitemesh3.version>3.0.1</sitemesh3.version>
+		<urlrewritefilter.version>4.0.4</urlrewritefilter.version>
+		
+		<oracle.version>10.2.0.5.0</oracle.version>
+
+		<!-- ALIBABA -->
+		<alibaba.druid.version>1.0.18</alibaba.druid.version>
+		<!-- <alibaba.dubbo.version>2.5.3</alibaba.dubbo.version> -->
+		<alibaba.fastjson.version>1.2.8</alibaba.fastjson.version>
+		
+		<poi-ooxml.version>3.14</poi-ooxml.version>
+		
+		<itextpdf.version>5.5.9</itextpdf.version>
+		<itextpdf-asian.version>5.2.0</itextpdf-asian.version>
+		
+		<pinyin4j.version>2.5.0</pinyin4j.version>
+		<!-- BOF : sping platform 中没有 -->
+		
+		<!-- http://stackoverflow.com/questions/35738674/spring-boot-upgrade-from-1-3-2-to-1-3-3-logback-issue -->
+		<logback.version>1.1.6</logback.version>
+		
+		<!-- AICAI -->
+		<aicai-memcachedclient.version>2.0.0-SNAPSHOT</aicai-memcachedclient.version>
+		<aicai-appmodel.version>1.0.1-SNAPSHOT</aicai-appmodel.version>
+		<aicai-dao.version>1.0.8-SNAPSHOT</aicai-dao.version>
+		<aicai-springutil.version>1.0.0-SNAPSHOT</aicai-springutil.version>
+		<aicai-passwordencrypt.version>1.0.0</aicai-passwordencrypt.version>
+		<aicai-hessian.version>3.2.3-SNAPSHOT</aicai-hessian.version>
+		<aicai-webutil.version>1.0.0-SNAPSHOT</aicai-webutil.version>
+		<aicai-timercontroller.version>1.0.5-SNAPSHOT</aicai-timercontroller.version>
+	  	<spring.version>4.1.7.RELEASE</spring.version>
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven-clean-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${maven-install-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven-war-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>${commons-configuration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>${commons-collections4.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>fluent-hc</artifactId>
+				<version>${httpcomponents.fluent-hc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.axet</groupId>
+				<artifactId>kaptcha</artifactId>
+				<version>${kaptcha.version}</version>
+			</dependency>
+			
+			<!-- Shiro dependencies: -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.sitemesh</groupId>
+				<artifactId>sitemesh</artifactId>
+				<version>${sitemesh3.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.tuckey</groupId>
+			    <artifactId>urlrewritefilter</artifactId>
+			    <version>${urlrewritefilter.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc14</artifactId>
+				<version>${oracle.version}</version>
+			</dependency>
+
+			<!-- ALIBABA -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${alibaba.druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${alibaba.dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba.fastjson.version}</version>
+			</dependency>
+			
+			<dependency>
+	            <groupId>org.apache.poi</groupId>
+	            <artifactId>poi</artifactId>
+	            <version>${poi-ooxml.version}</version>
+	        </dependency>
+			<dependency>
+	            <groupId>org.apache.poi</groupId>
+	            <artifactId>poi-ooxml</artifactId>
+	            <version>${poi-ooxml.version}</version>
+	        </dependency>
+	        
+	        <dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>itextpdf</artifactId>
+				<version>${itextpdf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>itext-asian</artifactId>
+				<version>${itextpdf-asian.version}</version>
+			</dependency>
+	        
+	        <dependency>
+				<groupId>com.belerweb</groupId>
+				<artifactId>pinyin4j</artifactId>
+				<version>${pinyin4j.version}</version>
+			</dependency>
+			
+			<!-- http://stackoverflow.com/questions/35738674/spring-boot-upgrade-from-1-3-2-to-1-3-3-logback-issue -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<!-- AICAI -->
+			<dependency>
+				<groupId>com.aicai.memcachedclient</groupId>
+				<artifactId>aicai-memcachedclient</artifactId>
+				<version>${aicai-memcachedclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicai.springutil</groupId>
+				<artifactId>aicai-springutil</artifactId>
+				<version>${aicai-springutil.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicai.passwordencrypt</groupId>
+				<artifactId>aicai-passwordencrypt</artifactId>
+				<version>${aicai-passwordencrypt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicaipiao</groupId>
+				<artifactId>hessian-aicaipiao</artifactId>
+				<version>${aicai-hessian.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicai</groupId>
+				<artifactId>webutil</artifactId>
+				<version>${aicai-webutil.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicai.timercontroller</groupId>
+				<artifactId>aicai-timercontroller</artifactId>
+				<version>${aicai-timercontroller.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aicai.appmodel</groupId>
+				<artifactId>aicai-appmodel</artifactId>
+				<version>${aicai-appmodel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<distributionManagement>
+		<repository>
+			<id>aicai-release</id>
+			<name>Internal Releases</name>
+			<url>http://nexus.tech.2caipiao.com/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>aicai-release</id>
+			<name>Internal Snapshots</name>
+			<url>http://nexus.tech.2caipiao.com/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>aicai-public</id>
+			<name>aicai public</name>
+			<url>http://nexus.tech.2caipiao.com:8180/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+  <modules>
+    <module>ejuzuo-common</module>
+    <module>ejuzuo-client</module>
+    <module>ejuzuo-server</module>
+  </modules>
+</project>

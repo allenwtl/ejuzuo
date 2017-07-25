@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tomcat8  使用下面的方式-->
+<!--<Context >-->
+    <!--<Resources>-->
+        <!--<PreResources base="E:\\mfs\\ShareFile\\static" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/static" />-->
+    <!--</Resources>-->
+    <!--<Valve className="org.apache.catalina.valves.RemoteAddrValve"  allow=".*" />-->
+<!--</Context>-->
+
+<!--tomcat7使用的方式-->
+<Context aliases="/static=/mfs/ShareFile/static" >
+</Context>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberSponsorLogMapper" >
+  <resultMap id="BaseResultMap" type="MemberSponsorLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="sponsor_type" property="sponsorType" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="payment_method" property="paymentMethod" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="fee" property="fee" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime"  />
+    <result column="expire" property="expire"  />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="request_info" property="requestInfo" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="response_info" property="responseInfo" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime"  />
+    <result column="pay_order_no" property="payOrderNo" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime"  />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, account, sponsor_type, amount, payment_method, fee, remark,
+    create_time, expire, order_no, request_info, status, response_info, pay_time, pay_order_no,
+    update_time
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from member_sponsor_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="MemberSponsorLog" useGeneratedKeys="true" keyProperty="id">
+    insert into member_sponsor_log (member_id, account,
+      sponsor_type, 
+      amount, payment_method, 
+      fee, remark, create_time, 
+      expire, order_no, request_info, 
+      status, 
+      response_info, pay_time, pay_order_no, 
+      update_time)
+    values ( #{memberId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR},
+      #{sponsorType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{amount,jdbcType=INTEGER}, #{paymentMethod,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{fee,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createTime},
+      #{expire}, #{orderNo,jdbcType=VARCHAR}, #{requestInfo,jdbcType=VARCHAR},
+      #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{responseInfo,jdbcType=VARCHAR}, #{payTime}, #{payOrderNo,jdbcType=VARCHAR},
+      #{updateTime})
+  </insert>
+  <update id="updateById" parameterType="MemberSponsorLog" >
+    update member_sponsor_log
+    set
+    <if test=" memberId!=null">
+      member_id = #{memberId,jdbcType=INTEGER},
+    </if>
+    <if test=" account!=null">
+      account = #{account,jdbcType=VARCHAR},
+    </if>
+    <if test=" sponsorType!=null">
+      sponsor_type = #{sponsorType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" amount!=null">
+      amount = #{amount,jdbcType=INTEGER},
+    </if>
+    <if test=" paymentMethod!=null">
+      payment_method = #{paymentMethod,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" fee!=null">
+      fee = #{fee,jdbcType=INTEGER},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test=" expire!=null">
+      expire = #{expire},
+    </if>
+    <if test=" orderNo!=null">
+      order_no = #{orderNo,jdbcType=VARCHAR},
+    </if>
+    <if test=" requestInfo!=null">
+      request_info = #{requestInfo,jdbcType=VARCHAR},
+    </if>
+    <if test=" status!=null">
+      status = #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" responseInfo!=null">
+      response_info = #{responseInfo,jdbcType=VARCHAR},
+    </if>
+    <if test=" payTime!=null">
+      pay_time = #{payTime},
+    </if>
+    <if test=" payOrderNo!=null ">
+      pay_order_no = #{payOrderNo,jdbcType=VARCHAR},
+    </if>
+    <if test=" updateTime">
+      update_time = #{updateTime}
+    </if>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <update id="updateAfterCharge" parameterType="MemberSponsorLog">
+    update member_sponsor_log
+    set
+    <if test=" account!=null">
+      account = #{account,jdbcType=VARCHAR},
+    </if>
+    <if test=" sponsorType!=null">
+      sponsor_type = #{sponsorType},
+    </if>
+    <if test=" amount!=null">
+      amount = #{amount},
+    </if>
+    <if test=" paymentMethod!=null">
+      payment_method = #{paymentMethod},
+    </if>
+    <if test=" fee!=null">
+      fee = #{fee,jdbcType=INTEGER},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark},
+    </if>
+    <if test=" expire!=null">
+      expire = #{expire},
+    </if>
+    <if test=" orderNo!=null">
+      order_no = #{orderNo},
+    </if>
+    <if test=" requestInfo!=null">
+      request_info = #{requestInfo},
+    </if>
+    <if test=" status!=null">
+      status = #{status},
+    </if>
+    <if test=" responseInfo!=null">
+      response_info = #{responseInfo},
+    </if>
+    <if test=" payTime!=null">
+      pay_time = #{payTime},
+    </if>
+    <if test=" payOrderNo!=null ">
+      pay_order_no = #{payOrderNo},
+    </if>
+    <if test=" updateTime">
+      update_time = #{updateTime}
+    </if>
+    where id = #{id} and member_id = #{memberId} and status = 0
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from member_sponsor_log
+    where id = #{id}
+  </select>
+
+  <select id="queryByChargeNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="BaseColumn"/>
+    from member_sponsor_log
+    where order_no = #{chargeNo}
+  </select>
+  
+  <sql id="option">
+  	<where>
+  		<if test="memberId != null">and member_id = #{memberId}</if>
+  		<if test="account != null">and account = #{account}</if>
+  		<if test="sponsorType != null">and sponsor_type = #{sponsorType}</if>
+  		<if test="paymentMethod != null">and payment_method = #{paymentMethod}</if>
+  		<if test="orderNo != null">and order_no = #{orderNo}</if>
+  		<if test="status != null">and status = #{status}</if>
+  		<if test="payOrderNo != null">and pay_order_no = #{payOrderNo}</if>
+  		<if test="startTime !=null">
+	      <![CDATA[and pay_time >= #{startTime}]]>
+	    </if>
+	    <if test="endTime !=null">
+	      <![CDATA[
+	      and pay_time <= #{endTime}
+	      ]]>
+	    </if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(*) from member_sponsor_log
+  	<include refid="option"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="BaseColumn"/>
+    from member_sponsor_log
+    <include refid="option"/>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+	limit ${startIndex}, ${pageSize}
+  </select>
+</mapper>

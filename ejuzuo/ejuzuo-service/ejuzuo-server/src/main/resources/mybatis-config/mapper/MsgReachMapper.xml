@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MsgReachMapper">
+  <resultMap id="BaseResultMap" type="MsgReach">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="msg_id" jdbcType="INTEGER" property="msgId" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="read" jdbcType="TINYINT" property="read" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, msg_id, member_id, `read`, read_time
+  </sql>
+  <select id="queryCount" resultType="java.lang.Integer">
+  	select count(*)
+  	from msg_reach <include refid="sqlOfPage"/>
+  </select>
+  <select id="queryByMsgIds" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" />
+    from msg_reach
+    <where>
+    	<if test="memberId != null">and member_id = #{memberId}</if>
+    	<if test="msgIdList != null">
+    		and msg_id in <foreach collection="msgIdList" item="msgId" open="(" close=")" separator=",">#{msgId}</foreach>
+    	</if>
+    </where>
+  </select>
+  <sql id="sqlOfPage">
+	<where>
+		<if test="memberId != null">and member_id = #{memberId}</if>
+	</where>
+  </sql>
+  <insert id="insert" parameterType="MsgReach">
+    insert into msg_reach
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        msg_id,
+      </if>
+     <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
+      <if test="read != null">
+        `read`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        #{msgId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="read != null">
+        #{read,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

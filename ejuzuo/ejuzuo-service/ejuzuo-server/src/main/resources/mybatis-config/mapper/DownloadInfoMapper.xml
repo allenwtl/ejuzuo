@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DownloadInfoMapper" >
+  <resultMap id="BaseResultMap" type="DownloadInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="point_price" property="pointPrice" jdbcType="DECIMAL" />
+    <result column="actual_price" property="actualPrice" jdbcType="DECIMAL" />
+    <result column="file_id" property="fileId" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="pay_time" property="payTime" />
+    <result column="expire" property="expire"  />
+    <result column="create_time" property="createTime"  />
+    <result column="update_time" property="updateTime"  />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, goods_id, point_price, actual_price, file_id, remark, status, pay_status, pay_time, expire, create_time, update_time
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from download_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="DownloadInfo" keyProperty="id" useGeneratedKeys="true">
+    insert into download_info (member_id, goods_id,
+      point_price, actual_price, file_id, remark,
+      status, pay_status, pay_time, expire, create_time,
+      update_time)
+    values (#{memberId}, #{goodsId},
+      #{pointPrice},#{actualPrice}, #{fileId}, #{remark,jdbcType=VARCHAR},
+      #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{payStatus,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{payTime}, #{expire}, #{createTime}, #{updateTime})
+  </insert>
+  <update id="updateById" parameterType="DownloadInfo" >
+    update download_info
+    set
+    <if test="memberId!=null">
+      member_id = #{memberId},
+    </if>
+    <if test="goodsId!=null">
+      goods_id = #{goodsId},
+    </if>
+    <if test="pointPrice!=null">
+      point_price = #{pointPrice},
+    </if>
+    <if test="actualPrice!=null">
+      actual_price =#{actualPrice},
+    </if>
+    <if test="fileId!=null">
+      file_id = #{fileId},
+    </if>
+    <if test="remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test="status!=null">
+      status = #{status,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test="payStatus!=null">
+      pay_status = #{payStatus,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test="payTime!=null">
+      pay_time = #{payTime},
+    </if>
+    <if test="expire!=null">
+      expire = #{expire},
+    </if>
+    <if test="updateTime!=null">
+      update_time = #{updateTime}
+    </if>
+    where id = #{id} and member_id = #{memberId}
+  </update>
+
+  <sql id="queryOption">
+    <where>
+      <if test=" memberId != null ">
+        and member_id = #{memberId}
+      </if>
+      <if test=" id !=null ">
+        and id = #{id}
+      </if>
+      <if test=" fileId !=null ">
+        and file_id = #{fileId}
+      </if>
+      <if test=" goodsId != null ">
+        and goods_id = #{goodsId}
+      </if>
+      <if test=" status !=null ">
+        and status =#{status}
+      </if>
+      <if test=" payStatus !=null ">
+        and pay_status = #{payStatus}
+      </if>
+      <if test=" nowTime!=null">
+        <![CDATA[ and expire > #{nowTime}]]>
+      </if>
+      <if test=" payBeginTime!=null">
+        <![CDATA[ and pay_time > #{payBeginTime}]]>
+      </if>
+      <if test=" payEndTime!=null">
+        <![CDATA[ and pay_time < #{payEndTime}]]>
+      </if>      
+    </where>
+  </sql>
+
+  <select id="queryPage" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="BaseColumn"/>
+    from download_info
+    <include refid="queryOption"/>
+    order by expire ASC
+    limit #{startIndex},#{pageSize}
+  </select>
+
+  <select id="queryPageCount" resultType="int" parameterType="map">
+    select count(1)
+    from download_info
+    <include refid="queryOption"/>
+  </select>
+
+  <select id="selectByOption" resultMap="BaseResultMap" parameterType="map" >
+    select <include refid="BaseColumn"/>
+    from download_info
+    <include refid="queryOption"/>
+  </select>
+
+</mapper>

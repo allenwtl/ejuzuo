@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DigitalFurnitureMapper" >
+  <resultMap id="BaseResultMap" type="DigitalFurniture" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" />
+    <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+    <result column="space_category" property="spaceCategory" jdbcType="VARCHAR" />
+    <result column="space_small_category" property="spaceSmallCategory" jdbcType="VARCHAR" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="ref_price" property="refPrice"/>
+    <result column="pictures" property="pictures" jdbcType="VARCHAR" />
+    <result column="specification" property="specification" jdbcType="VARCHAR" />
+    <result column="corporation" property="corporation" jdbcType="VARCHAR" />
+    <result column="file_id" property="fileId" jdbcType="INTEGER" />
+    <result column="point_price" property="pointPrice" jdbcType="INTEGER" />
+    <result column="shelf_status" property="shelfStatus" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="shelf_time" property="shelfTime"/>
+    <result column="status" property="status" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="view_count" property="viewCount" jdbcType="INTEGER" />
+    <result column="down_count" property="downCount" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+
+  <resultMap id="spaceCategory" type="java.lang.String">
+    <result column="space_category" property="spaceCategory" javaType="java.lang.String"></result>
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, name, type, thumbnail, space_category, space_small_category, style, brand, ref_price, pictures, 
+    specification, corporation, file_id, point_price, shelf_status, shelf_time, status, view_count, 
+    down_count, creator, create_time, update_time
+  </sql>
+  
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from digital_furniture
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="DigitalFurniture" keyProperty="id" useGeneratedKeys="true">
+    insert into digital_furniture
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type !=null">
+        type,
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail,
+      </if>
+      <if test="spaceCategory != null" >
+        space_category,
+      </if>
+      <if test="spaceSmallCategory != null" >
+        space_small_category,
+      </if>
+      <if test="style != null" >
+        style,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="refPrice != null" >
+        ref_price,
+      </if>
+      <if test="pictures != null" >
+        pictures,
+      </if>
+      <if test="specification != null" >
+        specification,
+      </if>
+      <if test="corporation != null" >
+        corporation,
+      </if>
+      <if test="fileId != null" >
+        file_id,
+      </if>
+      <if test="pointPrice != null" >
+        point_price,
+      </if>
+      <if test="shelfStatus != null" >
+        shelf_status,
+      </if>
+      <if test="shelfTime != null" >
+        shelf_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="viewCount != null" >
+        view_count,
+      </if>
+      <if test="downCount != null" >
+        down_count,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type !=null">
+        #{type},
+      </if>
+      <if test="thumbnail != null" >
+        #{thumbnail},
+      </if>
+      <if test="spaceCategory != null" >
+        #{spaceCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="spaceSmallCategory != null" >
+        #{spaceSmallCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null" >
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=TINYINT},
+      </if>
+      <if test="refPrice != null" >
+        #{refPrice},
+      </if>
+      <if test="pictures != null" >
+        #{pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="corporation != null" >
+        #{corporation,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null" >
+        #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="pointPrice != null" >
+        #{pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="shelfStatus != null" >
+        #{shelfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="shelfTime != null" >
+        #{shelfTime,jdbcType=TIMESTAMP},
+      </if>      
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="viewCount != null" >
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="downCount != null" >
+        #{downCount,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="DigitalFurniture" >
+    update digital_furniture
+    <set>
+    <if test="name != null">
+      name = #{name},
+    </if>
+    <if test="thumbnail != null">
+      thumbnail = #{thumbnail},
+    </if>
+    <if test=" spaceCategory!=null">
+      space_category = #{spaceCategory,jdbcType=VARCHAR},
+    </if>
+    <if test=" spaceSmallCategory!=null">
+      space_small_category = #{spaceSmallCategory,jdbcType=VARCHAR},
+    </if>
+    <if test=" style!=null">
+      style = #{style,jdbcType=VARCHAR},
+    </if>
+    <if test=" brand!=null">
+      brand = #{brand,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" refPrice!=null">
+      ref_price = #{refPrice,jdbcType=DECIMAL},
+    </if>
+    <if test=" pictures!=null">
+      pictures = #{pictures,jdbcType=VARCHAR},
+    </if>
+    <if test=" specification!=null">
+      specification = #{specification,jdbcType=VARCHAR},
+    </if>
+    <if test=" corporation!=null">
+      corporation = #{corporation,jdbcType=VARCHAR},
+    </if>
+    <if test=" fileId!=null">
+      file_id = #{fileId,jdbcType=INTEGER},
+    </if>
+    <if test=" pointPrice!=null">
+      point_price = #{pointPrice,jdbcType=INTEGER},
+    </if>
+    <if test=" shelfStatus!=null">
+      shelf_status = #{shelfStatus,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test="shelfTime != null" >
+      shelf_time = #{shelfTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test=" status!=null">
+      status = #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" viewCount!=null">
+      view_count = #{viewCount,jdbcType=INTEGER},
+    </if>
+    <if test=" downCount!=null">
+      down_count = #{downCount,jdbcType=INTEGER},
+    </if>
+    <if test=" creator!=null">
+      creator = #{creator,jdbcType=VARCHAR},
+    </if>
+    <if test="updateTime != null" >
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatus" parameterType="map" >
+    update digital_furniture
+    <set>
+    <if test="shelfStatus != null">
+      shelf_status = #{shelfStatus},
+    </if>
+    <if test="shelfTime != null" >
+      shelf_time = #{shelfTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="status != null">
+      status = #{status},
+    </if>
+    update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+  </set>
+  </update>
+
+
+  <update id="updateDownload" parameterType="map">
+    update digital_furniture set down_count = down_count +1, update_time = #{updateTime} where id = #{id}
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="map" >
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByIds" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    where
+    id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+    and status = 1
+    and shelf_status = 1
+  </select>
+
+  <select id="queryList" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    <where>
+      <if test="type != null">and type = #{type}</if>
+    </where>
+  </select>
+
+
+  <sql id="option">
+  	<where>
+  		<if test="id != null">and id = #{id}</if>
+  		<if test="type != null">and type = #{type}</if>
+  		<if test="name != null">and name like CONCAT('%',#{name},'%')</if>
+  		<if test="spaceCategory != null">and space_category = #{spaceCategory}</if>
+  		<if test="spaceSmallCategory != null">and FIND_IN_SET(#{spaceSmallCategory},space_small_category)</if>
+  		<if test="style != null">and style = #{style}</if>
+  		<if test="brand != null">and brand = #{brand}</if>
+  		<if test="shelfStatus != null">and shelf_status = #{shelfStatus}</if>
+  		<if test="status != null">and status = #{status}</if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(1) from digital_furniture
+  	<include refid="option"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+  	from digital_furniture 
+  	<include refid="option"/>
+  	<choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+
+
+  <sql id="queryPageUnionOption">
+
+    <if test="id != null">and df.id = #{id}</if>
+    <if test="spaceCategory != null">and df.space_category = #{spaceCategory}</if>
+    <if test="spaceSmallCategory != null">and FIND_IN_SET(#{spaceSmallCategory},df.space_small_category)</if>
+    <if test="style != null">and df.style = #{style}</if>
+    <if test="brand != null">and df.brand = #{brand}</if>
+    <if test="shelfStatus != null">and df.shelf_status = #{shelfStatus}</if>
+    <if test="status != null">and df.status = #{status}</if>
+    <if test="type !=null">
+      and df.type = #{type}
+    </if>
+  </sql>
+
+  <select id="queryPageUnionBrand" parameterType="map" resultMap="BaseResultMap" >
+    select df.*
+    from digital_furniture df, brand b
+    <where>
+      df.brand = b.id
+      <include refid="queryPageUnionOption"/>
+    </where>
+    order by b.preferred DESC ,update_time ASC
+    limit #{startIndex}, #{pageSize}
+  </select>
+
+  <select id="countPageUnionBrand" parameterType="map" resultType="int" >
+    select count(1)
+    from digital_furniture df, brand b
+    <where>
+      df.brand = b.id
+      <include refid="queryPageUnionOption"/>
+    </where>
+  </select>
+
+  <select id="selectLatestListByBrand" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    <where>
+    	<if test="brandId != null"> and brand = #{brandId}</if>
+    	<if test="digitalId != null"> and id != #{digitalId}</if>
+    	<if test="spaceCategory != null"> and space_category = #{spaceCategory}</if>
+    	<if test="style != null"> and style = #{style}</if>
+    	<if test="type != null"> and type = #{type}</if>
+    	and shelf_status = 1
+    	and status = 1
+    </where>
+    order by shelf_time desc limit 0,#{size}
+  </select>
+
+  <select id="selectLatestListWithoutBrand" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    <where>
+    	<if test="brandId != null"> and brand != #{brandId}</if>
+    	<if test="spaceCategory != null"> and space_category = #{spaceCategory}</if>
+    	<if test="style != null"> and style = #{style}</if>
+    	<if test="type != null"> and type = #{type}</if>
+    	and shelf_status = 1
+    	and status = 1
+    </where>
+    order by shelf_time desc limit 0,#{size}
+  </select>
+
+  <select id="queryByIds" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from digital_furniture
+    where id in <foreach collection="goodsIds" open="(" close=")" separator="," item="goodsId">#{goodsId}</foreach>
+  </select>
+
+  <select id="queryLastTime" resultMap="BaseResultMap" parameterType="map">
+    select df.* from digital_furniture df
+    <where>
+      <if test="spaceCategory != null">df.space_category = #{spaceCategory}</if>
+      <if test="shelfStatus != null">and df.shelf_status = #{shelfStatus}</if>
+      <if test="status != null">and df.status = #{status}</if>
+      <if test="type !=null">
+        and df.type = #{type}
+      </if>
+    </where>
+    order by df.shelf_time  desc limit 0,4
+  </select>
+
+  <select id="queryPayBrand" resultMap="BaseResultMap" parameterType="map" >
+    select df.* from digital_furniture df inner join brand b on df.brand = b.id
+    <where>
+      <if test="spaceCategory != null"> df.space_category = #{spaceCategory}</if>
+      <if test="shelfStatus != null">and df.shelf_status = #{shelfStatus}</if>
+      <if test="status != null">and df.status = #{status}</if>
+      <if test="type !=null">
+        and df.type = #{type}
+      </if>
+      and b.preferred =1
+    </where>
+    order by df.shelf_time desc limit 0,1
+  </select>
+
+  <select id="queryByBrand" resultMap="spaceCategory" parameterType="map">
+    select space_category from digital_furniture where brand = #{brand} GROUP BY space_category
+  </select>
+
+</mapper>

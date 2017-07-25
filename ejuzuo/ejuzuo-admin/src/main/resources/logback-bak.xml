@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- **************************** access(User Request) log*****************************  -->
+	<appender name="request" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/request/request.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/request/request-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="request"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="request"/>
+	</logger>
+	
+	<!-- ****************************bet params log*****************************  -->
+	<appender name="bet" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/bet/bet.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/bet/bet-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="bet"  additivity="false">
+		<appender-ref ref="bet"/>
+	</logger>
+	
+	<!-- ************* member log **************  -->
+	<appender name="member" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/member/member.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/member/member-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="member"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="member"/>
+	</logger>
+	
+	<!-- ****************************the user center query space log*****************************  -->
+	<appender name="query" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/query/query.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/query/query-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="query"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="query"/>
+	</logger>
+	
+	<!-- ****************************user charge log*****************************  -->
+	<appender name="charge" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/charge/charge.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/charge/charge-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="charge"  additivity="false">
+		<level value="info" />
+		<appender-ref ref="charge"/>
+	</logger>
+	
+	<!-- ****************************客户端统一的活动记录日志*****************************  -->
+	<appender name="activity" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/activity/activity.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/activity/activity-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="activity"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="activity"/>
+	</logger>
+	
+	<!-- **************************** support module log*****************************  -->
+	<appender name="support" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/support/support.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/support/support-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="support"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="support"/>
+	</logger>
+	
+	
+	<!-- **************************** 足球即时比分日志*****************************  -->
+	<appender name="instant" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/instant/football/football.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/instant/football/football-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="instant"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="instant"/>
+	</logger>
+	
+	<!-- **************************** 篮球球即时比分日志*****************************  -->
+	<appender name="basketball" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/instant/basketball/basketball.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/instant/basketball/basketball-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="basketball"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="basketball"/>
+	</logger>
+	
+	<!-- **************************** 比分辅助接口日志*****************************  -->
+	<appender name="scoreOperate" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/instant/scoreOperate/scoreOperate.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/instant/scoreOperate/scoreOperate-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="scoreOperate"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="scoreOperate"/>
+	</logger>
+	
+	
+	<!-- **************************** The message notify module's log **************  -->
+	<appender name="push" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/push/push.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/push/push-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="push"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="push"/>
+	</logger>
+	
+	<!-- ************* transfer log **************  -->
+	<appender name="transfer" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/logs/transfer/transfer.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/logs/transfer/transfer-%d{MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+	      <Pattern>%date{MM-dd HH:mm:ss.SSS} %thread %-5level %logger{35} - %msg%n</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="transfer"  additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="transfer"/>
+	</logger>
+
+	<logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+
+	<logger name="net.rubyeye.xmemcached">
+        <level value="WARN"/>
+    </logger>	
+
+	<logger name="com.alibaba.dubbo">
+        <level value="WARN"/>
+    </logger>
+
+	<logger name="com.google.code">
+        <level value="ERROR"/>
+    </logger>
+
+	<logger name="org.apache.zookeeper">
+        <level value="INFO"/>
+    </logger>
+	
+	<!-- logback.xml PROFILER用于打内部执行时间的 -->
+	  <appender name="PROFILER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	       <file>${catalina.home}/logs/profiler.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${catalina.home}/logs/profiler.%d{yyyy-MM-dd}</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%-16(%d{MM-dd HH:mm:ss.SSS}) %-5thread %-5level %logger{1} - %msg%n</pattern>
+			</encoder>
+	 </appender>
+	 <appender name="PROFILER-callMarkLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	     <Append>true</Append>
+	     <File>${catalina.home}/logs/profiler-callMark.log</File>
+	     <MaxFileSize>500KB</MaxFileSize>
+	     <MaxBackupIndex>50</MaxBackupIndex>
+	     <encoder>
+	       <pattern>%m%n</pattern>
+	       </encoder>
+	 </appender>
+
+	<!-- aicai-profiler使用 -->
+	<logger name="com.aicai.profiler.core.LogManagerImpl" level="INFO" additivity="false">
+   		<appender-ref ref="PROFILER"/>
+ 	</logger>
+ 	<!-- aicai-profiler-callMark使用 -->
+ 	<logger name="profiler.callMark.log" level="INFO" additivity="false">
+ 	
+  		<appender-ref ref="PROFILER-callMarkLog"/>
+ 	</logger>
+ 	
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="stdout" />
+	</root>
+
+    <logger name="com.alibaba.dubbo" level="WARN">
+    </logger>
+    <logger name="org.apache.zookeeper" level="WARN">
+    </logger>
+</configuration>

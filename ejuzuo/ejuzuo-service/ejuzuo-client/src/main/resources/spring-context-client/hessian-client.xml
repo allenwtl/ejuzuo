@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="memberService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberService"/>
+    </bean>
+    <bean id="checkCodeRecordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/checkCodeRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CheckCodeRecordService"/>
+    </bean>
+	<bean id="adminUserService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adminUserService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="adminUserOperLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adminUserOperLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserOperLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="adminUserLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adminUserLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="adminRoleService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adminRoleService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminRoleService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="adminRolePermService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adminRolePermService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminRolePermService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="newsInfoService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/newsInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.NewsInfoService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="contentInfoService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/contentInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ContentInfoService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="activityInfoService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/activityInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ActivityInfoService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="activityEnrollService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/activityEnrollService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ActivityEnrollService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="downloadInfoService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/downloadInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DownloadInfoService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="fileInfoService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/fileInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.FileInfoService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="designerService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/designerService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DesignerService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="designerWorkService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/designerWorkService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DesignerWorkService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="codeValueService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/codeValueService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CodeValueService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="smsRecordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/smsRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.SmsRecordService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="areaService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/areaService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AreaService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="brandService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/brandService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.BrandService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberFavoriteService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberFavoriteService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberFavoriteService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberPointLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberPointLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberPointLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberPointService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberPointService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberPointService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberVipService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberVipService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberVipService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberVipLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberVipLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberVipLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberOperLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberOperLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberOperLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="shoppingCarService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/shoppingCarService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ShoppingCarService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="digitalFurnitureService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/digitalFurnitureService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DigitalFurnitureService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="commentService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/commentService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CommentService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberCareService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberCareService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberCareService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="msgRecordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/msgRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MsgRecordService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="elasticSearchService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/elasticSearchService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ElasticSearchService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="promoRecordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/promoRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.PromoRecordService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="adSpaceService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/adSpaceService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdSpaceService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberSponsorLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberSponsorLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberSponsorLogService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="memberThirdLoginService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/memberThirdLoginService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberThirdLoginService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+    <bean id="indexService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${hessian_client_url}/indexService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.IndexService"/>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+</beans>

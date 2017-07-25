@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberPointMapper" >
+  <resultMap id="BaseResultMap" type="MemberPoint" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="balance" property="balance" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime"  />
+    <result column="update_time" property="updateTime"  />
+    
+    <!--  -->
+    <result column="nick_name" property="nickName"  />
+    <result column="account" property="account"  />
+  </resultMap>
+  
+  <sql id="BaseColumn">
+    id, member_id, balance, remark, create_time, update_time
+  </sql>
+    
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from member_point
+    where id = #{id}
+  </delete>
+  <insert id="save" parameterType="MemberPoint" keyProperty="id" useGeneratedKeys="true" >
+    insert into member_point (member_id, balance, 
+      remark, create_time, update_time
+      )
+    values (#{memberId}, #{balance}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime}, #{updateTime}
+      )
+  </insert>
+  <update id="updateById" parameterType="MemberPoint" >
+    update member_point
+    set 
+    <if test=" memberId!=null ">
+      member_id = #{memberId},
+    </if>
+    <if test=" balance!=null">
+      balance = #{balance},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test=" updateTime!=null">
+      update_time = #{updateTime}
+    </if>
+    where id = #{id} and member_id =#{memberId}
+  </update>
+  <update id="updateBalance" parameterType="map">
+  	update member_point
+  	set balance = balance + #{change},
+  	update_time = #{updateTime}
+  	where id = #{id}
+  	<if test="memberId != null">
+  	and member_id = #{memberId}
+  	</if>
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from member_point
+    where id = #{id}
+  </select>
+
+  <select id="queryByMemberId" resultMap="BaseResultMap" parameterType="int">
+    select <include refid="BaseColumn"/>
+    from member_point
+    where member_id = #{memberId}
+  </select>
+  
+  <sql id="option">
+  	<where>
+  	  <if test="id != null">and c.id = #{id}</if>
+  	  <if test="memberId != null">and c.member_id = #{memberId}</if>
+  	  <if test="startTime != null"><![CDATA[and c.create_time >= #{startTime}]]></if>
+  	  <if test="endTime != null"><![CDATA[and c.create_time <= #{endTime}]]></if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer" >
+  	select count(*)
+  	from member_point c
+  	<include refid="option"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select c.id, c.member_id, c.balance, c.remark, c.create_time, c.update_time,ct.nick_name,ct.account
+    from member_point c LEFT JOIN member ct ON c.member_id = ct.id
+    <include refid="option"/>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+</mapper>

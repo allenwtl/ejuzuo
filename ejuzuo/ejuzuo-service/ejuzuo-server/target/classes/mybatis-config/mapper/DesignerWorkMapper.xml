@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DesignerWorkMapper">
+  <resultMap id="BaseResultMap" type="DesignerWork">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="cover_img" jdbcType="VARCHAR" property="coverImg" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="upload_time"  property="uploadTime" />
+    <result column="edit_status" jdbcType="TINYINT" property="editStatus" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="status" jdbcType="TINYINT" property="status" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="create_time"  property="createTime" />
+    <result column="update_time"  property="updateTime" />
+  </resultMap>
+  
+  <sql id="BaseColumn">
+    id, member_id, name, cover_img, style, brief, content, view_count, upload_time, 
+    edit_status, status, create_time, update_time
+  </sql>
+  <delete id="deleteById" parameterType="map">
+    delete from designer_work
+    where id = #{id}
+    <if test="memberId !=null">
+      and member_id = #{memberId}
+    </if>
+  </delete>
+  <insert id="save" parameterType="DesignerWork" keyProperty="id" useGeneratedKeys="true">
+    insert into designer_work (member_id, name, 
+      cover_img, style, 
+      brief, content, view_count, 
+      upload_time, edit_status, 
+      status, 
+      create_time, update_time)
+    values ( #{memberId}, #{name,jdbcType=VARCHAR}, 
+      #{coverImg,jdbcType=VARCHAR}, #{style},
+      #{brief,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{viewCount}, 
+      #{uploadTime}, #{editStatus,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{createTime}, #{updateTime})
+  </insert>
+  <update id="updateById" parameterType="DesignerWork">
+    update designer_work
+    <set>
+      <if test="name!=null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImg!=null">
+        cover_img = #{coverImg,jdbcType=VARCHAR},
+      </if>
+      <if test=" style!=null">
+        style = #{style},
+      </if>
+      <if test=" brief!=null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test=" content!=null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test=" viewCount!=null">
+        view_count = #{viewCount},
+      </if>
+      <if test=" uploadTime!=null">
+        upload_time = #{uploadTime},
+      </if>
+      <if test=" editStatus!=null ">
+        edit_status = #{editStatus},
+      </if>
+      <if test=" status!=null">
+        status = #{status},
+      </if>
+      <if test=" updateTime!=null">
+        update_time = #{updateTime}
+      </if>
+    </set>
+    where id = #{id}
+    <if test="memberId!=null">
+      and member_id = #{memberId}
+    </if>
+  </update>
+  <update id="updateStatus" parameterType="map">
+  	update designer_work
+  	set status = #{status},
+  	update_time = now()
+  	where id = #{id}
+  </update>
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer_work
+    where id = #{id}
+    <if test=" memberId !=null ">
+      and member_id =#{memberId}
+    </if>
+  </select>
+
+  <select id="selectList" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer_work
+    where
+    <if test="memberId!=null">
+      member_id = #{memberId}
+    </if>
+    <if test="editStatus!=null">
+      and edit_status= #{editStatus}
+    </if>
+    and status = 1
+  </select>
+  
+  <sql id="option">
+    <if test="id != null">
+      and id = #{id}
+    </if>
+    <if test="memberId!=null">
+      and member_id = #{memberId}
+    </if>
+    <if test="name != null">
+      and name like #{name}
+    </if>
+    <if test="editStatus != null">
+      and edit_status = #{editStatus}
+    </if>
+    <if test="status != null">
+      and status = #{status}
+    </if>
+    <if test="beginUploadTime !=null">
+      <![CDATA[ and upload_time >=#{beginUploadTime} ]]>
+    </if>
+    <if test="endTime !=null">
+      <![CDATA[ and upload_time < #{endUploadTime} ]]>
+    </if>
+  </sql>
+  
+  <select id="selectByPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer_work
+    <where>
+      <include refid="option"/>
+    </where>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+    limit ${startIndex}, ${pageSize}
+  </select>
+
+  <select id="countByPage" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from designer_work
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+  <select id="countWork" parameterType="map" resultType="int">
+    select count(*)
+    from designer_work
+    <where>
+      member_id = #{memberId}
+      <if test=" editStatus !=null">
+        and edit_status = #{editStatus}
+      </if>
+      <if test=" status!=null">
+        and status = #{status}
+      </if>
+    </where>
+  </select>
+
+  <select id="queryUnion" parameterType="map" resultMap="BaseResultMap">
+    select dw.*
+    from designer_work dw, designer ds
+    where
+    dw.member_id = ds.member_id
+    <if test="style!=null">
+      and dw.style like "%"#{style}"%"
+    </if>
+    <if test="area!=null">
+      and ds.provice = #{area} or ds.city = #{area}
+    </if>
+    <if test="type!=null">
+      and ds.designer_type = #{type}
+    </if>
+    and dw.edit_status = 1 and dw.status = 1
+    limit #{startIndex},#{pageSize}
+  </select>
+
+  <select id="countUnion" parameterType="map" resultType="int">
+    select count(1)
+    from designer_work dw, designer ds
+    where
+    dw.member_id = ds.member_id
+    <if test="style!=null">
+      and dw.style like "%"#{style}"%"
+    </if>
+    <if test="area!=null">
+      and ds.provice = #{area} or ds.city = #{area}
+    </if>
+    <if test="type!=null">
+      and ds.designer_type = #{type}
+    </if>
+    and dw.edit_status = 1 and dw.status = 1
+  </select>
+
+  <select id="queryByDesigner" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer_work
+    where member_id = #{memberId}
+    <if test=" editStatus!=null">
+      and edit_status = #{editStatus}
+    </if>
+    <if test=" status !=null">
+      and status = #{status}
+    </if>
+    <choose>
+      <when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+      <otherwise>order by id desc</otherwise>
+    </choose>
+    limit #{startIndex},#{pageSize}
+  </select>
+
+  <select id="countByDesigner" parameterType="map" resultType="int">
+    select count(1)
+    from designer_work
+    where member_id = #{memberId}
+    <if test=" editStatus!=null">
+      and edit_status = #{editStatus}
+    </if>
+    <if test=" status !=null">
+      and status = #{status}
+    </if>
+    <choose>
+      <when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+      <otherwise>order by id desc</otherwise>
+    </choose>
+  </select>
+
+</mapper>

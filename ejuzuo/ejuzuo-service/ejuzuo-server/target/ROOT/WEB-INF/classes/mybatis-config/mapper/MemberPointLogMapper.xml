@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberPointLogMapper" >
+  <resultMap id="BaseResultMap" type="MemberPointLog" >
+    <id column="id" property="id"  />
+    <result column="member_id" property="memberId"  />
+    <result column="trans_type" property="transType" />
+    <result column="amount" property="amount"  />
+    <result column="remark" property="remark"  />
+    <result column="point_balance" property="pointBalance" />
+    <result column="related_type" property="relatedType"  />
+    <result column="related_id" property="relatedId"  />
+    <result column="creator" property="creator"  />
+    <result column="create_time" property="createTime"  />
+    <!--  -->
+    <result column="nick_name" property="nickName"  />
+    <result column="account" property="account"  />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, trans_type, amount, remark, point_balance, related_type, related_id, creator, create_time
+  </sql>
+
+  <sql id="option">
+    <if test="memberId !=null">
+      and c.member_id =#{memberId}
+    </if>
+    <if test="transType !=null">
+      and c.trans_type = #{transType}
+    </if>
+    <if test="relatedType !=null">
+      and c.related_type =#{relatedType}
+    </if>
+    <if test="relatedId !=null">
+      and c.related_id =#{relatedId}
+    </if>
+    <if test="startTime !=null">
+      <![CDATA[and c.create_time >= #{startTime}]]>
+    </if>
+    <if test="endTime !=null">
+      <![CDATA[
+      and c.create_time <= #{endTime}
+      ]]>
+    </if>
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from member_point_log
+    where id = #{id}
+  </delete>
+  <insert id="save" parameterType="MemberPointLog" keyProperty="id" useGeneratedKeys="true">
+    insert into member_point_log (member_id, trans_type, 
+      amount, remark, related_type, point_balance,
+      related_id, creator, create_time
+      )
+    values (#{memberId}, #{transType},
+      #{amount}, #{remark,jdbcType=VARCHAR}, #{relatedType}, #{pointBalance},
+      #{relatedId}, #{creator,jdbcType=VARCHAR}, #{createTime}
+      )
+  </insert>
+  <update id="updateById" parameterType="MemberPointLog" >
+    update member_point_log
+    set
+    <if test=" memberId!=null">
+      member_id = #{memberId},
+    </if>
+    <if test=" transType!=null">
+      trans_type = #{transType},
+    </if>
+    <if test=" amount!=null">
+      amount = #{amount},
+    </if>
+    <if test=" pointBalance !=null">
+      point_balance = #{pointBalance},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test=" relatedType!=null">
+      related_type = #{relatedType},
+    </if>
+    <if test=" relatedId!=null">
+      related_id = #{relatedId},
+    </if>
+    <if test="creator!=null">
+      creator = #{creator,jdbcType=VARCHAR}
+    </if>
+    where id = #{id}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from member_point_log
+    where id = #{id}
+  </select>
+
+  <select id="queryList" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="BaseColumn"/>
+    from member_point_log c
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+  <select id="queryPage" resultMap="BaseResultMap" parameterType="map">
+    select c.id, c.member_id, c.trans_type, c.amount, c.remark, c.related_type, c.point_balance, c.related_id, c.creator, c.create_time, ct.nick_name, ct.account
+    from member_point_log c LEFT JOIN member ct ON c.member_id = ct.id
+    <where>
+      <include refid="option"/>
+    </where>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+
+  <select id="queryPageCount" resultType="java.lang.Integer" parameterType="map">
+    select count(1)
+    from member_point_log c
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+</mapper>

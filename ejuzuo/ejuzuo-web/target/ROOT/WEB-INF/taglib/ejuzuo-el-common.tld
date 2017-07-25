@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd" version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>el</short-name>
+
+    <!-- 将对象format成json字符串 -->
+    <function>
+        <name>getJSONValue</name>
+
+        <function-class>com.ejuzuo.web.util.ElFunctions</function-class>
+        <function-signature>java.lang.String getJSONValue(java.lang.String,java.lang.String)</function-signature>
+
+        <description>从json中取到值</description>
+        <example>${el:getJSONValue(json,value)}</example>
+    </function>
+
+    <function>
+        <name>toJSONObject</name>
+        <function-class>com.ejuzuo.web.util.ElFunctions</function-class>
+        <function-signature>com.alibaba.fastjson.JSONObject toJSONObject(java.lang.String)</function-signature>
+        <description>将json字符串改编为json对象</description>
+        <example>${el:getJSONValue(value)}</example>
+    </function>
+
+    <function>
+        <name>toKeySet</name>
+        <function-class>com.ejuzuo.web.util.ElFunctions</function-class>
+        <function-signature>java.util.Set toKeySet(java.lang.String)</function-signature>
+        <description>从json中取到keySet</description>
+        <example>${el:toKeySet(value)}</example>
+    </function>
+
+    <function>
+        <name>getJSONArray</name>
+        <function-class>com.ejuzuo.web.util.ElFunctions</function-class>
+        <function-signature>com.alibaba.fastjson.JSONArray getJSONArray(java.lang.String)</function-signature>
+        <description>将jsonArray字符串转变为jsonArray对象</description>
+        <example>${el:getJSONArray(value)}</example>
+    </function>
+
+</taglib>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberThirdLoginMapper" >
+  <resultMap id="BaseResultMap" type="MemberThirdLogin" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="third_type" property="thirdType" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="third_id" property="thirdId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime"  />
+    <result column="update_time" property="updateTime"  />
+    <!--  -->
+    <result column="nick_name" property="nickName"  />
+    <result column="account" property="account"  />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, third_type, third_id, create_time, update_time
+  </sql>
+
+  <insert id="save" parameterType="MemberThirdLogin" keyProperty="id" useGeneratedKeys="true">
+    insert into member_third_login ( member_id, third_type, third_id, create_time, update_time )
+    values ( #{memberId}, #{thirdType}, #{thirdId}, #{createTime},#{updateTime} )
+  </insert>
+  
+  <sql id="option">
+  	<where>
+  		<if test="memberId != null">and c.member_id = #{memberId}</if>
+  		<if test="thirdType != null">and c.third_type = #{thirdType}</if>
+  		<if test="thirdId != null">and c.third_id = #{thirdId}</if>
+  		<if test="beginDate != null"><![CDATA[and c.create_time >= #{beginDate}]]></if>
+  		<if test="endDate != null"><![CDATA[and c.create_time <= #{endDate}]]></if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(*) from member_third_login c
+  	<include refid="option"/>
+  </select>
+  
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select c.id, c.member_id, c.third_type, c.third_id, c.create_time, c.update_time, ct.nick_name, ct.account
+  	from member_third_login c LEFT JOIN member ct ON c.member_id = ct.id
+  	<include refid="option"/>
+  	<choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+
+  <select id="queryList" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/> from member_third_login
+    <where>
+      <if test="thirdType !=null">
+        third_type = #{thirdType}
+      </if>
+      <if test="thirdId !=null">
+        and third_id = #{thirdId}
+      </if>
+      <if test="memberId !=null">
+        and member_id = #{memberId}
+      </if>
+    </where>
+  </select>
+
+</mapper>

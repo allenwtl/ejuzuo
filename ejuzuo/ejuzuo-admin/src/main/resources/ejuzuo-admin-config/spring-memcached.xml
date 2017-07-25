@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <description>Memcache 配置, 应用项目需import该配置</description>
+
+	<!-- 定制的客户端配置可以参考example目录下的 -->
+	<bean name="ejuzuoAdminXmemFactoryBean" class="com.aicai.memcachedclient.XMemcachedFactoryBean" init-method="init" destroy-method="destroy">
+		<property name="servers">
+			<value>${ejuzuo.admin.memcached.server.list}</value>
+		</property>
+        <property name="timeout" value="5000"></property>
+        <property name="sessionLocator">
+            <bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>
+        </property>
+        <property name="transcoder">
+            <bean class="com.aicai.memcachedclient.serializer.DefaultTranscoder"></bean>
+        </property>
+        <property name="bufferAllocator">
+            <bean class="net.rubyeye.xmemcached.buffer.SimpleBufferAllocator"></bean>
+        </property>
+	</bean>
+
+	<bean name="ejuzuoAdminMemcachedClient" factory-bean="ejuzuoAdminXmemFactoryBean" factory-method="getClient" />
+</beans>

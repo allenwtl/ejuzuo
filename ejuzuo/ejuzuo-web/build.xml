@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="main" basedir=".">
+    <filterset id="resFilterSet" begintoken="${" endtoken="}">
+        <filtersfile file="${basedir}/src/main/resources/filter/local.properties"/>
+    </filterset>
+    <target name="main">
+<!--        <copy todir="${basedir}/target/ejuzuo-web-1.0-SNAPSHOT/WEB-INF"  filtering="true"  force="true">
+            <fileset dir="${basedir}/src/main/webapp/WEB-INF">
+            </fileset>
+        </copy>-->
+
+        <copy todir="${basedir}/target/ejuzuo-web-1.0-SNAPSHOT/WEB-INF/jsp"
+              filtering="true"  force="true" overwrite="true">
+            <fileset dir="${basedir}/src/main/webapp/WEB-INF/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <filterset refid="resFilterSet"/>
+        </copy>
+
+
+        <copy todir="${basedir}/target/ejuzuo-web-1.0-SNAPSHOT/common"  filtering="true" force="true" overwrite="true">
+            <fileset dir="${basedir}/src/main/webapp/common">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <filterset refid="resFilterSet"/>
+        </copy>
+<!--        <copy file="${basedir}/src/test.jsp" filtering="true" tofile="${basedir}/target/test.jsp" force="true">
+            <filterset refid="resFilterSet"/>
+        </copy>-->
+    </target>
+
+</project>

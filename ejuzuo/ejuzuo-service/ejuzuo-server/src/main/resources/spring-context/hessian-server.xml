@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--配置接口及其实现类-->
+
+    <bean name="/memberService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberService"></property>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberService"/>
+    </bean>
+    <bean name="/adminUserService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adminUserService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserService"/>
+    </bean>
+    <bean name="/adminUserOperLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adminUserOperLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserOperLogService"/>
+    </bean>
+    <bean name="/adminUserLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adminUserLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminUserLogService"/>
+    </bean>
+    <bean name="/adminRoleService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adminRoleService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminRoleService"/>
+    </bean>
+    <bean name="/adminRolePermService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adminRolePermService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdminRolePermService"/>
+    </bean>
+    <bean name="/checkCodeRecordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="checkCodeRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CheckCodeRecordService"/>
+    </bean>
+    <bean name="/newsInfoService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="newsInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.NewsInfoService"/>
+    </bean>
+    <bean name="/contentInfoService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="contentInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ContentInfoService"/>
+    </bean>
+    <bean name="/activityInfoService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="activityInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ActivityInfoService"/>
+    </bean>
+    <bean name="/activityEnrollService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="activityEnrollService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ActivityEnrollService"/>
+    </bean>
+    <bean name="/downloadInfoService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="downloadInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DownloadInfoService"/>
+    </bean>
+    <bean name="/fileInfoService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="fileInfoService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.FileInfoService"/>
+    </bean>
+    <bean name="/designerService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="designerService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DesignerService"/>
+    </bean>
+    <bean name="/smsRecordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="smsRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.SmsRecordService"/>
+    </bean>
+    <bean name="/codeValueService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="codeValueService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CodeValueService"/>
+    </bean>
+    <bean name="/areaService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="areaService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AreaService"/>
+    </bean>
+    <bean name="/brandService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="brandService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.BrandService"/>
+    </bean>
+    <bean name="/memberFavoriteService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberFavoriteService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberFavoriteService"/>
+    </bean>
+    <bean name="/memberPointLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberPointLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberPointLogService"/>
+    </bean>
+    <bean name="/memberPointService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberPointService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberPointService"/>
+    </bean>
+    <bean name="/memberVipService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberVipService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberVipService"/>
+    </bean>
+    <bean name="/memberVipLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberVipLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberVipLogService"/>
+    </bean>
+    <bean name="/designerWorkService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="designerWorkService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DesignerWorkService"/>
+    </bean>
+    <bean name="/memberOperLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberOperLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberOperLogService"/>
+    </bean>
+    <bean name="/shoppingCarService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="shoppingCarService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ShoppingCarService"/>
+    </bean>
+    <bean name="/digitalFurnitureService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="digitalFurnitureService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.DigitalFurnitureService"/>
+    </bean>
+    <bean name="/commentService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="commentService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.CommentService"/>
+    </bean>
+    <bean name="/memberCareService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberCareService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberCareService"/>
+    </bean>
+    <bean name="/msgRecordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="msgRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MsgRecordService"/>
+    </bean>
+    <bean name="/elasticSearchService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="elasticSearchService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.ElasticSearchService"/>
+    </bean>
+    <bean name="/promoRecordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="promoRecordService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.PromoRecordService"/>
+    </bean>
+    <bean name="/adSpaceService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="adSpaceService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.AdSpaceService"/>
+    </bean>
+    <bean name="/memberSponsorLogService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberSponsorLogService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberSponsorLogService"/>
+    </bean>
+    <bean name="/memberThirdLoginService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="memberThirdLoginService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.MemberThirdLoginService"/>
+    </bean>
+    <bean name="/indexService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="indexService"/>
+        <property name="serviceInterface" value="com.ejuzuo.common.service.IndexService"/>
+    </bean>
+
+</beans>

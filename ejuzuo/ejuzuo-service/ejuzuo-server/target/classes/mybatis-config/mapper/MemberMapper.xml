@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberMapper" >
+  <resultMap id="BaseResultMap" type="Member" >
+    <id column="id" property="id" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="profile_img" property="profileImg" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="register_time" property="registerTime" />
+    <result column="active_status" property="activeStatus" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="status" property="status" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="locked" property="locked" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="verified" property="verified" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="create_time" property="createTime"/>
+    <result column="update_time" property="updateTime"/>
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, account, password, nick_name, profile_img, mobile, email, register_time,
+    active_status, status, locked, verified, create_time, update_time
+  </sql>
+
+  <sql id="option">
+    <if test=" id!=null ">
+      id= #{id}
+    </if>
+    <if test=" account !=null">
+      and account = #{account}
+    </if>
+    <if test=" email != null">
+      and email =#{email}
+    </if>
+    <if test=" mobile !=null">
+      and mobile =#{mobile}
+    </if>
+    <if test="nickName != null">
+      and nick_name =#{nickName}
+    </if>
+    <if test="activeStatus != null">
+      and active_status =#{activeStatus}
+    </if>
+    <if test="status != null">
+      and status =#{status}
+    </if>
+    <if test="locked != null">
+      and locked =#{locked}
+    </if>
+    <if test="verified != null">
+      and verified =#{verified}
+    </if>
+    <if test="beginDate != null">
+      <![CDATA[and register_time >=#{beginDate}]]>
+    </if>
+    <if test="endDate != null">
+      <![CDATA[and register_time <=#{endDate}]]>
+    </if>
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="Member" keyProperty="id" useGeneratedKeys="true">
+    insert into member (account, password,
+      nick_name, profile_img, mobile, 
+      email, register_time, 
+      active_status, 
+      status, 
+      locked, 
+      verified, 
+      create_time, 
+      update_time
+      )
+    values (#{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{nickName,jdbcType=VARCHAR}, #{profileImg,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{registerTime},
+      #{activeStatus,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{locked,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{verified,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler}, 
+      #{createTime},
+      #{updateTime}
+      )
+  </insert>
+  <update id="updateById" parameterType="Member" >
+    update member
+    set
+    <if test=" account!=null">
+      account = #{account,jdbcType=VARCHAR},
+    </if>
+    <if test=" password!=null">
+      password = #{password,jdbcType=VARCHAR},
+    </if>
+    <if test=" nickName!=null">
+      nick_name = #{nickName,jdbcType=VARCHAR},
+    </if>
+    <if test=" profileImg!=null">
+      profile_img = #{profileImg,jdbcType=VARCHAR},
+    </if>
+    <if test=" mobile!=null">
+      mobile = #{mobile,jdbcType=VARCHAR},
+    </if>
+    <if test=" email!=null">
+      email = #{email,jdbcType=VARCHAR},
+    </if>
+    <if test=" registerTime!=null">
+      register_time = #{registerTime},
+    </if>
+    <if test=" activeStatus!=null">
+      active_status = #{activeStatus,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" status!=null">
+      status = #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" locked!=null">
+      locked = #{locked,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" verified!=null">
+      verified = #{verified,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" updateTime!=null">
+      update_time = #{updateTime}
+    </if>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="long" >
+    select <include refid="BaseColumn"/>
+    from member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByOption" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="BaseColumn"/>
+    from member
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(*) from member
+  	<where>
+  	  <include refid="option"/>
+  	</where>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="BaseColumn"/>
+    from member
+    <where>
+      <include refid="option"/>
+    </where>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+  <select id="querybyIds" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="BaseColumn"/>
+    from member
+    where id in <foreach collection="memberIds" open="(" close=")" separator="," item="memberId">#{memberId}</foreach>
+  </select>
+  <update id="update" parameterType="map" >
+  	update member
+    <set>
+    <if test=" status!=null">
+      status = #{status},
+    </if>
+    <if test=" locked!=null">
+      locked = #{locked},
+    </if>
+    update_time = now()
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

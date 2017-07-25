@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberCareMapper">
+  <resultMap id="BaseResultMap" type="MemberCare">
+    <id column="id"  property="id" />
+    <result column="member_id"  property="memberId" />
+    <result column="object_type" jdbcType="TINYINT" property="objectType" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="object_id"  property="objectId" />
+    <result column="create_time"  property="createTime" />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, object_type, object_id, create_time
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from member_care
+    where id = #{id}
+  </delete>
+  <insert id="save" parameterType="MemberCare" keyProperty="id" useGeneratedKeys="true">
+    insert into member_care (member_id, object_type,
+      object_id, create_time)
+    values (#{memberId}, #{objectType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      #{objectId}, #{createTime})
+  </insert>
+  <update id="updateById" parameterType="MemberCare">
+    update member_care
+    set
+    <if test=" memberId!=null">
+      member_id = #{memberId},
+    </if>
+    <if test=" objectType!=null">
+      object_type = #{objectType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" objectId!=null">
+      object_id = #{objectId},
+    </if>
+    where id = #{id}
+  </update>
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from member_care
+    where id = #{id}
+  </select>
+
+  <select id="countPage" parameterType="map" resultType="int">
+    select count(1)
+    from member_care
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from member_care
+    <where>
+      <include refid="option"/>
+    </where>
+    <choose>
+      <when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+      <otherwise>order by id desc</otherwise>
+    </choose>
+    limit #{startIndex},#{pageSize}
+  </select>
+
+  <select id="queryList" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from member_care
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+  <sql id="option">
+    <if test=" memberId !=null">
+      member_id = #{memberId}
+    </if>
+    <if test=" objectId !=null">
+      and object_id = #{objectId}
+    </if>
+    <if test=" objectType != null">
+      and object_type = #{objectType}
+    </if>
+  </sql>
+
+</mapper>

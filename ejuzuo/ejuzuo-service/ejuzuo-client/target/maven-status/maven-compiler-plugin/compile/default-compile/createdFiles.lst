@@ -1,0 +1,5 @@
+com\ejuzuo\client\service\IndexServiceClient.class
+com\ejuzuo\client\service\DesignerWorkServiceClient.class
+com\ejuzuo\client\service\DigitalFurnitureServiceClient.class
+com\ejuzuo\client\service\BrandServiceClient.class
+com\caucho\hessian\client\HessianConnectionFactory.class

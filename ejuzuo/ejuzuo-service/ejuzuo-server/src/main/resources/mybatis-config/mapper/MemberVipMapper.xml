@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberVipMapper" >
+  <resultMap id="BaseResultMap" type="MemberVip" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="viped" property="viped" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime"  />
+    <result column="end_time" property="endTime"  />
+    <result column="create_time" property="createTime"  />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime"  />
+    <result column="updator" property="updator" jdbcType="VARCHAR" />
+    <!--  -->
+    <result column="nick_name" property="nickName"  />
+    <result column="account" property="account"  />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, viped, remark, start_time, end_time, create_time, creator,
+    update_time, updator
+  </sql>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from member_vip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="MemberVip" useGeneratedKeys="true" keyProperty="id">
+    insert into member_vip ( member_id, viped,
+      remark, start_time, end_time, 
+      create_time, creator, update_time, 
+      updator)
+    values ( #{memberId,jdbcType=INTEGER}, #{viped,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      #{remark,jdbcType=VARCHAR}, #{startTime}, #{endTime},
+      #{createTime}, #{creator,jdbcType=VARCHAR}, #{updateTime},
+      #{updator,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateById" parameterType="MemberVip" >
+    update member_vip
+    set
+    <if test=" memberId!=null ">
+      member_id = #{memberId,jdbcType=INTEGER},
+    </if>
+    <if test=" viped!=null ">
+      viped = #{viped,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test=" startTime!=null">
+      start_time = #{startTime},
+    </if>
+    <if test=" endTime!=null">
+      end_time = #{endTime},
+    </if>
+    <if test=" createTime!=null">
+      create_time = #{createTime},
+    </if>
+    <if test=" creator!=null">
+      creator = #{creator,jdbcType=VARCHAR},
+    </if>
+    <if test=" updateTime!=null">
+      update_time = #{updateTime},
+    </if>
+    <if test=" updator!=null">
+      updator = #{updator,jdbcType=VARCHAR}
+    </if>
+    where id = #{id}
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from member_vip
+    where id = #{id}
+  </select>
+
+  <select id="selectByMemberId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from member_vip
+    where member_id = #{memberId}
+  </select>
+
+  <select id="judgeVip" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="BaseColumn"/>
+    from member_vip
+    where member_id = #{memberId}
+    and viped =1
+    <![CDATA[and start_time < #{nowTime} ]]>
+    and end_time > #{nowTime}
+  </select>
+
+
+  <sql id="option">
+  	<where>
+  		<if test="memberId != null">and c.member_id = #{memberId}</if>
+  		<if test="viped != null">and c.viped = #{viped}</if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(*) from member_vip c
+  	<include refid="option"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select c.id, c.member_id, c.viped, c.remark, c.start_time, c.end_time, c.create_time, c.creator,
+    c.update_time, c.updator, ct.nick_name, ct.account
+    from member_vip c LEFT JOIN member ct ON c.member_id = ct.id
+    <include refid="option"/>
+  	<choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+
+</mapper>

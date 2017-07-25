@@ -1,0 +1,10 @@
+
+暂无记录结构
+
+<div style="
+    min-height: 200px;
+    background: #fff;
+    text-align: center;
+    line-height: 200px;
+    font-size: 30px;
+">暂无记录</div>

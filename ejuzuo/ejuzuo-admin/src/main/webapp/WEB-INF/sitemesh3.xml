@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<mapping path="/login" exclue="true"/>
+	
+	<!-- 默认装饰器，当下面的路径都不匹配时，启用该装饰器进行装饰 -->
+	<mapping decorator="/WEB-INF/decorators/default.jsp" />
+	<mapping path="/file/ckeditor/image-viewer" exclue="true"/>
+	<!-- <mapping path="/*" decorator="/WEB-INF/decorators/decorator.jsp" /> -->
+	
+	<!-- 增加自定义标签，目前只提供了一个 footer-scripts -->
+    <content-processor>
+       <tag-rule-bundle class="com.ejuzuo.admin.support.sitemesh3.CustomTagRuleBundle" />
+    </content-processor>
+</sitemesh>

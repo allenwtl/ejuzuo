@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DesignerMapper" >
+  <resultMap id="BaseResultMap" type="Designer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="cover_img" property="coverImg" jdbcType="VARCHAR" />
+    <result column="designer_type" property="designerType" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="adept_styles" property="adeptStyles" jdbcType="VARCHAR" />
+    <result column="provice" property="provice" />
+    <result column="city" property="city"/>
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="contact_mobile" property="contactMobile" jdbcType="VARCHAR" />
+    <result column="career" property="career" />
+    <result column="reg_no" property="regNo" jdbcType="VARCHAR" />
+    <result column="correg_noporation" property="corporation" jdbcType="VARCHAR" />
+    <result column="company_size" property="companySize" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="reg_fund" property="regFund" jdbcType="INTEGER" />
+    <result column="license_img" property="licenseImg" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="class_works" property="classWorks" jdbcType="VARCHAR" />
+    <result column="design_idea" property="designIdea" jdbcType="VARCHAR" />
+    <result column="experience" property="experience" jdbcType="VARCHAR" />
+    <result column="style_intro" property="styleIntro" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="work_id" property="workId"/>
+    <result column="status" property="status" jdbcType="TINYINT" typeHandler="org.apache.ibatis.type.IntegerTypeHandler" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="view_count" property="viewCount" />
+    <result column="verifior" property="verifior"/>
+    <result column="verify_time" property="verifyTime"  />
+    <result column="homed" property="homed"  />
+    <result column="create_time" property="createTime"  />
+    <result column="update_time" property="updateTime"  />
+  </resultMap>
+  
+  <sql id="BaseColumn">
+    id, member_id, name, cover_img, designer_type, adept_styles, provice, city, career,
+    address, qq, contact, contact_mobile, reg_no, corporation, company_size, reg_fund, 
+    license_img, brief, class_works, design_idea, experience, style_intro, remark, work_id, status, 
+    reason, view_count, verifior, verify_time,homed, create_time, update_time
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from designer
+    where id = #{id}
+  </delete>
+  
+  <insert id="save" parameterType="Designer" keyProperty="id" useGeneratedKeys="true" >
+    insert into designer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="coverImg != null" >
+        cover_img,
+      </if>
+      <if test="designerType != null" >
+        designer_type,
+      </if>
+      <if test="adeptStyles != null" >
+        adept_styles,
+      </if>
+      <if test="provice != null" >
+        provice,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="career != null" >
+        career,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="contactMobile != null" >
+        contact_mobile,
+      </if>
+      <if test="regNo != null" >
+        reg_no,
+      </if>
+      <if test="corporation != null" >
+        corporation,
+      </if>
+      <if test="companySize != null" >
+        company_size,
+      </if>
+      <if test="regFund != null" >
+        reg_fund,
+      </if>
+      <if test="licenseImg != null" >
+        license_img,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="classWorks != null" >
+        class_works,
+      </if>
+      <if test="designIdea != null" >
+        design_idea,
+      </if>
+      <if test="experience != null" >
+        experience,
+      </if>
+      <if test="styleIntro != null" >
+        style_intro,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="viewCount !=null">
+        view_count = #{viewCount}
+      </if>
+      <if test="verifyTime != null" >
+        verify_time,
+      </if>
+      <if test="verifior != null" >
+        verifior,
+      </if>
+      <if test="homed != null" >
+        homed,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImg != null" >
+        #{coverImg,jdbcType=VARCHAR},
+      </if>
+      <if test="designerType != null" >
+        #{designerType,jdbcType=TINYINT},
+      </if>
+      <if test="adeptStyles != null" >
+        #{adeptStyles,jdbcType=VARCHAR},
+      </if>
+      <if test="provice != null" >
+        #{provice,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="career != null" >
+        #{career,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMobile != null" >
+        #{contactMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="regNo != null" >
+        #{regNo,jdbcType=VARCHAR},
+      </if>
+      <if test="corporation != null" >
+        #{corporation,jdbcType=VARCHAR},
+      </if>
+      <if test="companySize != null" >
+        #{companySize,jdbcType=VARCHAR},
+      </if>
+      <if test="regFund != null" >
+        #{regFund,jdbcType=INTEGER},
+      </if>
+      <if test="licenseImg != null" >
+        #{licenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="classWorks != null" >
+        #{classWorks,jdbcType=VARCHAR},
+      </if>
+      <if test="designIdea != null" >
+        #{designIdea,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null" >
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="styleIntro != null" >
+        #{styleIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyTime != null" >
+        #{verifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifior != null" >
+        #{verifior,jdbcType=VARCHAR},
+      </if>
+      <if test="homed != null" >
+        #{homed},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateById" parameterType="Designer" >
+    update designer
+    <set>
+      <if test=" memberId!=null ">
+        member_id = #{memberId},
+      </if>
+      <if test=" name!=null">
+        name = #{name},
+      </if>
+      <if test=" coverImg!=null">
+        cover_img = #{coverImg},
+      </if>
+      <if test=" designerType!=null">
+        designer_type = #{designerType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      </if>
+      <if test=" adeptStyles!=null">
+        adept_styles = #{adeptStyles},
+      </if>
+      <if test=" provice!=null">
+        provice = #{provice},
+      </if>
+      <if test=" city!=null">
+        city = #{city},
+      </if>
+      <if test=" career!=null">
+        career = #{career},
+      </if>
+      <if test="address!=null">
+        address = #{address},
+      </if>
+      <if test=" qq!=null">
+        qq = #{qq},
+      </if>
+      <if test=" contact!=null">
+        contact = #{contact},
+      </if>
+      <if test=" contactMobile!=null">
+        contact_mobile = #{contactMobile},
+      </if>
+      <if test=" regNo=!null">
+        reg_no = #{regNo},
+      </if>
+      <if test=" corporation!=null">
+        corporation = #{corporation},
+      </if>
+      <if test=" companySize!=null">
+        company_size = #{companySize,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      </if>
+      <if test=" regFund!=null">
+        reg_fund = #{regFund},
+      </if>
+      <if test=" licenseImg!=null">
+        license_img = #{licenseImg},
+      </if>
+      <if test=" brief!=null">
+        brief = #{brief},
+      </if>
+      <if test=" classWorks!=null">
+        class_works = #{classWorks},
+      </if>
+      <if test=" designIdea!=null">
+        design_idea = #{designIdea},
+      </if>
+      <if test=" experience!=null">
+        experience = #{experience},
+      </if>
+      <if test=" styleIntro!=null">
+        style_intro = #{styleIntro},
+      </if>
+      <if test=" remark!=null">
+        remark = #{remark},
+      </if>
+      <if test=" workId!=null">
+        work_id = #{workId},
+      </if>
+      <if test=" status!=null">
+        status = #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      </if>
+      <if test=" reason!=null">
+        reason = #{reason},
+      </if>
+      <if test="viewCount !=null">
+        view_count = #{viewCount},
+      </if>
+      <if test=" verifior!=null">
+        verifior = #{verifior},
+      </if>
+      <if test=" verifyTime!=null">
+        verify_time = #{verifyTime},
+      </if>
+      <if test=" homed">
+        homed = #{homed},
+      </if>
+      <if test=" updateTime!=null">
+        update_time = #{updateTime}
+      </if>
+    </set>
+    <where>
+      id = #{id}
+      <if test="memberId != null">
+        and member_id = #{memberId}
+      </if>
+    </where>
+  </update>
+  <update id="updateHomed" parameterType="map">
+	update designer
+	set homed = #{homed},
+	update_time = #{updateTime}
+	where id = #{id}
+  </update>
+  
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from designer
+    where id = #{id}
+  </select>
+  <select id="selectByMemberId" resultMap="BaseResultMap" parameterType="int">
+    select <include refid="BaseColumn"/>
+    from designer
+    where member_id = #{memberId}
+  </select>
+
+  <sql id="option">
+    <if test="id != null">
+      and id = #{id}
+    </if>
+    <if test="memberId!=null">
+      and member_id = #{memberId}
+    </if>
+    <if test="name != null">
+      and name like #{name}
+    </if>
+    <if test="designerTypeList != null">
+      and designer_type in <foreach collection="designerTypeList" open="(" close=")" separator="," item="designerType">#{designerType}</foreach>
+    </if>
+    <if test="status != null">
+      and status = #{status}
+    </if>
+    <if test="startTime !=null">
+      and create_time >=#{startTime}
+    </if>
+    <if test="endTime !=null">
+      <![CDATA[ and create_time < #{endTime} ]]>
+    </if>
+  </sql>
+
+
+  <select id="selectList" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+  <select id="selectByPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer
+    <where>
+      <include refid="option"/>
+    </where>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+    limit ${startIndex}, ${pageSize}
+  </select>
+
+  <select id="countByPage" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from designer
+    <where>
+      <include refid="option"/>
+    </where>
+  </select>
+
+
+  <select id="queryHomePage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer
+    <where>
+      <include refid="option"/>
+    </where>
+    order by homed desc , update_time desc
+    limit ${startIndex}, ${pageSize}
+  </select>
+
+
+  <select id="countDesigner" parameterType="map" resultType="int">
+    select count(*)
+    from designer
+    <where>
+      <if test="style!=null">
+        and adept_styles like "%"#{style}"%"
+      </if>
+      <if test="area!=null">
+        and (provice = #{area} or city = #{area})
+      </if>
+      <if test="type!=null">
+        and designer_type = #{type}
+      </if>
+      and status = 2
+    </where>
+  </select>
+
+  <select id="pageDesigner" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from designer
+    <where>
+      <if test="style!=null">
+        and adept_styles like "%"#{style}"%"
+      </if>
+      <if test="area!=null">
+        and ( provice = #{area} or city = #{area} )
+      </if>
+      <if test="type!=null">
+        and designer_type = #{type}
+      </if>
+      and status = 2
+    </where>
+    ORDER by create_time desc
+    limit #{startIndex},#{pageSize}
+  </select>
+
+</mapper>

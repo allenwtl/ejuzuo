@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ShoppingCartMapper" >
+  <resultMap id="BaseResultMap" type="ShoppingCart" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId"  />
+    <result column="goods_id" property="goodsId"  />
+    <result column="create_time" property="createTime"></result>
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, member_id, goods_id, create_time
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from shopping_cart
+    where id = #{id}
+  </delete>
+
+  <delete id="deleteByGoodsId"  parameterType="map">
+    delete from shopping_cart
+    where member_id = #{memberId} and goods_id=#{goodsId}
+  </delete>
+
+  <insert id="save" parameterType="ShoppingCart" keyProperty="id" useGeneratedKeys="true">
+    insert into shopping_cart (member_id, goods_id, create_time
+      )
+    values (#{memberId}, #{goodsId}, #{createTime}
+      )
+  </insert>
+  <update id="updateById" parameterType="ShoppingCart" >
+    update shopping_cart
+    set
+    <if test=" memberId!=null">
+      member_id = #{memberId,jdbcType=INTEGER},
+    </if>
+    <if test=" goodsId!=null">
+      goods_id = #{goodsId}
+    </if>
+    where id = #{id,jdbcType=INTEGER}, and member_id = #{memberId}
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from shopping_cart
+    where id = #{id,jdbcType=INTEGER} and member_id =#{memberId}
+  </select>
+
+  <select id="selectByGoodsId" resultMap="BaseResultMap" parameterType="int">
+    select <include refid="BaseColumn"/>
+    from shopping_cart
+    where goods_id=#{goodsId} and member_id =#{memberId}
+  </select>
+
+  <select id="selectByMemberId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select <include refid="BaseColumn"/>
+    from shopping_cart
+    where member_id =#{memberId}
+  </select>
+
+  <select id="selectByPage" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="BaseColumn"/>
+    from shopping_cart
+    <where>
+      <if test="memberId != null"> member_id =#{memberId}</if>
+    </where>
+    order by create_time desc limit #{startIndex},#{pageSize}
+  </select>
+
+  <select id="countByPage" resultType="int" parameterType="map">
+    select count(1)
+    from shopping_cart
+    <where>
+      <if test="memberId != null"> member_id =#{memberId}</if>
+    </where>
+  </select>
+
+  <delete id="batchDelete" parameterType="map">
+    delete from shopping_cart
+    where member_id = #{memberId}
+    and id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>
+
+  <delete id="deleteByMemberIdAndGoodsId" parameterType="map">
+    delete from shopping_cart
+    where member_id = #{memberId} and goods_id = #{goodsId}
+  </delete>
+
+</mapper>

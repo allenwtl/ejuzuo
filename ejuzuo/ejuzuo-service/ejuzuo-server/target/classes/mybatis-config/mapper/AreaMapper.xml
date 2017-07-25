@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AreaMapper">
+
+    <resultMap id="BaseResultMap" type="Area">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="BaseColumn">
+    id, parent_id, name
+  </sql>
+
+    <insert id="save" parameterType="Area">
+    insert into area (parent_id, name
+      )
+    values (#{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+
+    <select id="selectProvice" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumn"/>
+        from area where parent_id =0
+        <if test=" id !=null ">
+            and id = #{id}
+        </if>
+        ORDER by id ASC
+    </select>
+
+    <select id="selectCity" resultMap="BaseResultMap" parameterType="int">
+        SELECT
+        <include refid="BaseColumn"/>
+        from area
+        <where>
+            <if test="parentId!=null">
+                parent_id =#{parentId}
+            </if>
+
+            <if test=" id !=null ">
+                and id = #{id}
+            </if>
+        </where>
+        ORDER by id ASC
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="BaseColumn"/>
+        from area
+    </select>
+
+</mapper>

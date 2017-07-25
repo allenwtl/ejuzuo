@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MsgRecordMapper">
+  <resultMap id="BaseResultMap" type="MsgRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" property="memberId" />
+    <result column="msg_type" property="msgType" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="status" property="status" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, member_id, msg_type, title, content, url, status, created_date, updated_date
+  </sql>
+  <insert id="insert" parameterType="MsgRecord" useGeneratedKeys="true" keyProperty="id">
+    insert into msg_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="msgType != null">
+        msg_type,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+        created_date,
+        updated_date
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        #{memberId},
+      </if>
+      <if test="msgType != null">
+        #{msgType},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+		now(),
+		now()
+    </trim>
+  </insert>
+  <update id="update" parameterType="MsgRecord">
+    update msg_record
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status},
+      </if>
+        updated_date = now()
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatus" parameterType="map">
+  	update msg_record
+  	set status = #{status},updated_date = now()
+  	where id = #{id}
+  </update>
+  
+  <select id="queryNormal" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from msg_record
+  	where status = 1
+  	and (member_id = #{memberId} or member_id is null)
+  	order by created_date desc
+  	limit #{offset},#{limit}
+  </select>
+  <select id="queryById" parameterType="long" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from msg_record
+  	where id = #{id}
+  </select>
+  <sql id="sqlOfPage">
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="status != null">and status = #{status}</if>
+			<if test="title != null">and title like #{title}</if>
+		</where>
+	</sql>
+	<select id="queryCount" resultType="Integer">
+		select count(*) from msg_record <include refid="sqlOfPage"/>
+	</select>
+	
+	<select id="queryPage" resultMap="BaseResultMap" parameterType="map">
+		select <include refid="Base_Column_List"/> from msg_record
+		<include refid="sqlOfPage"/>
+		<choose>
+			<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+			<otherwise>order by id desc</otherwise>
+		</choose>
+		limit ${startIndex}, ${pageSize}
+	</select>
+
+    <select id="queryCountUnion" parameterType="map" resultType="int">
+      select count(1)
+      from msg_record record
+      where
+      status = 1
+    </select>
+
+
+</mapper>

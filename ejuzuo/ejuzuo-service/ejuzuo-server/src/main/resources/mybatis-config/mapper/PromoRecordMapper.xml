@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PromoRecordMapper">
+    <resultMap id="BaseResultMap" type="PromoRecord">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="member_id" property="memberId" jdbcType="INTEGER"/>
+        <result column="promo_code" property="promoCode" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="TINYINT"
+                typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+        <result column="view_count" property="viewCount" jdbcType="INTEGER"/>
+        <result column="promo_info" property="promoInfo" jdbcType="VARCHAR"/>
+        <result column="callback_info" property="callbackInfo" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="BaseColumn">
+    id, member_id, promo_code, status, view_count, promo_info, callback_info,
+    create_time, update_time
+  </sql>
+
+    <sql id="queryOption">
+        <if test="id !=null">
+            id = #{id}
+        </if>
+        <if test="memberId != null">
+            and member_id = #{memberId}
+        </if>
+        <if test="status !=null">
+            and status = #{status}
+        </if>
+        <if test="promoCode !=null">
+            and promo_code =#{promoCode}
+        </if>
+    </sql>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from promo_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="save" parameterType="PromoRecord">
+    insert into promo_record (id, member_id, promo_code, 
+      status, 
+      view_count, promo_info, callback_info, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER}, #{promoCode,jdbcType=VARCHAR}, 
+      #{status},
+      #{viewCount,jdbcType=INTEGER}, #{promoInfo,jdbcType=VARCHAR}, #{callbackInfo,jdbcType=VARCHAR}, 
+      #{createTime}, #{updateTime})
+  </insert>
+    <update id="updateById" parameterType="PromoRecord">
+        update promo_record
+        <set>
+            <if test="memberId != null">
+                member_id = #{memberId,jdbcType=INTEGER},
+            </if>
+            <if test="promoCode !=null">
+                promo_code = #{promoCode,jdbcType=VARCHAR},
+            </if>
+            <if test="status !=null">
+                status = #{status},
+            </if>
+            <if test="viewCount !=null">
+                view_count = #{viewCount,jdbcType=INTEGER},
+            </if>
+            <if test="promoInfo !=null">
+                promo_info = #{promoInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="callbackInfo !=null">
+                callback_info = #{callbackInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime !=null">
+                update_time = #{updateTime}
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="BaseColumn"/>
+        from promo_record
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <update id="checkCode" parameterType="map">
+        update promo_record
+        set
+        callback_info = #{callbackInfo},
+        status = 1 ,
+        view_count = view_count +1,
+        update_time = #{updateTime}
+        where
+        promo_code = #{promoCode}
+        and status = 0
+        <!-- >and <![CDATA[create_time >= #{startTime}]]>
+        and  <![CDATA[create_time <= #{endTime}]]> -->
+    </update>
+
+    <select id="queryList" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from promo_record
+        <where>
+          <include refid="queryOption"/>
+        </where>
+    </select>
+
+    <select id="count" resultType="int" parameterType="map">
+        select count(1)
+        from promo_record
+        <where>
+            <include refid="queryOption"/>
+        </where>
+    </select>
+	
+	<sql id="option">
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="memberId != null">and member_id = #{memberId}</if>
+			<if test="status != null">and status = #{status}</if>
+			<if test="promoCode != null">and promo_code = #{promoCode}</if>
+			<if test="beginDate != null"><![CDATA[and create_time >= #{beginDate}]]></if>
+			<if test="endDate != null"><![CDATA[and create_time <= #{endDate}]]></if>
+		</where>
+	</sql>
+	<select id="countPage" parameterType="map" resultType="java.lang.Integer">
+		select count(1) from promo_record
+		<include refid="option"/>
+	</select>
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="BaseColumn"/>
+		from promo_record
+		<include refid="option"/>
+		<choose>
+			<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+			<otherwise>order by id desc</otherwise>
+		</choose>
+		limit ${startIndex}, ${pageSize}
+	</select>
+</mapper>

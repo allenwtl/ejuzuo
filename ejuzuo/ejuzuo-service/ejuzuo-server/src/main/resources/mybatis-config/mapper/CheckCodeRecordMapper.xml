@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="CheckCodeRecordMapper" >
+  <resultMap id="BaseResultMap" type="CheckCodeRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="check_code" property="checkCode" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" />
+    <result column="expire_time" property="expireTime" />
+    <result column="check_type" property="checkType" jdbcType="TINYINT"  />
+    <result column="dest_type" property="destType" jdbcType="TINYINT"  />
+    <result column="dest_no" property="destNo" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT"  />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime"  />
+    <result column="update_time" property="updateTime"  />
+    <result column="verify_count" property="verifyCount" jdbcType="SMALLINT" />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, check_code, send_time, expire_time, check_type, dest_type, dest_no, status,
+    member_id, create_time, update_time, verify_count
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from check_code_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="CheckCodeRecord" keyProperty="id" useGeneratedKeys="true">
+    insert into check_code_record (check_code, send_time,
+      expire_time, 
+      check_type, 
+      dest_type, 
+      dest_no, status, 
+      member_id, create_time, 
+      update_time, 
+      verify_count
+      )
+    values (#{checkCode,jdbcType=VARCHAR}, #{sendTime}, #{expireTime},
+      #{checkType,jdbcType=TINYINT},
+      #{destType,jdbcType=TINYINT},
+      #{destNo,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
+      #{memberId,jdbcType=INTEGER}, #{createTime}, #{updateTime},
+      #{verifyCount,jdbcType=SMALLINT}
+      )
+  </insert>
+  <update id="updateById" parameterType="CheckCodeRecord" >
+    update check_code_record
+    set check_code = #{checkCode,jdbcType=VARCHAR},
+      send_time = #{sendTime},
+      expire_time = #{expireTime},
+      check_type = #{checkType,jdbcType=TINYINT},
+      dest_type = #{destType,jdbcType=TINYINT},
+      dest_no = #{destNo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      member_id = #{memberId,jdbcType=INTEGER},
+      create_time = #{createTime},
+      update_time = #{updateTime},
+      verify_count = #{verifyCount,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from check_code_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select <include refid="BaseColumn"/>
+    from check_code_record
+  </select>
+  
+  <select id="countCheckCodeByCheckType" parameterType="map" resultType="java.lang.Integer">
+  	SELECT
+		count(*) 
+	FROM 
+		check_code_record 
+	WHERE 
+	dest_type = #{destType}   
+	AND	(
+			dest_no = #{destNo} 
+			OR member_id = #{memberId} 
+		)		
+	AND check_type = #{checkType} 
+	AND create_time <![CDATA[>]]> #{fromDate}
+  </select>
+  
+  <select id="queryCheckCodeListByCheckType" parameterType="map" resultMap="BaseResultMap">
+      select <include refid="BaseColumn"/> 
+	    from check_code_record 
+	  where 
+	    dest_type = #{destType}     
+	    and dest_no = #{destNo} 
+	    and check_type = #{checkType}  
+	    and expire_time <![CDATA[>]]> now()  
+      	and status = 0 
+      	and verify_count  <![CDATA[<]]> 5 
+      order by id desc	
+  </select>
+  
+  <update id="updateVerifyStatus"  parameterType="CheckCodeRecord">
+      update  
+      	check_code_record 
+      set 
+      	update_time = #{updateTime}, 
+      	verify_count = #{verifyCount}, 
+      	status = #{status}       	
+      where id = #{id}        
+  </update> 
+  
+  <sql id="option">
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="checkType != null">and check_type = #{checkType}</if>
+			<if test="destType != null">and dest_type = #{destType}</if>
+			<if test="destNo != null">and dest_no = #{destNo}</if>
+			<if test="status != null">and status = #{status}</if>
+			<if test="memberId != null">and member_id = #{memberId}</if>
+			<if test="beginDate != null"><![CDATA[and send_time >= #{beginDate}]]></if>
+			<if test="endDate != null"><![CDATA[and send_time <= #{endDate}]]></if>
+		</where>
+	</sql>
+	<select id="countPage" parameterType="map" resultType="java.lang.Integer">
+		select count(1)
+		from check_code_record
+		<include refid="option"/>
+	</select>
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="BaseColumn"/>
+		from check_code_record
+		<include refid="option"/>
+		<choose>
+			<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+			<otherwise>order by id desc</otherwise>
+		</choose>
+			limit ${startIndex}, ${pageSize}						
+	</select>
+  
+</mapper>

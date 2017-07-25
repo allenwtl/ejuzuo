@@ -1,0 +1,392 @@
+@CHARSET "UTF-8";
+body {
+	padding-top: 50px;
+}
+
+/* .layout-header {
+	z-index: 4000;
+} */
+
+.cms-navbar-brand {
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.cms-navbar-brand-div {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+}
+
+.cms-navbar-brand-divider {
+    margin-right: 10px;
+    border-left: 1px solid #e5e5e5;
+}
+
+/**
+ * ================================================================
+ *               左侧菜单栏
+ * ================================================================
+ */
+.nav-sidebar-wrapper {
+	position: fixed;
+	width: 200px;
+	top: 51px;
+	bottom: 0;
+	/* background: #333; */
+	/* background: #364053; */
+	z-index: 50;
+}
+
+.sidebar-hide .nav-sidebar-wrapper {
+	left: -200px;
+}
+.sidebar-show .layout-main {
+	padding-left: 200px;
+}
+.sidebar-hide .layout-main {
+	padding-left: 0;
+}
+
+.nav-sidebar-wrapper ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.nav-sidebar-wrapper ul li,
+.nav-sidebar-wrapper ul a {
+	display: block;
+	position: relative;
+}
+
+.nav-sidebar {
+	height: 100%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	/* background-image: -webkit-linear-gradient(left, color-stop(#333333 5px), color-stop(#222222 5px));
+    background-image: linear-gradient(to right, #333333 5px, #222222 5px);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff222222', GradientType=1); */
+	background-image: -webkit-linear-gradient(left, color-stop(#364053 5px),
+		color-stop(#293040 5px));
+	background-image: linear-gradient(to right, #364053 5px, #293040 5px);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff364053',
+		endColorstr='#ff293040', GradientType=1);
+}
+
+.nav-sidebar-icon {
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+.nav-sidebar-toolbar {
+	font-size: 16px;
+	height: 35px;
+	line-height: 25px;
+	padding: 1px 10px;
+}
+
+.nav-sidebar-toolbar
+   .nav-sidebar-dashboard {
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
+}
+
+.nav-sidebar a,
+.nav-sidebar a:hover,
+.nav-sidebar a:focus,
+.nav-sidebar a:active {
+	outline: none;
+	text-decoration: none;
+}
+
+.nav-sidebar a:hover,
+.nav-sidebar a:focus,
+.nav-sidebar a:active {
+	color: #fff;
+}
+
+.nav-sidebar a {
+	padding-right: 15px;
+	color: #aaa;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nav-sidebar>li > a {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+}
+
+.nav-sidebar-group>a {
+	padding-right: 15px;
+}
+
+.nav-sidebar-group>ul>li>a {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 25px;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-sidebar-group > ul > li > a::hover, 
+.nav-sidebar-group > ul > li > a::focus,
+.nav-sidebar-group > ul > li > a::active {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-sidebar .active > a {
+	color: #fff;
+}
+
+.nav-sidebar-dashboard.active, 
+.nav-sidebar-group > .active,
+.nav-sidebar-group > .active + ul > li {
+	background-image: linear-gradient(to right, #337ab7 5px, transparent 5px);
+}
+
+.nav-sidebar-dashboard.active > a {
+	position: relative;
+}
+.nav-sidebar-dashboard.active > a::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid white;
+}
+
+.nav-sidebar-group > ul > .active > a {
+	position: relative;
+}
+.nav-sidebar-group > ul > .active > a::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid white;
+}
+
+.nav-sidebar-group .arrow {
+	float: right;
+	line-height: 1.42857;
+}
+
+.nav-sidebar-group .collapsed .glyphicon.arrow::before {
+	/* content: "\e079"; */
+	content: "\e257";
+}
+
+.nav-sidebar-group a .glyphicon.arrow::before {
+	/* content: "\e114"; */
+	content: "\e259";
+}
+
+.nav-sidebar-wrapper.collapsed {
+	width: 50px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a span {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 50px;
+	background: rgb(41, 48, 64) none repeat scroll 0% 0%;
+	line-height: 37px;
+	padding: 0px 10px;
+	width: 100px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a:hover span {
+	display: block;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a::after {
+	display: none;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a.collapsed span {
+	display: none;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:not(.collapsed) {
+	width: 150px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:hover span,
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:not(.collapsed) span {
+	display: block;
+	left: 50px;
+	position: absolute;
+	top: 0px;
+	background: rgb(41, 48, 64) none repeat scroll 0% 0%;
+	line-height: 37px;
+	width: 100px;
+	padding-right: 10px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:not(.collapsed) span {
+	background: rgb(41, 48, 64) none repeat scroll 0% 0%;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:hover .glyphicon.arrow::before {
+	line-height: 37px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:not(.collapsed) .glyphicon.arrow::before {
+	content: "\e259";
+	line-height: 37px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:not(.collapsed) + ul a {
+	background-image: linear-gradient(to right, #3F495B 5px, #333A49 5px);
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a.active:not(.collapsed) + ul a {
+	background-image: linear-gradient(to right, #3D80BA 5px, #333A49 5px);
+}
+
+/* .nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a span,
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a span {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 50px;
+	background: rgb(41, 48, 64) none repeat scroll 0% 0%;
+	line-height: 37px;
+	padding: 0px 10px;
+	width: 100px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a::after {
+	display: none;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-dashboard a:hover span,
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group a:hover span {
+	display: block;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group .glyphicon.arrow::before {
+	content: "\e259";
+	line-height: 37px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-icon {
+	margin-right: 0;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group ul {
+	position: absolute;
+	left: 50px;
+	background-color: rgb(54, 64, 83);
+	width: 100px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group:hover ul {
+	display: block;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group ul .nav-sidebar-icon {
+	display: none;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group ul a {
+	padding-left: 10px;
+}
+
+.nav-sidebar-wrapper.collapsed .nav-sidebar-group ul:hover {
+	
+} */
+
+/**
+ * ================================================================
+ *               面包屑 及 自定义分页样式
+ * ================================================================
+ */
+.breadcrumb {
+	width: 100%;
+	left: 200px;
+}
+.breadcrumb .fa-dashboard {
+	font-size: 20px;
+}
+
+.pagination-wrapper {
+	margin-bottom: 20px;
+}
+
+.pagination-wrapper > .table-responsive > .table {
+	margin-bottom: 5px;
+}
+
+.pagination-wrapper .table-responsive > .table > thead > tr > th {
+	font-size: 14px;
+	word-break: keep-all;
+	white-space:nowrap;
+}
+
+.pagination-wrapper .table-responsive > .table > tbody > tr > td {
+	font-size: 14px;
+	word-break: keep-all;
+	white-space:nowrap;
+}
+
+.pagination-wrapper .table-responsive > .table > tbody > tr > td > .label {
+	display: inline-block;
+	margin: 2px 0;
+}
+
+.page-warning {
+	padding: 15px;
+	margin-top: 10px;
+}
+
+.bootstrap-table td {
+	word-break: keep-all;
+	white-space:nowrap;
+}
+
+.label.label-fixed {
+	display: inline-block;
+	margin: 2px 0;
+}
+
+.syntaxhighlighter-custom-border {
+  border: 5px solid #ddd;
+  padding: 7px 5px 5px;
+  max-width: 98%;
+  max-height: 800px;
+}
+
+.CodeMirror,
+.CodeMirror-scroll {
+  border: 1px solid #eee;
+  min-height: 300px;
+  max-height: 600px;
+  height: auto;
+  font-size: 14px;
+}
+
+
+
+.mfp-bg {
+	z-index: 1062;
+}
+.mfp-wrap {
+	z-index: 1063;
+}
+.mfp-preloader {
+	z-index: 1064;
+}
+.mfp-content {
+	z-index: 1065;
+}
+button.mfp-close, button.mfp-arrow {
+	z-index: 1066;
+}

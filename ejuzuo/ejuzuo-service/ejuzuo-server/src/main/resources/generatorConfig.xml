@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="F:\maven\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+
+	<context id="mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://120.76.120.24:3306/ejuzuo"
+						userId="ejuzuo" password="ejuzuo123">
+
+		</jdbcConnection>
+
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="test.domain" targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mybatis-config/mapper"  targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="test.domain"  targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+<!--		<table schema="ejuzuo" tableName="activity_enroll" domainObjectName="ActivityEnroll">
+			<columnOverride column="enroll_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>-->
+
+<!--		<table schema="ejuzuo" tableName="activity_info" domainObjectName="ActivityInfo">
+			<columnOverride column="category" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="city" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="enroll_begin_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="enroll_end_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="hold_begin_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="hold_end_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="publish_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="edit_status" jdbcType="SMALLINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="check_code_record" domainObjectName="CheckCodeRecord">
+			<columnOverride column="send_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="expire_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="check_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="dest_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="verify_count" jdbcType="SMALLINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="content_info" domainObjectName="ContentInfo">
+			<columnOverride column="related_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="designer" domainObjectName="Designer">
+			<columnOverride column="designer_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="company_size" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="verify_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="designer_work" domainObjectName="DesignerWork">
+			<columnOverride column="style" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="upload_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="file_info" domainObjectName="FileInfo">
+			<columnOverride column="size" jdbcType="BIGINT" javaType="java.lang.Long" typeHandler="org.apache.ibatis.type.LongTypeHandler"/>
+			<columnOverride column="related_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="upload_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="member" domainObjectName="Member">
+			<columnOverride column="active_status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="locked" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="verified" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="register_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="member_third_login" domainObjectName="MemberThirdLogin">
+			<columnOverride column="third_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="news_info" domainObjectName="NewsInfo">
+			<columnOverride column="category" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="edit_status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="publish_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>
+		<table schema="ejuzuo" tableName="sms_record" domainObjectName="SmsRecord">
+			<columnOverride column="send_status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="mobile_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="gateway" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="send_date" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+			<columnOverride column="create_date" jdbcType="TIMESTAMP" javaType="java.util.Calendar" typeHandler="org.apache.ibatis.type.SqlTimestampTypeHandler"/>
+		</table>-->
+
+<!--		<table schema="ejuzuo" tableName="download_info" domainObjectName="DownloadInfo">
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="pay_status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+		</table>-->
+
+<!--		<table schema="ejuzuo" tableName="area" domainObjectName="Area">
+		</table>
+
+		<table schema="ejuzuo" tableName="brand" domainObjectName="Brand">
+		</table>
+
+		<table schema="ejuzuo" tableName="comment" domainObjectName="Comment">
+			<columnOverride column="object_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="masked" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+		</table>
+
+		<table schema="ejuzuo" tableName="digital_furniture" domainObjectName="digitalFurniture">
+			<columnOverride column="brand" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="shelf_status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+		</table>-->
+
+		<table schema="ejuzuo" tableName="promo_record" domainObjectName="PromoRecord">
+			<columnOverride column="status" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+		</table>
+
+<!--
+		<table schema="ejuzuo" tableName="member_favorite" domainObjectName="memberFavorite">
+			<columnOverride column="object_type" jdbcType="TINYINT" javaType="java.lang.Integer" typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+		</table>
+-->
+
+	</context>
+
+</generatorConfiguration>

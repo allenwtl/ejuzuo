@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MemberFavoriteMapper">
+    <resultMap id="BaseResultMap" type="MemberFavorite">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="member_id" property="memberId" jdbcType="INTEGER"/>
+        <result column="object_type" property="objectType" jdbcType="TINYINT"
+                typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+        <result column="object_id" property="objectId" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <sql id="BaseColumn">
+    id, member_id, object_type, object_id, create_time
+  </sql>
+
+    <sql id="option">
+        <if test=" memberId!=null">
+            member_id = #{memberId}
+        </if>
+        <if test=" objectType!=null">
+            and object_type = #{objectType}
+        </if>
+        <if test=" objectId!=null">
+            and object_id = #{objectId}
+        </if>
+    </sql>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from member_favorite
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+    <delete id="deleteByIds" parameterType="map">
+        delete from member_favorite
+    where member_id = #{memberId}
+    and object_id in
+        <foreach collection="ids" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <insert id="save" parameterType="MemberFavorite" keyProperty="id" useGeneratedKeys="true">
+    insert into member_favorite (member_id, object_type,
+      object_id, create_time)
+    values (#{memberId,jdbcType=INTEGER}, #{objectType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      #{objectId,jdbcType=INTEGER}, #{createTime})
+  </insert>
+    <update id="updateById" parameterType="MemberFavorite">
+        update member_favorite
+        set
+        <if test=" memberId!=null">
+            member_id = #{memberId,jdbcType=INTEGER},
+        </if>
+        <if test=" objectType!=null">
+            object_type = #{objectType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+        </if>
+        <if test=" objectId!=null">
+            object_id = #{objectId,jdbcType=INTEGER},
+        </if>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="BaseColumn"/>
+        from member_favorite
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="queryList" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="BaseColumn"/>
+        from member_favorite
+        <where>
+            <include refid="option"/>
+        </where>
+        <choose>
+            <when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+            <otherwise>order by id desc</otherwise>
+        </choose>
+    </select>
+
+
+    <select id="queryPage" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="BaseColumn"/>
+        from member_favorite
+        <where>
+            <include refid="option"/>
+        </where>
+        order by id ASC
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="queryPageCount" resultType="int" parameterType="map">
+        select
+        count(1)
+        from member_favorite
+        <where>
+            <include refid="option"/>
+        </where>
+    </select>
+
+    <delete id="deleteByObjectIdAndType" parameterType="map">
+        delete from member_favorite where object_type = #{objectType} and object_id = #{objectId}
+    </delete>
+
+</mapper>

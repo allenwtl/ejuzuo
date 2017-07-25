@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+	<context:component-scan base-package="com.ejuzuo.admin">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<!-- <context:exclude-filter type="regex" expression="com.cfwb.peizi.cms"/> -->
+	</context:component-scan>
+	
+	<import resource="classpath*:/spring-context-client/spring-context-client.xml" />
+	<import resource="classpath*:/ejuzuo-admin-config/spring-apphome.xml"/>
+	<import resource="classpath*:/ejuzuo-admin-config/spring-memcached.xml"/>
+	<import resource="classpath*:/ejuzuo-admin-config/spring-shiro.xml" />
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	    <property name="corePoolSize" value="8" />
+	    <property name="maxPoolSize" value="32" />
+	    <property name="queueCapacity" value="64" />
+	</bean>
+	
+	<bean id="newsDomainRes" class="java.lang.String">
+	    <constructor-arg value="${ejuzuo.admin.domain.res}" />
+	</bean>
+	<bean id="adspacePath" class="java.lang.String">
+	    <constructor-arg value="${adspace.path}" />
+	</bean>
+	<bean id="imagePath" class="java.lang.String">
+	    <constructor-arg value="${image.path}" />
+	</bean>
+	<bean id="attachmentPath" class="java.lang.String">
+	    <constructor-arg value="${attachment.path}" />
+	</bean>
+	<bean id="webUrl" class="java.lang.String">
+	    <constructor-arg value="${ejuzuo.web}" />
+	</bean>
+</beans>

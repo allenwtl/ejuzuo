@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AdminUserMapper">
+	<resultMap id="BaseResultMap" type="AdminUser">
+		<id property="id" column="id" />
+		<result property="account" column="account" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="nickname" column="nickname" />
+		<result property="roles" column="roles" />
+		<result property="roleNames" column="role_names" />
+		<result property="status" column="status" />
+		<result property="remark" column="remark" />
+		<result property="createdUser" column="created_user" />
+		<result property="updatedUser" column="updated_user" />
+		<result property="createdDate" column="created_date" />
+		<result property="updatedDate" column="updated_date" />
+	</resultMap>
+
+	<sql id="All_Column_List">
+		id, account, password, name, nickname, roles, role_names, status, remark,
+		created_user, updated_user, created_date, updated_date
+	</sql>
+	
+	<sql id="Column_List_No_Pwd">
+		id, account, name, nickname, roles, role_names, status, remark,
+		created_user, updated_user, created_date, updated_date
+	</sql>
+	
+	<!-- <select id="generateSequence" resultType="long">
+		select seq_admin_user.nextval from dual
+	</select> -->
+	
+	<insert id="insert" parameterType="AdminUser" useGeneratedKeys="true" keyProperty="id">
+		insert into admin_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="account != null">account,</if>
+			<if test="password != null">password,</if>
+			<if test="name != null">name,</if>
+			<if test="nickname != null">nickname,</if>
+			<if test="roles != null">roles,</if>
+			<if test="roleNames != null">role_names,</if>
+			<if test="status != null">status,</if>
+			<if test="remark != null">remark,</if>
+			<if test="createdUser != null">created_user,</if>
+			<if test="updatedUser != null">updated_user,</if>
+			<if test="createdDate != null">created_date,</if>
+			<if test="updatedDate != null">updated_date,</if>
+		</trim>
+		VALUES 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="account != null">#{account},</if>
+			<if test="password != null">#{password},</if>
+			<if test="name != null">#{name},</if>
+			<if test="nickname != null">#{nickname},</if>
+			<if test="roles != null">#{roles},</if>
+			<if test="roleNames != null">#{roleNames},</if>
+			<if test="status != null">#{status},</if>
+			<if test="remark != null">#{remark},</if>
+			<if test="createdUser != null">#{createdUser},</if>
+			<if test="updatedUser != null">#{updatedUser},</if>
+			<if test="createdDate != null">#{createdDate},</if>
+			<if test="updatedDate != null">#{updatedDate},</if>
+		</trim>
+	</insert>
+	
+	<update id="update" parameterType="AdminUser">
+		update admin_user 
+		<set>
+			<if test="account != null">account = #{account},</if>
+			<if test="password != null">password = #{password},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="nickname != null">nickname = #{nickname},</if>
+			<if test="roles != null">roles = #{roles},</if>
+			<if test="roleNames != null">role_names = #{roleNames},</if>
+			<if test="status != null">status = #{status},</if>
+			<if test="remark != null">remark = #{remark},</if>
+			<if test="updatedUser != null">updated_user = #{updatedUser},</if>
+			<if test="updatedDate != null">updated_date = #{updatedDate},</if>
+		</set>
+		<where>id = #{id}</where>
+	</update>
+	
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="All_Column_List"/> from admin_user
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="account != null">and account = #{account}</if>
+			<if test="password != null">and password = #{password}</if>
+			<if test="status != null">and status = #{status}</if>
+		</where>
+	</select>
+	
+	<select id="countPage" resultType="Integer">
+		select count(*) from admin_user
+		<where>
+			<if test="status != null">and status = #{status}</if>
+			<if test="name != null">and name like #{name}</if>
+			<if test="account != null">and account like #{account}</if>
+		</where>
+	</select>
+	<select id="queryPage" resultMap="BaseResultMap">
+		select <include refid="Column_List_No_Pwd"/> from admin_user
+		<where>
+			<if test="status != null">and status = #{status}</if>
+			<if test="name != null">and name like #{name}</if>
+			<if test="account != null">and account like #{account}</if>
+		</where>
+		order by id asc limit ${startIndex}, #{offset}
+	</select>
+	<!-- <select id="queryPage" resultMap="BaseResultMap">
+		select * from (
+			select r.*, rownum rn from (
+				select <include refid="Column_List_No_Pwd"/> from admin_user m
+				<where>
+					<if test="status != null">and status = #{status}</if>
+					<if test="name != null">and name like #{name}</if>
+					<if test="account != null">and account like #{account}</if>
+				</where>
+				order by id asc
+			) r <where><![CDATA[rownum <= #{endIndex}]]></where>	
+		) <where>rn > #{startIndex}</where>
+	</select> -->
+    
+</mapper>

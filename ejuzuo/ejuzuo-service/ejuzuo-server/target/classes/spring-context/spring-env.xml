@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+        
+	<description>ejuzuo spring content</description>
+
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/config/config.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
+	</bean>
+
+	<util:map id="codeValueToCss">
+		<entry key="客厅" value="all_type_icon_kt" />
+		<entry key="餐厅" value="all_type_icon_ct" />
+		<entry key="书房" value="all_type_icon_sf" />
+		<entry key="卧室" value="all_type_icon_ws" />
+		<entry key="儿童房" value="all_type_icon_etf" />
+		<entry key="灯饰照明" value="all_type_icon_dszm" />
+		<entry key="固装" value="all_type_icon_cwyp" />
+		<!--<entry key="厨卫用品" value="all_type_icon_cwyp" />-->
+		<entry key="酒店家具" value="all_type_icon_jdjj" />
+		<entry key="办公家具" value="all_type_icon_bgjj" />
+		<entry key="门厅" value="all_type_icon_mt" />
+		<entry key="饰品" value="all_type_icon_shipin" />
+		<entry key="其它" value="all_type_icon_qita" />
+	</util:map>
+
+</beans>

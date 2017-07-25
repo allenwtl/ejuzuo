@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AdminRolePermMapper">
+	<resultMap id="BaseResultMap" type="AdminRolePerm">
+		<result property="roleId" column="role_id" />
+		<result property="permCode" column="perm_code" />
+	</resultMap>
+
+	<sql id="All_Column_List">role_id, perm_code</sql>
+	
+	<insert id="insert" parameterType="AdminRolePerm">
+		insert into admin_role_perm
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">role_id,</if>
+			<if test="permCode != null">perm_code,</if>
+		</trim>
+		VALUES 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">#{roleId},</if>
+			<if test="permCode != null">#{permCode},</if>
+		</trim>
+	</insert>
+	
+	<delete id="delete" parameterType="map">
+		delete from admin_role_perm <where>role_id = #{roleId}</where>
+	</delete>
+	
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="All_Column_List"/> from admin_role_perm <where>role_id = #{roleId}</where>
+	</select>
+	
+</mapper>

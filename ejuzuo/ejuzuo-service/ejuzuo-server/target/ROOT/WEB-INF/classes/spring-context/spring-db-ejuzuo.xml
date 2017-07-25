@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 各数据源bean定义 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.mysql.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <!-- Connection Pooling Info -->
+        <property name="initialSize" value="${min_connection_count}"/>
+        <!--连接池初始化时创建的连接数。-->
+        <property name="maxActive" value="${max_connection_count}"/>
+        <!--连接池中保留的最大连接数。Default: 8 -->
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="minIdle" value="${min_free_count}"/>
+        <!--最小空闲的连接数,30个。default:0-->
+        <property name="testOnBorrow" value="false"/>
+        <property name="filters" value="stat"/>
+    </bean>
+</beans>

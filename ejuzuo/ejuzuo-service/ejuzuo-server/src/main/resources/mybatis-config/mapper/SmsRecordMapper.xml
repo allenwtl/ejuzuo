@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SmsRecordMapper" >
+  <resultMap id="BaseResultMap" type="SmsRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="send_status" property="sendStatus" jdbcType="TINYINT"/>
+    <result column="mobile_type" property="mobileType" jdbcType="TINYINT"/>
+    <result column="gateway" property="gateway" jdbcType="TINYINT"/>
+    <result column="create_date" property="createDate" />
+    <result column="send_date" property="sendDate" />
+    <result column="error_msg" property="errorMsg" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, content, mobile, send_status, mobile_type, gateway, create_date, send_date,
+    error_msg, member_id, source
+  </sql>
+
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from sms_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="SmsRecord" useGeneratedKeys="true" keyProperty="id">
+    insert into sms_record (content, mobile,
+      send_status, 
+      mobile_type, 
+      gateway, 
+      create_date, 
+      send_date, 
+      error_msg, member_id, source
+      )
+    values (#{content,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{sendStatus,jdbcType=TINYINT}, 
+      #{mobileType,jdbcType=TINYINT}, 
+      #{gateway,jdbcType=TINYINT}, 
+      #{createDate},
+      #{sendDate},
+      #{errorMsg,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, #{source,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <update id="updateById" parameterType="SmsRecord" >
+    update sms_record
+    set content = #{content,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      send_status = #{sendStatus,jdbcType=TINYINT},
+      mobile_type = #{mobileType,jdbcType=TINYINT},
+      gateway = #{gateway,jdbcType=TINYINT},
+      create_date = #{createDate},
+      send_date = #{sendDate},
+      error_msg = #{errorMsg,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=INTEGER},
+      source = #{source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="BaseColumn"/>
+    from sms_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <update id="updateSmsRecordStatus" parameterType="SmsRecord">
+      update   sms_record
+      set     
+      	send_date = now(),
+      	send_status = #{sendStatus},
+      	error_msg = #{errorMsg}
+      where 
+        id = #{id}	
+  </update>
+  
+  <sql id="option">
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="mobile != null">and mobile = #{mobile}</if>
+			<if test="sendStatus != null">and send_status = #{sendStatus}</if>
+			<if test="mobileType != null">and mobile_type = #{mobileType}</if>
+			<if test="beginDate != null"><![CDATA[and send_date >= #{beginDate}]]></if>
+			<if test="endDate != null"><![CDATA[and send_date <= #{endDate}]]></if>
+		</where>
+	</sql>
+	<select id="countPage" parameterType="map" resultType="java.lang.Integer">
+		select count(1)
+		from sms_record
+		<include refid="option"/>
+	</select>
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="BaseColumn"/>
+		from sms_record
+		<include refid="option"/>
+		<choose>
+			<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+			<otherwise>order by id desc</otherwise>
+		</choose>
+			limit ${startIndex}, ${pageSize}						
+	</select>
+</mapper>

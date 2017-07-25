@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="BrandMapper" >
+  <resultMap id="BaseResultMap" type="Brand" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="logo_img" property="logoImg" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="preferred" property="preferred"/>
+    <result column="corporation" property="corporation"/>
+    <result column="create_time" property="createTime"/>
+    <result column="update_time" property="updateTime"/>
+  </resultMap>
+
+  <sql id="BaseColumn">
+    id, name, logo_img, remark, status,preferred, corporation, create_time, update_time
+  </sql>
+
+  <delete id="delete" parameterType="java.lang.Integer" >
+    delete from brand
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="Brand" keyProperty="id" useGeneratedKeys="true">
+    insert into brand (name, logo_img,
+      remark, status,preferred, create_time, 
+      update_time)
+    values (#{name,jdbcType=VARCHAR}, #{logoImg,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},#{preferred}, #{createTime}, 
+      #{updateTime})
+  </insert>
+  <update id="updateById" parameterType="Brand" >
+    update brand
+    set
+    <if test=" name!=null ">
+      name = #{name,jdbcType=VARCHAR},
+    </if>
+    <if test=" logoImg!=null">
+      logo_img = #{logoImg,jdbcType=VARCHAR},
+    </if>
+    <if test=" remark!=null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+    <if test=" status!=null">
+      status = #{status,jdbcType=VARCHAR},
+    </if>
+    <if test=" preferred!=null">
+      preferred = #{preferred},
+    </if>
+    <if test=" corporation!=null">
+      corporation = #{corporation},
+    </if>
+    update_time = #{updateTime}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateStatus" parameterType="map">
+  	update brand
+  	set status = #{status},
+  	update_time = now()
+  	where id = #{id}
+  </update>
+  
+  <select id="selectById" resultMap="BaseResultMap" parameterType="map" >
+    select <include refid="BaseColumn"/>
+    from brand
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from brand
+  </select>
+  <select id="queryAllNomal" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from brand
+    where status = 1
+    order by preferred desc
+  </select>
+  <sql id="option">
+  	<where>
+  	  <if test="id != null">and id = #{id}</if>
+  	  <if test="name != null">and name like #{name}</if>
+  	  <if test="status != null">and status = #{status}</if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="java.lang.Integer">
+  	select count(1) from brand
+  	<include refid="option"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="BaseColumn"/>
+  	from brand 
+  	<include refid="option"/>
+  	<choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+</mapper>

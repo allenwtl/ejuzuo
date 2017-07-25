@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AdminUserOperLogMapper">
+	<resultMap id="BaseResultMap" type="AdminUserOperLog">
+		<id column="id" property="id" />
+		<result column="oper_type" property="operType" />
+		<result column="account" property="account" />
+		<result column="remark" property="remark" />
+		<result column="created_date" property="createdDate" />
+	</resultMap>
+
+	<sql id="All_Column_List">
+		id, oper_type, account, remark, created_date
+	</sql>
+	
+	<insert id="insert" parameterType="AdminUserOperLog" useGeneratedKeys="true" keyProperty="id">
+		insert into admin_user_oper_log
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="operType != null">oper_type,</if>
+			<if test="account != null">account,</if>
+			<if test="remark != null">remark,</if>
+			created_date
+		</trim>
+		VALUES 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="operType != null">#{operType},</if>
+			<if test="account != null">#{account},</if>
+			<if test="remark != null">#{remark},</if>
+			now()
+		</trim>
+	</insert>
+	
+	<sql id="sqlOfPage">
+		<where>
+			<if test="operType != null">and oper_type = #{operType}</if>
+			<if test="account != null">and account = #{account}</if>
+			<if test="beginDate != null"><![CDATA[and #{beginDate} <= created_date]]></if>
+			<if test="endDate != null"><![CDATA[and created_date <= #{endDate}]]></if>
+		</where>
+	</sql>
+	<select id="countPage" resultType="Integer">
+		select count(*) from admin_user_oper_log <include refid="sqlOfPage"/>
+	</select>
+	<select id="queryPage" resultMap="BaseResultMap" parameterType="map">
+		select <include refid="All_Column_List"/> from admin_user_oper_log
+		<include refid="sqlOfPage"/>
+		<choose>
+			<when test="orderBy != null and order != null">
+				order by ${orderBy} ${order}, id ${order}
+			</when>
+			<otherwise>
+				order by created_date desc, id desc
+			</otherwise>
+		</choose>
+		limit ${startIndex}, ${pageSize}
+	</select>
+    
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="localCacheScope" value="STATEMENT" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Calendar" type="java.util.Calendar" />
+		<typeAlias alias="JSONObject" type="com.alibaba.fastjson.JSONObject" />
+	</typeAliases>
+	
+	<typeHandlers>
+    	<typeHandler handler="com.aicai.dao.mybatis.typehandler.CalendarTypeHandler" javaType="java.util.Calendar"/>
+		<typeHandler handler="com.aicai.dao.mybatis.typehandler.CalendarTypeHandler" javaType="java.util.GregorianCalendar" />
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.JSONTypeHandler" javaType="com.alibaba.fastjson.JSONObject" />
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.constants.AdminOperType"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.constants.EditStatus"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.constants.Status"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.domain.type.CheckCodeRecordStatus"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.domain.type.CheckCodeRecordCheckType"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.domain.type.CheckCodeRecordDestType"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.domain.type.SmsRecordSendStatus"/>
+		<typeHandler handler="com.ejuzuo.server.common.typehandler.GenericTypeHandler" javaType="com.ejuzuo.common.domain.type.SmsRecordMobileType"/>
+	</typeHandlers>
+</configuration> 

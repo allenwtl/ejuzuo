@@ -1,0 +1,5 @@
+<div class="user_txt"> 
+	<p class="txt1"> <a href="/designer/detail/19" in_tag="ul" kaspersky_status="skipped">张三三</a></p>
+	<p class="txt2 ellipTxt mb5">美式田园，新古典，欧式田园，地中海风格，欧式简约，中式风格，</p> 
+	<p class="txt2">湖南省 长沙市<span class="ml10">案例数量：16</span></p> 
+</div>

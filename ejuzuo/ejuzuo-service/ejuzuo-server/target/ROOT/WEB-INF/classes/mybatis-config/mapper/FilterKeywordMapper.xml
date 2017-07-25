@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="FilterKeywordMapper" >
+  <resultMap id="BaseResultMap" type="FilterKeyword" >
+    <id column="id" 							property="id"/>
+    <result column="keyword" 			property="keyword"  />
+    <result column="filter_level" 		property="filterLevel" />
+    <result column="operator_id" 		property="operatorId" />
+    <result column="create_time" 		property="createTime" />
+    <result column="update_time" 	property="updateTime"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, keyword, filter_level, operator_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="long" >
+    select 
+    <include refid="Base_Column_List" />
+    from filter_keyword
+    where id = #{id}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="long" >
+    delete from filter_keyword
+    where id = #{id}
+  </delete>
+  
+  <insert id="insert" parameterType="FilterKeyword" >
+    insert into filter_keyword (id, keyword, filter_level, 
+      operator_id, create_time, update_time
+      )
+    values (
+                 #{id}, 
+    			 #{keyword}, 
+    			 #{filterLevel}, 
+                 #{operatorId}, 
+                 #{createTime}, 
+                 #{updateTime}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="FilterKeyword" >
+    insert into filter_keyword
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="filterLevel != null" >
+        filter_level,
+      </if>
+      <if test="operatorId != null" >
+        operator_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="keyword != null" >
+        #{keyword},
+      </if>
+      <if test="filterLevel != null" >
+        #{filterLevel},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="FilterKeyword" >
+    update filter_keyword
+    <set >
+      <if test="keyword != null" >
+        keyword = #{keyword},
+      </if>
+      <if test="filterLevel != null" >
+        filter_level = #{filterLevel},
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="FilterKeyword" >
+    update filter_keyword
+    set keyword = #{keyword},
+      filter_level = #{filterLevel},
+      operator_id = #{operatorId},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+  
+  <select id="findFilterKeywordByType" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from  filter_keyword 
+  	where filter_level = #{filterLevel}
+  </select>
+  
+  <select id="findFilterKeywordByIdAndType" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from  filter_keyword 
+  	where filter_level = #{filterLevel}
+  	<if test="id != null">
+  	and id > #{id}
+  	</if>
+  </select>
+  
+  <select id="findFilterKeywordByIdAndTypeInPageCount" parameterType="map" resultType="int">
+  	select count(*) from filter_keyword where id > #{id} and filter_level = #{filterLevel}
+  </select>
+  
+  <select id="findFilterKeywordByIdAndTypeInPage" parameterType="map" resultMap="BaseResultMap">
+  	select * from filter_keyword where id > #{id} and filter_level = #{filterLevel} limit #{start},#{offset}
+  </select>
+</mapper>

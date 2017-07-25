@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileInfoMapper">
+    <resultMap id="BaseResultMap" type="FileInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="file_name" jdbcType="VARCHAR" property="fileName"/>
+        <result column="size" jdbcType="BIGINT" property="size"/>
+        <result column="ext" jdbcType="VARCHAR" property="ext"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="uploader" jdbcType="VARCHAR" property="uploader"/>
+        <result column="upload_time" property="uploadTime"/>
+        <result column="related_type" jdbcType="TINYINT" property="relatedType"
+                typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+        <result column="related_id" jdbcType="INTEGER" property="relatedId"/>
+        <result column="status" jdbcType="TINYINT" property="status"
+                typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id, file_name, size, ext, path, remark, uploader, upload_time, related_type, related_id, status, create_time, update_time
+    </sql>
+
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from file_info
+        where id = #{id}
+    </delete>
+    <insert id="save" parameterType="FileInfo" keyProperty="id" useGeneratedKeys="true">
+    insert into file_info (file_name, size,
+      ext, path, remark,
+      uploader, upload_time, related_type,
+      related_id, status,
+      create_time, update_time)
+    values (#{fileName}, #{size},
+      #{ext}, #{path}, #{remark},
+      #{uploader}, #{uploadTime}, #{relatedType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      #{relatedId}, #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+      #{createTime}, #{updateTime})
+  </insert>
+    <update id="updateById" parameterType="FileInfo">
+        update file_info
+        set 
+        <if test="fileName !=null ">
+            file_name = #{fileName},
+        </if>
+        <if test=" size!=null">
+            size = #{size},
+        </if>
+        <if test=" ext!=null">
+            ext = #{ext},
+        </if>
+        <if test=" path!=null">
+            path = #{path},
+        </if>
+        <if test=" remark!=null">
+            remark = #{remark},
+        </if>
+        <if test=" uploader!=null">
+            uploader = #{uploader},
+        </if>
+        <if test=" uploadTime!=null">
+            upload_time = #{uploadTime},
+        </if>
+        <if test=" relatedType!=null">
+            related_type = #{relatedType,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+        </if>
+        <if test=" relatedId!=null ">
+            related_id = #{relatedId},
+        </if>
+        <if test=" status!=null">
+            status = #{status,jdbcType=TINYINT,typeHandler=org.apache.ibatis.type.IntegerTypeHandler},
+        </if>
+        <if test=" createTime !=null">
+            create_time = #{createTime},
+        </if>
+        <if test="updateTime!=null">
+            update_time = #{updateTime}
+        </if>
+        where id = #{id}
+    </update>
+    <select id="selectById" parameterType="map" resultMap="BaseResultMap">
+        select <include refid="BaseColumn"/>
+        from file_info
+        where id = #{id}
+    </select>
+	
+	<sql id="option">
+		<where>
+			<if test="id != null">and id = #{id}</if>
+			<if test="fileName != null">and file_name like CONCAT('%',#{fileName},'%')</if>
+			<if test="ext != null">and ext = #{ext}</if>
+			<if test="relatedType != null">and related_type = #{relatedType}</if>
+			<if test="status != null">and status = #{status}</if>
+			<if test="uploader != null">and uploader = #{uploader}</if>
+			<if test="beginDate != null"><![CDATA[and upload_time >= #{beginDate}]]></if>
+			<if test="endDate != null"><![CDATA[and upload_time <= #{endDate}]]></if>
+		</where>
+	</sql>
+	<select id="countPage" parameterType="map" resultType="java.lang.Integer">
+		select count(1)
+		from file_info
+		<include refid="option"/>
+	</select>
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="BaseColumn"/>
+		from file_info
+		<include refid="option"/>
+		<choose>
+			<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+			<otherwise>order by id desc</otherwise>
+		</choose>
+			limit ${startIndex}, ${pageSize}						
+	</select>
+	<select id="queryByIds" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="BaseColumn"/>
+		from file_info
+		where id in <foreach collection="fileIds" open="(" close=")" separator="," item="fileId">#{fileId}</foreach>
+	</select>
+</mapper>

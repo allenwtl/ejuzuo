@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN" "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+	<rule>
+		<from>^/+alipayWebReturn\.html$</from>
+		<to>/payment/chargeReturn.do?redirect=true</to>
+	</rule>
+	<rule>
+		<from>^/+alipayWebNotify\.html$</from>
+		<to>/payment/chargeReturn.do</to>
+	</rule>
+	<rule>
+		<from>^/index/aboutMe$</from>
+		<to>/newsInfo/detail/34</to>
+	</rule>
+	<rule>
+		<from>^/index/help$</from>
+		<to>/newsInfo/detail/35</to>
+	</rule>
+	<rule>
+		<from>^/index/contact$</from>
+		<to>/newsInfo/detail/36</to>
+	</rule>
+	<rule>
+		<from>^/index/joinus$</from>
+		<to>/newsInfo/detail/40</to>
+	</rule>
+	<rule>
+		<from>^/index/adservice$</from>
+		<to>/newsInfo/detail/38</to>
+	</rule>
+	<!--版权-->
+	<rule>
+		<from>^/member/copyright+$</from>
+		<to>/newsInfo/detail/31</to>
+	</rule>
+	<!--隐私-->
+	<rule>
+		<from>^/member/privacy+$</from>
+		<to>/newsInfo/detail/31</to>
+	</rule>
+</urlrewrite>  

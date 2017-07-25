@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <description>ejuzuo spring content</description>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:config/ejuzuo-web-config.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <import resource="classpath:/spring-context-client/spring-context-client.xml"/>
+
+    <util:map  id="emailAddress">
+        <entry key="163" value="http://mail.163.com/" />
+        <entry key="qq" value="https://mail.qq.com/" />
+    </util:map>
+
+    <bean id="globalParam" class="com.ejuzuo.web.common.GlobalParam" scope="singleton">
+        <property name="prefix" value="${prefix}"/>
+        <property name="suffix" value="${suffix}"/>
+        <property name="fileRootPublic" value="${fileRootPublic}"/>
+        <property name="fileRootPrivate" value="${fileRootPrivate}"/>
+        <property name="memberLoginExpireTime" value="${memberLoginExpireTime}"/>
+        <property name="memberLoginCookieTime" value="${memberLoginCookieTime}"/>
+        <property name="downLoadExcel" value="${downLoadExcel}"/>
+    </bean>
+
+
+    <bean id="alipayPropertyBean" class="com.ejuzuo.web.common.AlipayPropertyBean" scope="singleton">
+        <property name="key" value="${alipay.web.key}"/>
+        <property name="partner" value="${alipay.web.partner}"/>
+        <property name="paygateway" value="${alipay.web.paygateway}"/>
+        <property name="sellerEmail" value="${alipay.web.sellerEmail}"/>
+        <property name="notifyUrl" value="${paydomain}/alipayWebNotify.html"/>
+        <property name="returnUrl" value="${paydomain}/alipayWebReturn.html"/>
+    </bean>
+
+
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <prop key="kaptcha.border">no</prop>
+                        <prop key="kaptcha.image.width">65</prop>
+                        <prop key="kaptcha.image.height">30</prop>
+                        <prop key="kaptcha.textproducer.font.size">25</prop>
+                        <prop key="kaptcha.textproducer.font.color">red</prop>
+                        <prop key="kaptcha.textproducer.font.names">Arial</prop>
+                        <prop key="kaptcha.textproducer.char.string">123456789</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+                        <prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="wx_web_appid" class="java.lang.String">
+        <constructor-arg value="${wx_web_appid}"/>
+    </bean>
+
+
+    <bean id="wx_web_app_secret" class="java.lang.String">
+        <constructor-arg value="${wx_web_app_secret}"/>
+    </bean>
+
+</beans>

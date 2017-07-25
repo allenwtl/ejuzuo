@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- webserver环境和线上环境一定要设appHome，单元测试环境下appHome为null -->
+		<property name="location" value="file:${appHome}/ejuzuo-admin-env.properties" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<!-- 单元测试环境下使用此值 -->
+		<property name="properties">
+			<bean
+				class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+				<property name="location"
+					value="classpath:/ejuzuo-admin-properties/ejuzuo-admin-env.properties" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean class="com.aicai.springutil.failfast.FailFastFromPropertyAndSystemProperty">
+		<property name="ifExistSystemPropertyVar" value="appHome" />
+		<property name="propertyValueBySpring" value="${ejuzuo.admin.env}" />
+		<property name="stopWhenPropertyEqualsThisValue" value="defaultConfig" />
+	</bean>
+	
+	<!-- expose specific properties to application  -->
+	<bean id="applicationProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="singleton" value="true" />
+		<property name="properties">
+			<props>
+				<prop key="appEnv">${ejuzuo.admin.env}</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ContentInfoMapper" >
+  <resultMap id="BaseResultMap" type="ContentInfo" >
+    <id column="id" property="id" />
+    <result column="related_type" property="relatedType" />
+    <result column="related_id" property="relatedId" />
+    <result column="created_time" property="createdTime"/>
+    <result column="update_time" property="updateTime"/>
+    <result column="content" property="content" />
+  </resultMap>
+  <select id="queryById" resultMap="BaseResultMap" parameterType="map" >
+    select id, related_type, related_id, created_time, update_time, content
+    from content_info
+    where id = #{id}
+  </select>
+  <select id="query" resultMap="BaseResultMap" parameterType="map" >
+    select id, related_type, related_id, created_time, update_time, content
+    from content_info
+    where related_type = #{relatedType}
+    and related_id = #{relatedId}
+  </select>
+  <insert id="save" parameterType="ContentInfo" keyProperty="id" useGeneratedKeys="true" >
+    insert into content_info 
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    	<if test="relatedType != null">related_type,</if>
+    	<if test="relatedId != null">related_id,</if>
+    	<if test="createdTime != null">created_time,</if>
+    	<if test="updateTime != null">update_time,</if>
+    	<if test="content != null">content,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    	<if test="relatedType != null">#{relatedType},</if>
+    	<if test="relatedId != null">#{relatedId},</if>
+    	<if test="createdTime != null">#{createdTime},</if>
+    	<if test="updateTime != null">#{updateTime},</if>
+    	<if test="content != null">#{content},</if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="ContentInfo" >
+    update content_info
+    set related_type = #{relatedType},
+      related_id = #{relatedId},
+      update_time = #{updateTime},
+      content = #{content}
+    where id = #{id}
+  </update>
+  <update id="updateByRelate" parameterType="ContentInfo" >
+    update content_info
+    set update_time = #{updateTime},
+      	content = #{content}
+    where related_type = #{relatedType} 
+    and related_id = #{relatedId}
+  </update>
+  
+  <delete id="delete" parameterType="long" >
+    delete from content_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+</mapper>

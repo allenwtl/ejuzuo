@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="NewsInfoMapper" >
+  <resultMap id="BaseResultMap" type="NewsInfo" >
+    <id column="id" property="id" />
+    <result column="category" property="category" />
+    <result column="thumbnail" property="thumbnail" />
+    <result column="title" property="title"/>
+    <result column="brief" property="brief" />
+    <result column="source" property="source" />
+    <result column="publisher" property="publisher" />
+    <result column="publish_time" property="publishTime" />
+    <result column="status" property="status" />
+    <result column="edit_status" property="editStatus" />
+    <result column="view_count" property="viewCount" />
+    <result column="remark" property="remark" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+    
+    <result column="content" property="content" />
+  </resultMap>
+
+  <sql id="BaseColumn">
+    `id`, `category`, `thumbnail`, `title`, `brief`, `source`, `publisher`, `publish_time`, `status`,
+    `edit_status`, `view_count`, `remark`, `create_time`, `update_time`
+  </sql>
+
+  <insert id="save" parameterType="NewsInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into news_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="publisher != null" >
+        publisher,
+      </if>
+      <if test="publishTime != null" >
+        publish_time,
+      </if>
+      <if test="editStatus != null" >
+        edit_status,
+      </if>
+      <if test="status != null" >
+        `status`,
+      </if>
+      <if test="viewCount != null" >
+        view_count,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="category != null" >
+        #{category},
+      </if>
+      <if test="thumbnail != null" >
+        #{thumbnail},
+      </if>
+      <if test="title != null" >
+        #{title},
+      </if>
+      <if test="brief != null" >
+        #{brief},
+      </if>
+      <if test="source != null" >
+        #{source},
+      </if>
+      <if test="publisher != null" >
+        #{publisher},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime},
+      </if>
+      <if test="editStatus != null" >
+        #{editStatus},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="viewCount != null" >
+        #{viewCount},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="NewsInfo" >
+    update news_info
+    <set >
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null" >
+        publisher = #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime},
+      </if>
+      <if test="editStatus != null" >
+        edit_status = #{editStatus,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="viewCount != null" >
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateViewCount" parameterType="map" >
+    update news_info
+    set view_count = view_count + 1
+    where id = #{id}
+  </update>
+  
+  <update id="updateStatus" parameterType="map" >
+    update news_info
+    set status = #{status},
+    update_time = now()
+    where id = #{id}
+  </update>
+  
+  <select id="queryById" resultMap="BaseResultMap" parameterType="map" >
+    select <include refid="BaseColumn"/>
+    from news_info
+    where id = #{id}
+  </select>
+  <select id="queryWithContent" resultMap="BaseResultMap" parameterType="map">
+	SELECT
+	c.id, `category`, `thumbnail`, `title`, `brief`, `source`, `publisher`, `publish_time`, `status`,
+   	`edit_status`, `view_count`, `remark`, c.`create_time`, c.`update_time`
+	, content
+	FROM news_info c LEFT JOIN content_info ct ON c.id =
+	ct.related_id
+	where c.id = #{id}
+	and ct.related_type = 0
+  </select>
+  <sql id="select_param">
+  	<where>
+  		<if test="id != null">and id = #{id}</if>
+  		<if test="category != null">and category = #{category}</if>
+  		<if test="title != null">and title like #{title}</if>
+  		<if test="publisher != null">and publisher = #{publisher}</if>
+  		<if test="editStatus != null">and edit_status = #{editStatus}</if>
+  		<if test="status != null">and status = #{status}</if>
+  		<if test="beginDate != null"><![CDATA[and create_time >= #{beginDate}]]></if>
+  		<if test="endDate != null"><![CDATA[and create_time <= #{endDate}]]></if>
+  		<if test="publishBeginDate != null"><![CDATA[and publish_time >= #{publishBeginDate}]]></if>
+  		<if test="publishEndDate != null"><![CDATA[and publish_time <= #{publishEndDate}]]></if>
+  	</where>
+  </sql>
+  <select id="countPage" parameterType="map" resultType="Integer">
+  	select count(*) from news_info
+  	<include refid="select_param"/>
+  </select>
+  <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="BaseColumn"/>
+    from news_info
+    <include refid="select_param"/>
+    <choose>
+		<when test="orderBy != null and order != null">order by ${orderBy} ${order}</when>
+		<otherwise>order by id desc</otherwise>
+	</choose>
+		limit ${startIndex}, ${pageSize}
+  </select>
+
+  <select id="selectList" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from news_info
+    <where>
+      id != #{id}
+      <if test="category != null">and category = #{category}</if>
+      <if test="editStatus != null">and edit_status = #{editStatus}</if>
+      <if test="status != null">and status = #{status}</if>
+      order by create_time desc limit 0,#{size}
+    </where>
+  </select>
+</mapper>
